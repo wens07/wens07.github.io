@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>WengQiang&#39;s Blog</title>
+  
+  <subtitle>where there is a will, there is a way!</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://wens07.github.io/"/>
+  <updated>2018-08-24T08:52:02.000Z</updated>
+  <id>http://wens07.github.io/</id>
+  
+  <author>
+    <name>wens.wq</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ubuntu18.04LTS安装搜狗输入法</title>
+    <link href="http://wens07.github.io/2018/08/24/ubuntu18-04LTS%E5%AE%89%E8%A3%85%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95/"/>
+    <id>http://wens07.github.io/2018/08/24/ubuntu18-04LTS安装搜狗输入法/</id>
+    <published>2018-08-24T08:52:02.000Z</published>
+    <updated>2018-08-24T08:52:02.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1-卸载ibus&quot;&gt;&lt;a href=&quot;#1-卸载ibus&quot; class=&quot;headerlink&quot; title=&quot;1. 卸载ibus&quot;&gt;&lt;/a&gt;1. 卸载ibus&lt;/h3&gt;&lt;p&gt;&lt;code&gt;sudo apt remove ibus&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-清除ibus配置&quot;&gt;&lt;a href=&quot;#2-清除ibus配置&quot; class=&quot;headerlink&quot; title=&quot;2. 清除ibus配置&quot;&gt;&lt;/a&gt;2. 清除ibus配置&lt;/h3&gt;&lt;p&gt;&lt;code&gt;sudo apt purge ibus&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+    
+      <category term="tool" scheme="http://wens07.github.io/tags/tool/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>读书笔记golang</title>
+    <link href="http://wens07.github.io/2018/07/07/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0golang-2018-07-07/"/>
+    <id>http://wens07.github.io/2018/07/07/读书笔记golang-2018-07-07/</id>
+    <published>2018-07-07T03:25:28.000Z</published>
+    <updated>2018-08-24T07:01:21.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;go-数组大小不能超过2GB&quot;&gt;&lt;a href=&quot;#go-数组大小不能超过2GB&quot; class=&quot;headerlink&quot; title=&quot;go 数组大小不能超过2GB&quot;&gt;&lt;/a&gt;go 数组大小不能超过2GB&lt;/h3&gt;&lt;p&gt;需要针对数组元素的类型大小计算数组的最大长度范围 ([]uint8 最大2GB， []uint16 最大1GB，以此类推)，但是 []struct{} 数组的长度可以超过2GB&lt;/p&gt;
+&lt;h3 id=&quot;goroutine&quot;&gt;&lt;a href=&quot;#goroutine&quot; class=&quot;headerlink&quot; title=&quot;goroutine&quot;&gt;&lt;/a&gt;goroutine&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;首先系统级的线程创建会创建默认大小的栈(一般默认可能为2Mb)，主要用于保存递归函数调用的参数以及局部变量，默认大小的栈存在可能空间浪费或者栈不足的问题；而goroutine采用可以动态增减的栈，初始创建栈大小为(2kb或者4kb)，根据需要动态增减（主流实现的栈大小可以达到1gb）
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+      <category term="随笔" scheme="http://wens07.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="读书笔记" scheme="http://wens07.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="go" scheme="http://wens07.github.io/tags/go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>bitcoin-segwit-learning</title>
+    <link href="http://wens07.github.io/2018/05/15/bitcoin-segwit-learning-2018-05-15/"/>
+    <id>http://wens07.github.io/2018/05/15/bitcoin-segwit-learning-2018-05-15/</id>
+    <published>2018-05-15T02:29:13.000Z</published>
+    <updated>2018-08-18T04:39:28.126Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;segwit相关&quot;&gt;&lt;a href=&quot;#segwit相关&quot; class=&quot;headerlink&quot; title=&quot;segwit相关&quot;&gt;&lt;/a&gt;segwit相关&lt;/h2&gt;&lt;h3 id=&quot;segwit-bips&quot;&gt;&lt;a href=&quot;#segwit-bips&quot; class
+      
+    
+    </summary>
+    
+      <category term="cryptocurrency" scheme="http://wens07.github.io/categories/cryptocurrency/"/>
+    
+    
+      <category term="blockchain" scheme="http://wens07.github.io/tags/blockchain/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>math_in_programming</title>
+    <link href="http://wens07.github.io/2018/05/09/math-in-programming-2018-05-09/"/>
+    <id>http://wens07.github.io/2018/05/09/math-in-programming-2018-05-09/</id>
+    <published>2018-05-09T08:52:02.000Z</published>
+    <updated>2018-05-08T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;conditional-probablity&quot;&gt;&lt;a href=&quot;#conditional-probablity&quot; class=&quot;headerlink&quot; title=&quot;conditional probablity&quot;&gt;&lt;/a&gt;conditional probabli
+      
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+    
+      <category term="math" scheme="http://wens07.github.io/tags/math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ethereum</title>
+    <link href="http://wens07.github.io/2017/12/25/ethereum-2017-12-25/"/>
+    <id>http://wens07.github.io/2017/12/25/ethereum-2017-12-25/</id>
+    <published>2017-12-25T09:00:00.000Z</published>
+    <updated>2018-08-18T04:38:30.356Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;docker中运行ethereum-go节点&quot;&gt;&lt;a href=&quot;#docker中运行ethereum-go节点&quot; class=&quot;headerlink&quot; title=&quot;docker中运行ethereum go节点&quot;&gt;&lt;/a&gt;docker中运行ethereum go节点&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;安装ethereum(go version)的docker&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker pull ethereum:client-go&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;&lt;p&gt;运行docker&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo docker run -d --name wens-geth -v /mnt/main/wq/ethereum:/root/.ethereum -p 8588:8545 -p 30308:30303  ethereum/client-go --rpc --rpcaddr 0.0.0.0 --syncmode &amp;quot;fast&amp;quot; --cache=10240 --txpool.pricelimit 1  console&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;&lt;p&gt;进入运行着的docker go节点&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo docker run -it -v  /mnt/main/wq/ethereum:/root/.ethereum ethereum/client-go attach&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="cryptocurrency" scheme="http://wens07.github.io/categories/cryptocurrency/"/>
+    
+    
+      <category term="blockchain" scheme="http://wens07.github.io/tags/blockchain/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>solidity学习</title>
+    <link href="http://wens07.github.io/2017/12/04/solidity%E5%AD%A6%E4%B9%A0-2017-12-04/"/>
+    <id>http://wens07.github.io/2017/12/04/solidity学习-2017-12-04/</id>
+    <published>2017-12-04T12:26:00.000Z</published>
+    <updated>2018-08-18T04:39:09.552Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;contract creation transaction: the target account address is 0. the payload of such transaction is taken to be EVM byte
+      
+    
+    </summary>
+    
+      <category term="cryptocurrency" scheme="http://wens07.github.io/categories/cryptocurrency/"/>
+    
+    
+      <category term="blockchain" scheme="http://wens07.github.io/tags/blockchain/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shadowsocks安装</title>
+    <link href="http://wens07.github.io/2017/11/10/shadowsocks%E5%AE%89%E8%A3%85-2017-11-10/"/>
+    <id>http://wens07.github.io/2017/11/10/shadowsocks安装-2017-11-10/</id>
+    <published>2017-11-10T05:50:00.000Z</published>
+    <updated>2018-08-18T04:37:02.917Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;shadowsocks-libev-版本安装&quot;&gt;&lt;a href=&quot;#shadowsocks-libev-版本安装&quot; class=&quot;headerlink&quot; title=&quot;shadowsocks-libev 版本安装&quot;&gt;&lt;/a&gt;shadowsocks-libev 版本安装&lt;/h2&gt;&lt;h3 id=&quot;centos-7-64-系统&quot;&gt;&lt;a href=&quot;#centos-7-64-系统&quot; class=&quot;headerlink&quot; title=&quot;centos 7(64) 系统&quot;&gt;&lt;/a&gt;centos 7(64) 系统&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;前提准备&lt;/p&gt;
+&lt;p&gt;  安装一些必要的软件以及依赖&lt;/p&gt;
+  &lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; git vim wget -y&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;yum &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; epel-&lt;span class=&quot;keyword&quot;&gt;release&lt;/span&gt; -y&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;yum &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; gcc gettext autoconf libtool automake make pcre-devel asciidoc xmlto udns-devel libev-devel mbedtls-devel -y&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+    
+      <category term="tool" scheme="http://wens07.github.io/tags/tool/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cmake备忘</title>
+    <link href="http://wens07.github.io/2017/11/03/cmake%E5%A4%87%E5%BF%98-2017-11-03/"/>
+    <id>http://wens07.github.io/2017/11/03/cmake备忘-2017-11-03/</id>
+    <published>2017-11-03T09:55:00.000Z</published>
+    <updated>2018-08-18T04:36:41.444Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;获取文件夹下的所有文件&quot;&gt;&lt;a href=&quot;#获取文件夹下的所有文件&quot; class=&quot;headerlink&quot; title=&quot;获取文件夹下的所有文件&quot;&gt;&lt;/a&gt;获取文件夹下的所有文件&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;aux_source_directory(&amp;lt;dir&amp;gt;, &amp;lt;variable&amp;gt;)&lt;/code&gt;&lt;br&gt; collects the names of all source files in the specified directory and store the list in the variable provided.&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;AUX_SOURCE_DIRECTORY&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(libraries/api API_SRC)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;AUX_SOURCE_DIRECTORY&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(libraries/net NET_SRC)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;AUX_SOURCE_DIRECTORY&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(libraries/rpc RPC_SRC)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+    
+      <category term="tool" scheme="http://wens07.github.io/tags/tool/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>metaverse</title>
+    <link href="http://wens07.github.io/2017/05/27/metaverse-2017-05-27/"/>
+    <id>http://wens07.github.io/2017/05/27/metaverse-2017-05-27/</id>
+    <published>2017-05-27T05:17:00.000Z</published>
+    <updated>2018-08-18T04:42:37.856Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;block头中的block-hash&quot;&gt;&lt;a href=&quot;#block头中的block-hash&quot; class=&quot;headerlink&quot; title=&quot;block头中的block_hash&quot;&gt;&lt;/a&gt;block头中的block_hash&lt;/h3&gt;&lt;p&gt;byte_array&lt;32&gt; hash_digest&lt;/32&gt;&lt;/p&gt;
+&lt;h3 id=&quot;UXTO&quot;&gt;&lt;a href=&quot;#UXTO&quot; class=&quot;headerlink&quot; title=&quot;UXTO&quot;&gt;&lt;/a&gt;UXTO&lt;/h3&gt;&lt;p&gt;unspent transaction output&lt;br&gt;
+    
+    </summary>
+    
+      <category term="cryptocurrency" scheme="http://wens07.github.io/categories/cryptocurrency/"/>
+    
+    
+      <category term="blockchain" scheme="http://wens07.github.io/tags/blockchain/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>bitcoin</title>
+    <link href="http://wens07.github.io/2017/05/19/bitcoin-2017-05-19/"/>
+    <id>http://wens07.github.io/2017/05/19/bitcoin-2017-05-19/</id>
+    <published>2017-05-19T06:46:00.000Z</published>
+    <updated>2018-08-18T04:35:35.325Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;发明人以及相关节点时间&quot;&gt;&lt;a href=&quot;#发明人以及相关节点时间&quot; class=&quot;headerlink&quot; title=&quot;发明人以及相关节点时间&quot;&gt;&lt;/a&gt;发明人以及相关节点时间&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;中本聪于2008-10-31号提出了比特币的设计白皮书&lt;/li&gt;
+&lt;li&gt;2009年公布了最初的实现代码， 第一个比特币是2009-01-03(18:15:05)生成&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="cryptocurrency" scheme="http://wens07.github.io/categories/cryptocurrency/"/>
+    
+    
+      <category term="blockchain" scheme="http://wens07.github.io/tags/blockchain/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>blockchain -- encryption and decryption</title>
+    <link href="http://wens07.github.io/2017/05/18/blockchain%20--%20encryption%20and%20decryption-2017-05-18/"/>
+    <id>http://wens07.github.io/2017/05/18/blockchain -- encryption and decryption-2017-05-18/</id>
+    <published>2017-05-18T08:49:00.000Z</published>
+    <updated>2018-08-18T04:35:45.889Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;数字签名算法-digital-signature-algorithm&quot;&gt;&lt;a href=&quot;#数字签名算法-digital-signature-algorithm&quot; class=&quot;headerlink&quot; title=&quot;数字签名算法(digital signature algorithm)&quot;&gt;&lt;/a&gt;数字签名算法(digital signature algorithm)&lt;/h3&gt;&lt;p&gt;&lt;em&gt;ECDSA (elliptic curve digital signature algorithm)&lt;/em&gt;&lt;br&gt;secp256k1(the parameters of ecdsa used in bitcoin)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;private key: 32 bytes(256 bit)&lt;/li&gt;
+&lt;li&gt;compressed or uncompressed public key: 33 bytes / 65 bytes&lt;/li&gt;
+&lt;li&gt;signature or compact_signature: 72 bytes/ 65 bytes
+    
+    </summary>
+    
+      <category term="cryptocurrency" scheme="http://wens07.github.io/categories/cryptocurrency/"/>
+    
+    
+      <category term="blockchain" scheme="http://wens07.github.io/tags/blockchain/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>screen memo</title>
+    <link href="http://wens07.github.io/2017/05/05/screen%20memo-2017-05-05/"/>
+    <id>http://wens07.github.io/2017/05/05/screen memo-2017-05-05/</id>
+    <published>2017-05-05T03:44:00.000Z</published>
+    <updated>2018-08-18T04:36:24.321Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;创建screen&quot;&gt;&lt;a href=&quot;#创建screen&quot; class=&quot;headerlink&quot; title=&quot;创建screen&quot;&gt;&lt;/a&gt;创建screen&lt;/h3&gt;&lt;p&gt;&lt;code&gt;screen&lt;/code&gt;&lt;br&gt;&lt;code&gt;screen -S  &amp;quot;new screen name&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;note: 创建新的screen窗口&lt;/p&gt;
+&lt;h3 id=&quot;连接上detach的screen&quot;&gt;&lt;a href=&quot;#连接上detach的screen&quot; class=&quot;headerlink&quot; title=&quot;连接上detach的screen&quot;&gt;&lt;/a&gt;连接上detach的screen&lt;/h3&gt;&lt;p&gt;&lt;code&gt;screen -r screen-id/thread-id&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;note: 默认用screen不带参数生成的窗口的前面的数字screen id也就是thread id&lt;/p&gt;
+&lt;h3 id=&quot;连接上attached的screen&quot;&gt;&lt;a href=&quot;#连接上attached的screen&quot; class=&quot;headerlink&quot; title=&quot;连接上attached的screen&quot;&gt;&lt;/a&gt;连接上attached的screen&lt;/h3&gt;&lt;p&gt;&lt;code&gt;screen -x screen-id/thread-id&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;detach一个窗口以及kill一个窗口&quot;&gt;&lt;a href=&quot;#detach一个窗口以及kill一个窗口&quot; class=&quot;headerlink&quot; title=&quot;detach一个窗口以及kill一个窗口&quot;&gt;&lt;/a&gt;detach一个窗口以及kill一个窗口&lt;/h3&gt;&lt;p&gt;&lt;code&gt;ctrl-a + d&lt;/code&gt;: detach a window&lt;br&gt;&lt;code&gt;ctrl-a + k&lt;/code&gt;: kill a window&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+    
+      <category term="tool" scheme="http://wens07.github.io/tags/tool/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>useful commands</title>
+    <link href="http://wens07.github.io/2017/04/28/useful%20commands-2017-04-28/"/>
+    <id>http://wens07.github.io/2017/04/28/useful commands-2017-04-28/</id>
+    <published>2017-04-28T08:16:00.000Z</published>
+    <updated>2018-08-18T04:37:54.050Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;linux添加用户的相关命令&quot;&gt;&lt;a href=&quot;#linux添加用户的相关命令&quot; class=&quot;headerlink&quot; title=&quot;linux添加用户的相关命令&quot;&gt;&lt;/a&gt;linux添加用户的相关命令&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;useradd  添加用户&lt;br&gt;&lt;code&gt;useradd -d /home/wengqiang -m wengqiang -s /bin/bash&lt;/code&gt;&lt;br&gt;创建用户wengqiang&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;usermod 修改创建用户的相关属性&lt;br&gt;&lt;code&gt;usermod -s /bin/sh wengqiang&lt;/code&gt;&lt;br&gt;修改用户wengqiang的登录shell&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;usermod -aG sudo wengqiang&lt;/code&gt;&lt;br&gt;将用户wengqinag加入到sudo group中&lt;/p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;passwd 修改用户的密码&lt;br&gt;&lt;code&gt;passwd wengqiang&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;修改文件的owner以及group&quot;&gt;&lt;a href=&quot;#修改文件的owner以及group&quot; class=&quot;headerlink&quot; title=&quot;修改文件的owner以及group&quot;&gt;&lt;/a&gt;修改文件的owner以及group&lt;/h3&gt;&lt;p&gt;&lt;code&gt;chown owner_name:group_name file_name&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+    
+      <category term="command" scheme="http://wens07.github.io/tags/command/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Golang</title>
+    <link href="http://wens07.github.io/2017/03/17/Golang-2017-03-17/"/>
+    <id>http://wens07.github.io/2017/03/17/Golang-2017-03-17/</id>
+    <published>2017-03-17T03:31:00.000Z</published>
+    <updated>2018-08-18T04:33:36.552Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;for-loop&quot;&gt;&lt;a href=&quot;#for-loop&quot; class=&quot;headerlink&quot; title=&quot;for loop&quot;&gt;&lt;/a&gt;for loop&lt;/h3&gt;&lt;p&gt;don’t need &lt;code&gt;()&lt;/code&gt;, but always need&lt;code&gt;{}&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;classic c like&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; initvaule = value; condition &amp;lt; condition-value; endcondition&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;while like&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; condition &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;ranged for&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; index, value := &lt;span class=&quot;keyword&quot;&gt;range&lt;/span&gt; os.Args[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;:]&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+    
+      <category term="go" scheme="http://wens07.github.io/tags/go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Wireshark_rules</title>
+    <link href="http://wens07.github.io/2017/03/14/Wireshark_rules-2017-03-14/"/>
+    <id>http://wens07.github.io/2017/03/14/Wireshark_rules-2017-03-14/</id>
+    <published>2017-03-14T08:00:00.000Z</published>
+    <updated>2018-08-18T04:33:46.033Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;ip-rule&quot;&gt;&lt;a href=&quot;#ip-rule&quot; class=&quot;headerlink&quot; title=&quot;ip rule&quot;&gt;&lt;/a&gt;ip rule&lt;/h3&gt;&lt;p&gt;&lt;code&gt;ip.src eq 192.168.10.106 and ip.dst eq 192.168.10.106&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+    
+      <category term="tool" scheme="http://wens07.github.io/tags/tool/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Flask</title>
+    <link href="http://wens07.github.io/2017/02/22/Flask-2017-02-22/"/>
+    <id>http://wens07.github.io/2017/02/22/Flask-2017-02-22/</id>
+    <published>2017-02-22T01:30:00.000Z</published>
+    <updated>2018-08-18T04:33:19.588Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Flask-SQLAlchemy-package-Flask-SQLAlchemy-SQLAlchemy&quot;&gt;&lt;a href=&quot;#Flask-SQLAlchemy-package-Flask-SQLAlchemy-SQLAlchemy&quot; class=&quot;headerlink&quot; title=&quot;Flask-SQLAlchemy(package: Flask-SQLAlchemy, SQLAlchemy)&quot;&gt;&lt;/a&gt;Flask-SQLAlchemy(package: Flask-SQLAlchemy, SQLAlchemy)&lt;/h3&gt;&lt;p&gt;Flask-SQLAlchemy is an extension for Flask that adds support for SQLAlchemy to your application.&lt;br&gt;It requires SQLAlchemy 0.6 or higher&lt;/p&gt;
+&lt;h3 id=&quot;Flask-Session&quot;&gt;&lt;a href=&quot;#Flask-Session&quot; class=&quot;headerlink&quot; title=&quot;Flask-Session&quot;&gt;&lt;/a&gt;Flask-Session&lt;/h3&gt;&lt;p&gt;Flask-Session is extension for server side session.&lt;/p&gt;
+&lt;h3 id=&quot;Flask-jsonrpc&quot;&gt;&lt;a href=&quot;#Flask-jsonrpc&quot; class=&quot;headerlink&quot; title=&quot;Flask-jsonrpc&quot;&gt;&lt;/a&gt;Flask-jsonrpc&lt;/h3&gt;&lt;p&gt;Flask-jsonrpc is json rpc extent&lt;br&gt;
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+    
+      <category term="script" scheme="http://wens07.github.io/tags/script/"/>
+    
+      <category term="python" scheme="http://wens07.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker&amp;virtualization</title>
+    <link href="http://wens07.github.io/2017/01/18/docker&amp;virtualization-2017-01-18/"/>
+    <id>http://wens07.github.io/2017/01/18/docker&amp;virtualization-2017-01-18/</id>
+    <published>2017-01-18T03:21:00.000Z</published>
+    <updated>2018-08-18T04:32:51.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;设置docker加速器&quot;&gt;&lt;a href=&quot;#设置docker加速器&quot; class=&quot;headerlink&quot; title=&quot;设置docker加速器&quot;&gt;&lt;/a&gt;设置docker加速器&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Docker版本为1.12或更高&lt;br&gt;创建或编辑/etc/docker/daemon.json, 修改成如下形式：&lt;figure class=&quot;highlight json&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;&quot;registry-mirrors&quot;&lt;/span&gt;: [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&quot;加速地址&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;&quot;insecure-registries&quot;&lt;/span&gt;: []&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+    
+      <category term="tool" scheme="http://wens07.github.io/tags/tool/"/>
+    
+      <category term="docker" scheme="http://wens07.github.io/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>visual_studio</title>
+    <link href="http://wens07.github.io/2016/12/07/visual_studio-2016-12-07/"/>
+    <id>http://wens07.github.io/2016/12/07/visual_studio-2016-12-07/</id>
+    <published>2016-12-07T05:36:00.000Z</published>
+    <updated>2018-08-18T04:32:36.023Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;自定义user-macro&quot;&gt;&lt;a href=&quot;#自定义user-macro&quot; class=&quot;headerlink&quot; title=&quot;自定义user macro&quot;&gt;&lt;/a&gt;自定义user macro&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;添加property sheet&lt;br&gt;&lt;img src=&quot;/images/2016/property_manager.png&quot; alt=&quot;打开property manager&quot;&gt;&lt;br&gt;&lt;img src=&quot;/images/2016/add_property_sheet.png&quot; alt=&quot;添加property sheet&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;打开上面创建的property sheet(.props结尾)，然后自定义user macro&lt;br&gt;&lt;img src=&quot;/images/2016/add_user_macro.png&quot; alt=&quot;自定义user macro&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+    
+      <category term="tool" scheme="http://wens07.github.io/tags/tool/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>markdown-file-commands</title>
+    <link href="http://wens07.github.io/2016/10/07/markdown-rules-2016-10-07/"/>
+    <id>http://wens07.github.io/2016/10/07/markdown-rules-2016-10-07/</id>
+    <published>2016-10-07T05:28:00.000Z</published>
+    <updated>2018-08-18T04:32:29.025Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;上标和下标&quot;&gt;&lt;a href=&quot;#上标和下标&quot; class=&quot;headerlink&quot; title=&quot;上标和下标&quot;&gt;&lt;/a&gt;上标和下标&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;上标： &lt;code&gt;O(n&amp;lt;sup&amp;gt;2&amp;lt;/sup&amp;gt;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt; 效果 O(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;下标: &lt;code&gt;O(h&amp;lt;sub&amp;gt;2&amp;lt;/sub&amp;gt;o)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt; 效果 O(h&lt;sub&gt;2&lt;/sub&gt;o)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;插入图片&quot;&gt;&lt;a href=&quot;#插入图片&quot; class=&quot;headerlink&quot; title=&quot;插入图片&quot;&gt;&lt;/a&gt;插入图片&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;语法: &lt;code&gt;![the name to show](the path of the image)&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;/images/2016/boost source architecture.png&quot; alt=&quot;boost source architecture&quot;&gt;
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+    
+      <category term="markdown" scheme="http://wens07.github.io/tags/markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>clion-ide</title>
+    <link href="http://wens07.github.io/2016/08/18/clion-ide-2016-08-18/"/>
+    <id>http://wens07.github.io/2016/08/18/clion-ide-2016-08-18/</id>
+    <published>2016-08-18T03:38:00.000Z</published>
+    <updated>2018-08-18T04:32:21.425Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;打开Class&quot;&gt;&lt;a href=&quot;#打开Class&quot; class=&quot;headerlink&quot; title=&quot;打开Class&quot;&gt;&lt;/a&gt;打开Class&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;win： ctrl + n&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;a-symbol-usage-list-usage-in-project&quot;&gt;&lt;a href=&quot;#a-symbol-usage-list-usage-in-project&quot; class=&quot;headerlink&quot; title=&quot;a symbol [usage | list usage] in project&quot;&gt;&lt;/a&gt;a symbol [usage | list usage] in project&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;win：alt + f7 / ctrl + alt + f7&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;win: highlight the usage: ctrl + shift + f7&lt;br&gt;win: navigate the highlighted usage: f3/shift + f3&lt;br&gt;win: remove the highlight: esc&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;go-to-the-definition&quot;&gt;&lt;a href=&quot;#go-to-the-definition&quot; class=&quot;headerlink&quot; title=&quot;go to the definition&quot;&gt;&lt;/a&gt;go to the definition&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;win: go to just on definition or several definitions: ctrl + b | ctrl + alt + b&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+    
+      <category term="tool" scheme="http://wens07.github.io/tags/tool/"/>
+    
+  </entry>
+  
+</feed>

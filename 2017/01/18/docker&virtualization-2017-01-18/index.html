@@ -123,7 +123,7 @@
 <meta property="og:site_name" content="WengQiang&#39;s Blog">
 <meta property="og:description" content="设置docker加速器 Docker版本为1.12或更高创建或编辑/etc/docker/daemon.json, 修改成如下形式：123456&amp;#123;    &quot;registry-mirrors&quot;: [        &quot;加速地址&quot;    ],    &quot;insecure-registries&quot;: []&amp;#125;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-18T04:32:51.988Z">
+<meta property="og:updated_time" content="2018-09-29T07:16:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker&amp;virtualization">
 <meta name="twitter:description" content="设置docker加速器 Docker版本为1.12或更高创建或编辑/etc/docker/daemon.json, 修改成如下形式：123456&amp;#123;    &quot;registry-mirrors&quot;: [        &quot;加速地址&quot;    ],    &quot;insecure-registries&quot;: []&amp;#125;">
@@ -358,7 +358,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-29T15:16:50+08:00">
+                2018-09-29
+              </time>
             
           </span>
 
@@ -457,14 +469,20 @@
 </ol>
 <ol start="3">
 <li><p>docker rm [container_id/contaner_name]<br> 删除容器</p>
+<p>docker rm  `docker ps -aq`<br> 删除所有容器</p>
 </li>
 <li><p>docker rmi [image_id/image_name]<br> 删除镜像</p>
+<p>docker rmi `docker images -q`<br> 删除所有镜像</p>
+<p>docker rmi `docker images -f “dangling=true” -q`<br> 删除dangling的镜像</p>
 </li>
 <li><p>docker ps -a<br> 列出当前运行的容器</p>
 <p>docker run [-it] [image_id/image_name] command<br> 根据镜像，创建运行容器</p>
 <p>docker rename oldname newname</p>
 <p>docker start [container_id/container_name]<br>docker stop [container_id/container_name]</p>
+<p>docker stop `docker ps -q`<br>停止所有运行的容器</p>
 </li>
+</ol>
+<ol start="6">
 <li><p>docker exec [-it] [container_id/container_name]<br> 进入容器</p>
 <p> exit<br> 退出容器</p>
 </li>
@@ -630,7 +648,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -773,7 +791,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

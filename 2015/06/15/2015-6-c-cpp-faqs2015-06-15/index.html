@@ -123,7 +123,7 @@
 <meta property="og:site_name" content="WengQiang&#39;s Blog">
 <meta property="og:description" content="linkages in function and object12345678910/* object */	  /* function */int o1;		  int f1();		/* external linkage */static int o2;	  static int f2();	/* internal linkage */static int o3;	  static int f">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-18T04:26:40.915Z">
+<meta property="og:updated_time" content="2018-10-05T06:00:18.293Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c&#x2F;cpp-faqs">
 <meta name="twitter:description" content="linkages in function and object12345678910/* object */	  /* function */int o1;		  int f1();		/* external linkage */static int o2;	  static int f2();	/* internal linkage */static int o3;	  static int f">
@@ -358,7 +358,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-05T14:00:18+08:00">
+                2018-10-05
+              </time>
             
           </span>
 
@@ -488,7 +500,17 @@
 </ol>
 <h3 id="显示gcc-g-预定义变量的区别"><a href="#显示gcc-g-预定义变量的区别" class="headerlink" title="显示gcc/g++ 预定义变量的区别"></a>显示gcc/g++ 预定义变量的区别</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">16</span>:<span class="number">13</span>:<span class="number">41</span> <span class="number">0</span> ~] $ g++ -E -dM -<span class="built_in">std</span>=c++<span class="number">0</span>x -x c++ /dev/null &gt;b</span><br><span class="line">[<span class="number">16</span>:<span class="number">13</span>:<span class="number">44</span> <span class="number">0</span> ~] $ g++ -E -dM -<span class="built_in">std</span>=c++<span class="number">98</span> -x c++ /dev/null &gt;a</span><br><span class="line">[<span class="number">16</span>:<span class="number">13</span>:<span class="number">50</span> <span class="number">0</span> ~] $ diff -u a b</span><br><span class="line">--- a   <span class="number">2010</span><span class="number">-06</span><span class="number">-02</span> <span class="number">16</span>:<span class="number">13</span>:<span class="number">50.200787591</span> +<span class="number">0200</span></span><br><span class="line">+++ b   <span class="number">2010</span><span class="number">-06</span><span class="number">-02</span> <span class="number">16</span>:<span class="number">13</span>:<span class="number">44.456912378</span> +<span class="number">0200</span></span><br><span class="line">@@ <span class="number">-20</span>,<span class="number">6</span> +<span class="number">20</span>,<span class="number">7</span> @@</span><br><span class="line"> #define __linux <span class="number">1</span></span><br><span class="line"> #define __DEC32_EPSILON__ <span class="number">1E-6</span>DF</span><br><span class="line"> #define __unix <span class="number">1</span></span><br><span class="line">+#define __GXX_EXPERIMENTAL_CXX0X__ <span class="number">1</span></span><br><span class="line"> #define __LDBL_MAX_EXP__ <span class="number">16384</span></span><br><span class="line"> #define __linux__ <span class="number">1</span></span><br><span class="line"> #define __SCHAR_MAX__ <span class="number">127</span></span><br></pre></td></tr></table></figure>
 <h3 id="c-ctor-and-dtor"><a href="#c-ctor-and-dtor" class="headerlink" title="c++ ctor and dtor"></a>c++ ctor and dtor</h3><p>base-class subobjects, const or reference nonstatic data members. A base-class subobject, or a nonstatic data member, not mentioned in the member-initializer list is implicitly initialized with a default constructor, i.e. a constructor that can be called with no argument. Consequently, the language rules imply that all subobjects are constructed by the time the first statement of the constructor body (if not empty) is executed.</p>
-<h3 id="exit-and-exit"><a href="#exit-and-exit" class="headerlink" title="exit and _exit"></a>exit and _exit</h3>
+<h3 id="iterator-validation-after-erase"><a href="#iterator-validation-after-erase" class="headerlink" title="iterator validation after erase"></a>iterator validation after erase</h3><ul>
+<li>sequence container</li>
+</ul>
+<ol>
+<li>vector: the iterator following the itertor which erased is invalid</li>
+<li>string: the iterator following the itertor which erased is invalid</li>
+<li>array: no erase function</li>
+<li>deque: all iterator is invalid, unless the erased iterator is the begining or the end, in which case, only the erased iterator is invalid.</li>
+<li>list: not affect other iterator</li>
+</ol>
+
       
     </div>
     
@@ -629,7 +651,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -745,7 +767,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#linkages-in-function-and-object"><span class="nav-number">1.</span> <span class="nav-text">linkages in function and object</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extern-mean-in-a-function-declaration"><span class="nav-number">2.</span> <span class="nav-text">extern mean in a function declaration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What’s-the-difference-between-these-two-declarations"><span class="nav-number">3.</span> <span class="nav-text">What’s the difference between these two declarations?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-the-difference-between-these-initializations"><span class="nav-number">4.</span> <span class="nav-text">What is the difference between these initializations?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#array-是数组-则array-和-amp-array-的区别"><span class="nav-number">5.</span> <span class="nav-text">array 是数组,  则array 和 &amp;array 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无符号规则-unsigned-preserving-和值规则-value-preserving"><span class="nav-number">6.</span> <span class="nav-text">无符号规则(unsigned preserving)和值规则(value preserving)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#int-main-vs-int-main-void"><span class="nav-number">7.</span> <span class="nav-text">int main() vs int main(void)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#members-can-initialize-in-class-declaration"><span class="nav-number">8.</span> <span class="nav-text">members can initialize in class declaration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-中继承的相关问题"><span class="nav-number">9.</span> <span class="nav-text">c++中继承的相关问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delete-一个指针"><span class="nav-number">10.</span> <span class="nav-text">delete 一个指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随笔"><span class="nav-number">11.</span> <span class="nav-text">随笔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示gcc-g-预定义变量的区别"><span class="nav-number">12.</span> <span class="nav-text">显示gcc/g++ 预定义变量的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-ctor-and-dtor"><span class="nav-number">13.</span> <span class="nav-text">c++ ctor and dtor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exit-and-exit"><span class="nav-number">14.</span> <span class="nav-text">exit and _exit</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#linkages-in-function-and-object"><span class="nav-number">1.</span> <span class="nav-text">linkages in function and object</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extern-mean-in-a-function-declaration"><span class="nav-number">2.</span> <span class="nav-text">extern mean in a function declaration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What’s-the-difference-between-these-two-declarations"><span class="nav-number">3.</span> <span class="nav-text">What’s the difference between these two declarations?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-the-difference-between-these-initializations"><span class="nav-number">4.</span> <span class="nav-text">What is the difference between these initializations?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#array-是数组-则array-和-amp-array-的区别"><span class="nav-number">5.</span> <span class="nav-text">array 是数组,  则array 和 &amp;array 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无符号规则-unsigned-preserving-和值规则-value-preserving"><span class="nav-number">6.</span> <span class="nav-text">无符号规则(unsigned preserving)和值规则(value preserving)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#int-main-vs-int-main-void"><span class="nav-number">7.</span> <span class="nav-text">int main() vs int main(void)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#members-can-initialize-in-class-declaration"><span class="nav-number">8.</span> <span class="nav-text">members can initialize in class declaration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-中继承的相关问题"><span class="nav-number">9.</span> <span class="nav-text">c++中继承的相关问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delete-一个指针"><span class="nav-number">10.</span> <span class="nav-text">delete 一个指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随笔"><span class="nav-number">11.</span> <span class="nav-text">随笔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示gcc-g-预定义变量的区别"><span class="nav-number">12.</span> <span class="nav-text">显示gcc/g++ 预定义变量的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-ctor-and-dtor"><span class="nav-number">13.</span> <span class="nav-text">c++ ctor and dtor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iterator-validation-after-erase"><span class="nav-number">14.</span> <span class="nav-text">iterator validation after erase</span></a></li></ol></div>
             
 
           </div>
@@ -772,7 +794,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wens07.github.io/"/>
-  <updated>2018-08-24T08:52:02.000Z</updated>
+  <updated>2019-01-24T11:15:00.000Z</updated>
   <id>http://wens07.github.io/</id>
   
   <author>
@@ -15,6 +15,83 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>llvm&amp;clang 源码编译</title>
+    <link href="http://wens07.github.io/2019/01/24/llvm&amp;clang%20%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/"/>
+    <id>http://wens07.github.io/2019/01/24/llvm&amp;clang 源码编译/</id>
+    <published>2019-01-24T11:15:00.000Z</published>
+    <updated>2019-01-24T11:15:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;下载源码&quot;&gt;&lt;a href=&quot;#下载源码&quot; class=&quot;headerlink&quot; title=&quot;下载源码&quot;&gt;&lt;/a&gt;下载源码&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;git clone https://github.com/llvm/llvm-project.git
+      
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+    
+      <category term="tool" scheme="http://wens07.github.io/tags/tool/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>v2ray安装</title>
+    <link href="http://wens07.github.io/2019/01/06/v2ray%E5%AE%89%E8%A3%85/"/>
+    <id>http://wens07.github.io/2019/01/06/v2ray安装/</id>
+    <published>2019-01-06T11:15:00.000Z</published>
+    <updated>2019-01-06T11:15:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;centos-7-64-系统&quot;&gt;&lt;a href=&quot;#centos-7-64-系统&quot; class=&quot;headerlink&quot; title=&quot;centos 7(64) 系统&quot;&gt;&lt;/a&gt;centos 7(64) 系统&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;防火墙&lt;/li&gt;
+&lt;/ol&gt;
+      
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+    
+      <category term="tool" scheme="http://wens07.github.io/tags/tool/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cpp温故知新(c++17)</title>
+    <link href="http://wens07.github.io/2018/12/07/cpp%E6%B8%A9%E6%95%85%E7%9F%A5%E6%96%B0(c++17)/"/>
+    <id>http://wens07.github.io/2018/12/07/cpp温故知新(c++17)/</id>
+    <published>2018-12-07T14:39:40.000Z</published>
+    <updated>2019-02-12T05:41:50.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;storage-duration&quot;&gt;&lt;a href=&quot;#storage-duration&quot; class=&quot;headerlink&quot; title=&quot;storage duration&quot;&gt;&lt;/a&gt;storage duration&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;stro
+      
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+      <category term="随笔" scheme="http://wens07.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="c/c++" scheme="http://wens07.github.io/tags/c-c/"/>
+    
+      <category term="读书笔记" scheme="http://wens07.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>ubuntu18.04LTS安装搜狗输入法</title>
@@ -42,11 +119,37 @@
     <link href="http://wens07.github.io/2018/07/07/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0golang-2018-07-07/"/>
     <id>http://wens07.github.io/2018/07/07/读书笔记golang-2018-07-07/</id>
     <published>2018-07-07T03:25:28.000Z</published>
-    <updated>2018-08-24T07:01:21.000Z</updated>
+    <updated>2018-12-27T14:49:48.080Z</updated>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;go-数组大小不能超过2GB&quot;&gt;&lt;a href=&quot;#go-数组大小不能超过2GB&quot; class=&quot;headerlink&quot; title=&quot;go 数组大小不能超过2GB&quot;&gt;&lt;/a&gt;go 数组大小不能超过2GB&lt;/h3&gt;&lt;p&gt;需要针对数组元素的类型大小计算数组的最大长度范围 ([]uint8 最大2GB， []uint16 最大1GB，以此类推)，但是 []struct{} 数组的长度可以超过2GB&lt;/p&gt;
+      &lt;h3 id=&quot;go-grammer&quot;&gt;&lt;a href=&quot;#go-grammer&quot; class=&quot;headerlink&quot; title=&quot;go grammer&quot;&gt;&lt;/a&gt;go grammer&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;the standard Go compiler and gccgo both don’t allow local variables declared but not used. Package-level variables have no such limit.&lt;br&gt;If a local variable is only ever used as destination values, it will also be viewed as unused.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Overflows are not allowed for typed constant values but are allowed for non-constant and untyped constant values.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Non-constant integer values can be converted to strings.&lt;/li&gt;
+&lt;li&gt;Non-constant floating-point and integer values can be explicitly converted to any other floating-point and integer types.&lt;/li&gt;
+&lt;li&gt;Non-constant complex values can be explicitly converted to any other complex types.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The name of the folder of a package is not required to be the same as the package name. However, for a library package, it will make package users confused if the name of the package is different from the name of the folder of the package.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ul&gt;
+&lt;li&gt;A package-level variable is initialized after all of its depended variables.&lt;/li&gt;
+&lt;li&gt;All package-level variables declared in a package are initialized before any &lt;code&gt;init&lt;/code&gt; function declared in the same package is invoked.&lt;/li&gt;
+&lt;li&gt;All init functions in all involved packages in a program will be invoked sequentially. An init function in an importing package will be invoked after all the init functions declared in the dependency packages of the importing package for sure. All init functions will be invoked before invoking the main entry function.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;5.&lt;br&gt;  The expressions enclosed within the body of an anonymous function call, whether the call is a general call or a deferred/goroutine call, will not be evaluated at the moment when the anonymous function call is invoked.&lt;/p&gt;
+  &lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;package&lt;/span&gt; main&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;fmt&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i := &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;; i++ &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;defer&lt;/span&gt; fmt.Println(&lt;span class=&quot;string&quot;&gt;&quot;a:&quot;&lt;/span&gt;, i)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  fmt.Println()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i := &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;; i++ &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;defer&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        fmt.Println(&lt;span class=&quot;string&quot;&gt;&quot;b:&quot;&lt;/span&gt;, i)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  output is:  a: 2&lt;br&gt;              a: 1&lt;br&gt;              a: 0&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;b: 3
+b: 3
+b: 3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;  to get b: 2, b: 1, b: 0&lt;br&gt;  &lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i := &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;; i++ &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;defer&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(i &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        fmt.Println(&lt;span class=&quot;string&quot;&gt;&quot;b:&quot;&lt;/span&gt;, i)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;(i)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;go-数组大小不能超过2GB&quot;&gt;&lt;a href=&quot;#go-数组大小不能超过2GB&quot; class=&quot;headerlink&quot; title=&quot;go 数组大小不能超过2GB&quot;&gt;&lt;/a&gt;go 数组大小不能超过2GB&lt;/h3&gt;&lt;p&gt;需要针对数组元素的类型大小计算数组的最大长度范围 ([]uint8 最大2GB， []uint16 最大1GB，以此类推)，但是 []struct{} 数组的长度可以超过2GB&lt;/p&gt;
 &lt;h3 id=&quot;goroutine&quot;&gt;&lt;a href=&quot;#goroutine&quot; class=&quot;headerlink&quot; title=&quot;goroutine&quot;&gt;&lt;/a&gt;goroutine&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;首先系统级的线程创建会创建默认大小的栈(一般默认可能为2Mb)，主要用于保存递归函数调用的参数以及局部变量，默认大小的栈存在可能空间浪费或者栈不足的问题；而goroutine采用可以动态增减的栈，初始创建栈大小为(2kb或者4kb)，根据需要动态增减（主流实现的栈大小可以达到1gb）
     
@@ -57,9 +160,9 @@
       <category term="随笔" scheme="http://wens07.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="go" scheme="http://wens07.github.io/tags/go/"/>
-    
       <category term="读书笔记" scheme="http://wens07.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="go" scheme="http://wens07.github.io/tags/go/"/>
     
   </entry>
   
@@ -242,7 +345,7 @@
     <link href="http://wens07.github.io/2017/05/19/bitcoin-2017-05-19/"/>
     <id>http://wens07.github.io/2017/05/19/bitcoin-2017-05-19/</id>
     <published>2017-05-19T06:46:00.000Z</published>
-    <updated>2018-08-18T04:35:35.325Z</updated>
+    <updated>2019-01-09T09:19:30.000Z</updated>
     
     <summary type="html">
     
@@ -265,7 +368,7 @@
     <link href="http://wens07.github.io/2017/05/18/blockchain%20--%20encryption%20and%20decryption-2017-05-18/"/>
     <id>http://wens07.github.io/2017/05/18/blockchain -- encryption and decryption-2017-05-18/</id>
     <published>2017-05-18T08:49:00.000Z</published>
-    <updated>2018-08-18T04:35:45.889Z</updated>
+    <updated>2018-10-31T02:01:24.000Z</updated>
     
     <summary type="html">
     
@@ -314,7 +417,7 @@
     <link href="http://wens07.github.io/2017/04/28/useful%20commands-2017-04-28/"/>
     <id>http://wens07.github.io/2017/04/28/useful commands-2017-04-28/</id>
     <published>2017-04-28T08:16:00.000Z</published>
-    <updated>2018-08-18T04:37:54.050Z</updated>
+    <updated>2019-01-23T15:43:00.142Z</updated>
     
     <summary type="html">
     
@@ -420,7 +523,7 @@
     <link href="http://wens07.github.io/2017/01/18/docker&amp;virtualization-2017-01-18/"/>
     <id>http://wens07.github.io/2017/01/18/docker&amp;virtualization-2017-01-18/</id>
     <published>2017-01-18T03:21:00.000Z</published>
-    <updated>2018-08-18T04:32:51.988Z</updated>
+    <updated>2018-09-29T07:16:50.000Z</updated>
     
     <summary type="html">
     
@@ -437,91 +540,6 @@
       <category term="tool" scheme="http://wens07.github.io/tags/tool/"/>
     
       <category term="docker" scheme="http://wens07.github.io/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>visual_studio</title>
-    <link href="http://wens07.github.io/2016/12/07/visual_studio-2016-12-07/"/>
-    <id>http://wens07.github.io/2016/12/07/visual_studio-2016-12-07/</id>
-    <published>2016-12-07T05:36:00.000Z</published>
-    <updated>2018-08-18T04:32:36.023Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;自定义user-macro&quot;&gt;&lt;a href=&quot;#自定义user-macro&quot; class=&quot;headerlink&quot; title=&quot;自定义user macro&quot;&gt;&lt;/a&gt;自定义user macro&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;添加property sheet&lt;br&gt;&lt;img src=&quot;/images/2016/property_manager.png&quot; alt=&quot;打开property manager&quot;&gt;&lt;br&gt;&lt;img src=&quot;/images/2016/add_property_sheet.png&quot; alt=&quot;添加property sheet&quot;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;打开上面创建的property sheet(.props结尾)，然后自定义user macro&lt;br&gt;&lt;img src=&quot;/images/2016/add_user_macro.png&quot; alt=&quot;自定义user macro&quot;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
-    
-    
-      <category term="tool" scheme="http://wens07.github.io/tags/tool/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>markdown-file-commands</title>
-    <link href="http://wens07.github.io/2016/10/07/markdown-rules-2016-10-07/"/>
-    <id>http://wens07.github.io/2016/10/07/markdown-rules-2016-10-07/</id>
-    <published>2016-10-07T05:28:00.000Z</published>
-    <updated>2018-08-18T04:32:29.025Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;上标和下标&quot;&gt;&lt;a href=&quot;#上标和下标&quot; class=&quot;headerlink&quot; title=&quot;上标和下标&quot;&gt;&lt;/a&gt;上标和下标&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;上标： &lt;code&gt;O(n&amp;lt;sup&amp;gt;2&amp;lt;/sup&amp;gt;)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt; 效果 O(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;下标: &lt;code&gt;O(h&amp;lt;sub&amp;gt;2&amp;lt;/sub&amp;gt;o)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt; 效果 O(h&lt;sub&gt;2&lt;/sub&gt;o)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;插入图片&quot;&gt;&lt;a href=&quot;#插入图片&quot; class=&quot;headerlink&quot; title=&quot;插入图片&quot;&gt;&lt;/a&gt;插入图片&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;语法: &lt;code&gt;![the name to show](the path of the image)&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;/images/2016/boost source architecture.png&quot; alt=&quot;boost source architecture&quot;&gt;
-    
-    </summary>
-    
-      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
-    
-    
-      <category term="markdown" scheme="http://wens07.github.io/tags/markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>clion-ide</title>
-    <link href="http://wens07.github.io/2016/08/18/clion-ide-2016-08-18/"/>
-    <id>http://wens07.github.io/2016/08/18/clion-ide-2016-08-18/</id>
-    <published>2016-08-18T03:38:00.000Z</published>
-    <updated>2018-08-18T04:32:21.425Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;打开Class&quot;&gt;&lt;a href=&quot;#打开Class&quot; class=&quot;headerlink&quot; title=&quot;打开Class&quot;&gt;&lt;/a&gt;打开Class&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;win： ctrl + n&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;a-symbol-usage-list-usage-in-project&quot;&gt;&lt;a href=&quot;#a-symbol-usage-list-usage-in-project&quot; class=&quot;headerlink&quot; title=&quot;a symbol [usage | list usage] in project&quot;&gt;&lt;/a&gt;a symbol [usage | list usage] in project&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;win：alt + f7 / ctrl + alt + f7&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;win: highlight the usage: ctrl + shift + f7&lt;br&gt;win: navigate the highlighted usage: f3/shift + f3&lt;br&gt;win: remove the highlight: esc&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;go-to-the-definition&quot;&gt;&lt;a href=&quot;#go-to-the-definition&quot; class=&quot;headerlink&quot; title=&quot;go to the definition&quot;&gt;&lt;/a&gt;go to the definition&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;win: go to just on definition or several definitions: ctrl + b | ctrl + alt + b&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
-    
-    
-      <category term="tool" scheme="http://wens07.github.io/tags/tool/"/>
     
   </entry>
   

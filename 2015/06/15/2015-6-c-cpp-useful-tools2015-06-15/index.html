@@ -123,7 +123,7 @@
 <meta property="og:site_name" content="WengQiang&#39;s Blog">
 <meta property="og:description" content="cdecl Cdecl  (and  c++decl) is a program for encoding and decoding C (or C++) type declarations.  cdecl online website size(on mac)size – print the size of the sections in an object file.size -x(print">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-18T04:26:51.027Z">
+<meta property="og:updated_time" content="2019-01-24T05:17:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c&#x2F;cpp-useful-tools">
 <meta name="twitter:description" content="cdecl Cdecl  (and  c++decl) is a program for encoding and decoding C (or C++) type declarations.  cdecl online website size(on mac)size – print the size of the sections in an object file.size -x(print">
@@ -358,7 +358,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-24T13:17:29+08:00">
+                2019-01-24
+              </time>
             
           </span>
 
@@ -445,6 +457,14 @@
 <h3 id="otool-on-mac"><a href="#otool-on-mac" class="headerlink" title="otool(on mac)"></a>otool(on mac)</h3><p>otool – object file displaying tool.<br><code>otool -s __TEXT(which segment) __text(which section) a.out</code></p>
 <h3 id="nm-on-mac"><a href="#nm-on-mac" class="headerlink" title="nm(on mac)"></a>nm(on mac)</h3><p>see the symbol table<br><code>nm libwens.so</code></p>
 <h3 id="strings"><a href="#strings" class="headerlink" title="strings"></a>strings</h3><p>find the printable strings in a object, or other binary, file </p>
+<h3 id="clang-amp-g-options"><a href="#clang-amp-g-options" class="headerlink" title="clang++ &amp; g++ options"></a>clang++ &amp; g++ options</h3><ol>
+<li>-fno-elide-constructors</li>
+</ol>
+<h3 id="debugging-amp-profiling"><a href="#debugging-amp-profiling" class="headerlink" title="debugging &amp; profiling"></a>debugging &amp; profiling</h3><ol>
+<li>valgrind</li>
+<li>windows debug runtime</li>
+</ol>
+<h3 id="define-config"><a href="#define-config" class="headerlink" title="define config"></a>define config</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> defined(_MSC_VER)</span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">if</span> _MSC_VER &lt;= 1900</span></span><br><span class="line"><span class="meta">#       <span class="meta-keyword">error</span> Boost.PFR library requires MSVC with c++17 support (Visual Studio 2017 or later).</span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span> __cplusplus &lt; 201402L</span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">error</span> Boost.PFR library requires at least C++14.</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -586,7 +606,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -702,7 +722,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#cdecl"><span class="nav-number">1.</span> <span class="nav-text">cdecl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#size-on-mac"><span class="nav-number">2.</span> <span class="nav-text">size(on mac)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#otool-on-mac"><span class="nav-number">3.</span> <span class="nav-text">otool(on mac)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nm-on-mac"><span class="nav-number">4.</span> <span class="nav-text">nm(on mac)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#strings"><span class="nav-number">5.</span> <span class="nav-text">strings</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#cdecl"><span class="nav-number">1.</span> <span class="nav-text">cdecl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#size-on-mac"><span class="nav-number">2.</span> <span class="nav-text">size(on mac)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#otool-on-mac"><span class="nav-number">3.</span> <span class="nav-text">otool(on mac)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nm-on-mac"><span class="nav-number">4.</span> <span class="nav-text">nm(on mac)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#strings"><span class="nav-number">5.</span> <span class="nav-text">strings</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clang-amp-g-options"><span class="nav-number">6.</span> <span class="nav-text">clang++ &amp; g++ options</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#debugging-amp-profiling"><span class="nav-number">7.</span> <span class="nav-text">debugging &amp; profiling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#define-config"><span class="nav-number">8.</span> <span class="nav-text">define config</span></a></li></ol></div>
             
 
           </div>
@@ -729,7 +749,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

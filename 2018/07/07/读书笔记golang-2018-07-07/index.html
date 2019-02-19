@@ -115,18 +115,21 @@
 
 
 
-<meta name="description" content="go 数组大小不能超过2GB需要针对数组元素的类型大小计算数组的最大长度范围 ([]uint8 最大2GB， []uint16 最大1GB，以此类推)，但是 []struct{} 数组的长度可以超过2GB goroutine 首先系统级的线程创建会创建默认大小的栈(一般默认可能为2Mb)，主要用于保存递归函数调用的参数以及局部变量，默认大小的栈存在可能空间浪费或者栈不足的问题；而goroutine">
+<meta name="description" content="go grammer the standard Go compiler and gccgo both don’t allow local variables declared but not used. Package-level variables have no such limit.If a local variable is only ever used as destination va">
 <meta name="keywords" content="go,读书笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="读书笔记golang">
 <meta property="og:url" content="http://wens07.github.io/2018/07/07/读书笔记golang-2018-07-07/index.html">
 <meta property="og:site_name" content="WengQiang&#39;s Blog">
-<meta property="og:description" content="go 数组大小不能超过2GB需要针对数组元素的类型大小计算数组的最大长度范围 ([]uint8 最大2GB， []uint16 最大1GB，以此类推)，但是 []struct{} 数组的长度可以超过2GB goroutine 首先系统级的线程创建会创建默认大小的栈(一般默认可能为2Mb)，主要用于保存递归函数调用的参数以及局部变量，默认大小的栈存在可能空间浪费或者栈不足的问题；而goroutine">
+<meta property="og:description" content="go grammer the standard Go compiler and gccgo both don’t allow local variables declared but not used. Package-level variables have no such limit.If a local variable is only ever used as destination va">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-24T07:01:21.000Z">
+<meta property="og:image" content="http://wens07.github.io/images/2018/cgo文件生成.png">
+<meta property="og:image" content="http://wens07.github.io/images/2018/cgo调用流程.png">
+<meta property="og:updated_time" content="2018-12-27T14:49:48.080Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记golang">
-<meta name="twitter:description" content="go 数组大小不能超过2GB需要针对数组元素的类型大小计算数组的最大长度范围 ([]uint8 最大2GB， []uint16 最大1GB，以此类推)，但是 []struct{} 数组的长度可以超过2GB goroutine 首先系统级的线程创建会创建默认大小的栈(一般默认可能为2Mb)，主要用于保存递归函数调用的参数以及局部变量，默认大小的栈存在可能空间浪费或者栈不足的问题；而goroutine">
+<meta name="twitter:description" content="go grammer the standard Go compiler and gccgo both don’t allow local variables declared but not used. Package-level variables have no such limit.If a local variable is only ever used as destination va">
+<meta name="twitter:image" content="http://wens07.github.io/images/2018/cgo文件生成.png">
 
 
 
@@ -358,7 +361,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-27T22:49:48+08:00">
+                2018-12-27
+              </time>
             
           </span>
 
@@ -449,7 +464,33 @@
       
 
       
-        <h3 id="go-数组大小不能超过2GB"><a href="#go-数组大小不能超过2GB" class="headerlink" title="go 数组大小不能超过2GB"></a>go 数组大小不能超过2GB</h3><p>需要针对数组元素的类型大小计算数组的最大长度范围 ([]uint8 最大2GB， []uint16 最大1GB，以此类推)，但是 []struct{} 数组的长度可以超过2GB</p>
+        <h3 id="go-grammer"><a href="#go-grammer" class="headerlink" title="go grammer"></a>go grammer</h3><ol>
+<li><p>the standard Go compiler and gccgo both don’t allow local variables declared but not used. Package-level variables have no such limit.<br>If a local variable is only ever used as destination values, it will also be viewed as unused.</p>
+</li>
+<li><p>Overflows are not allowed for typed constant values but are allowed for non-constant and untyped constant values.</p>
+<ul>
+<li>Non-constant integer values can be converted to strings.</li>
+<li>Non-constant floating-point and integer values can be explicitly converted to any other floating-point and integer types.</li>
+<li>Non-constant complex values can be explicitly converted to any other complex types.</li>
+</ul>
+</li>
+<li><p>The name of the folder of a package is not required to be the same as the package name. However, for a library package, it will make package users confused if the name of the package is different from the name of the folder of the package.</p>
+</li>
+<li><ul>
+<li>A package-level variable is initialized after all of its depended variables.</li>
+<li>All package-level variables declared in a package are initialized before any <code>init</code> function declared in the same package is invoked.</li>
+<li>All init functions in all involved packages in a program will be invoked sequentially. An init function in an importing package will be invoked after all the init functions declared in the dependency packages of the importing package for sure. All init functions will be invoked before invoking the main entry function.</li>
+</ul>
+</li>
+</ol>
+<p>5.<br>  The expressions enclosed within the body of an anonymous function call, whether the call is a general call or a deferred/goroutine call, will not be evaluated at the moment when the anonymous function call is invoked.</p>
+  <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">3</span>; i++ &#123;</span><br><span class="line">      <span class="keyword">defer</span> fmt.Println(<span class="string">"a:"</span>, i)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;()</span><br><span class="line">  fmt.Println()</span><br><span class="line">  <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">3</span>; i++ &#123;</span><br><span class="line">      <span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">"b:"</span>, i)</span><br><span class="line">      &#125;()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  output is:  a: 2<br>              a: 1<br>              a: 0</p>
+<pre><code>b: 3
+b: 3
+b: 3
+</code></pre><p>  to get b: 2, b: 1, b: 0<br>  <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">3</span>; i++ &#123;</span><br><span class="line">      <span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">(i <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">"b:"</span>, i)</span><br><span class="line">      &#125;(i)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;()</span><br></pre></td></tr></table></figure></p>
+<h3 id="go-数组大小不能超过2GB"><a href="#go-数组大小不能超过2GB" class="headerlink" title="go 数组大小不能超过2GB"></a>go 数组大小不能超过2GB</h3><p>需要针对数组元素的类型大小计算数组的最大长度范围 ([]uint8 最大2GB， []uint16 最大1GB，以此类推)，但是 []struct{} 数组的长度可以超过2GB</p>
 <h3 id="goroutine"><a href="#goroutine" class="headerlink" title="goroutine"></a>goroutine</h3><ol>
 <li>首先系统级的线程创建会创建默认大小的栈(一般默认可能为2Mb)，主要用于保存递归函数调用的参数以及局部变量，默认大小的栈存在可能空间浪费或者栈不足的问题；而goroutine采用可以动态增减的栈，初始创建栈大小为(2kb或者4kb)，根据需要动态增减（主流实现的栈大小可以达到1gb）<a id="more"></a>
 </li>
@@ -460,6 +501,79 @@
 <li><code>&lt;- make(chan bool)</code></li>
 </ol>
 <p>如果是main函数线程阻塞，正常退出需要调用os.Exit(0)进行退出</p>
+<h3 id="生成cgo中间文件"><a href="#生成cgo中间文件" class="headerlink" title="生成cgo中间文件"></a>生成cgo中间文件</h3><p><code>go tool cgo yourfile.go</code><br>会生成一个_obj目录包含相关的中间文件</p>
+<h3 id="go生成c函数，用于c语言调用"><a href="#go生成c函数，用于c语言调用" class="headerlink" title="go生成c函数，用于c语言调用"></a>go生成c函数，用于c语言调用</h3><p><code>go build -buildmode=c-archive -o sum.a sum.go</code><br>将sum.go中的c导出函数生成sum.a以及sum.h文件</p>
+<h3 id="defer-amp-panic-amp-recover"><a href="#defer-amp-panic-amp-recover" class="headerlink" title="defer &amp; panic &amp; recover"></a>defer &amp; panic &amp; recover</h3><p><a href="https://blog.golang.org/defer-panic-and-recover" target="_blank" rel="noopener">defer|panic|recover</a></p>
+<ul>
+<li>defer</li>
+</ul>
+<p>A defer statement pushes a function call onto a list. The list of saved calls is executed after the surrounding function returns.</p>
+<ol>
+<li>A deferred function’s arguments are evaluated when the defer statement is evaluated.</li>
+<li>Deferred function calls are executed in Last In First Out order after the surrounding function returns.</li>
+<li>Deferred functions may read and assign to the returning function’s named return values; deferred functions can modify named return values.</li>
+</ol>
+<ul>
+<li>recover</li>
+</ul>
+<ol>
+<li>Recover is only useful inside deferred functions. During normal execution, a call to recover will return nil and have no other effect.</li>
+<li>When panic is called, it immediately stops execution of the current function and begins unwinding the stack of the goroutine, running any deferred functions along the way; Because the only code that runs while unwinding is inside deferred functions, recover is only useful inside deferred functions</li>
+</ol>
+<h3 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h3><ol>
+<li>nil channel</li>
+</ol>
+<ul>
+<li>A send to a nil channel blocks forever</li>
+<li>A receive from a nil channel blocks forever</li>
+<li>A send to a closed channel panics</li>
+<li>A receive from a closed channel returns the zero value immediately</li>
+</ul>
+<h3 id="cocurrency-vs-parallel"><a href="#cocurrency-vs-parallel" class="headerlink" title="cocurrency vs parallel"></a>cocurrency vs parallel</h3><ol>
+<li>cocurrency is about dealing with lots of things at once. </li>
+<li>parrallel is about doing lots of things at once.</li>
+</ol>
+<h3 id="nil-interface"><a href="#nil-interface" class="headerlink" title="nil interface"></a>nil interface</h3><p>type interface  ==&gt;  T, V<br>keep in mind that if any concrete value has been stored in the interface, the interface will not be nil</p>
+<h3 id="assignment"><a href="#assignment" class="headerlink" title="assignment"></a>assignment</h3><ol>
+<li>In a short variable declaration, all items at the left of the := sign must pure identifiers. This means some other assignable items, which will be introduced in other articles, can’t appear at the left of :=. These items include qualified identifiers, container elements, pointer dereferences and struct field selectors. </li>
+</ol>
+<h3 id="slice-operations"><a href="#slice-operations" class="headerlink" title="slice operations"></a>slice operations</h3><ol>
+<li>clone<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clone := <span class="built_in">append</span>(s[:<span class="number">0</span>:<span class="number">0</span>], s...)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="reset-some-contiguous-elements-in-array-or-slice"><a href="#reset-some-contiguous-elements-in-array-or-slice" class="headerlink" title="reset some contiguous elements in array or slice"></a>reset some contiguous elements in array or slice</h3><ul>
+<li>memcls(following range for will optimized by go compiler to <code>memcls</code> internal call)<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i := <span class="keyword">range</span> a &#123;</span><br><span class="line">	a[i] = t0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="efficiently-and-perfectly-clone-a-slice"><a href="#efficiently-and-perfectly-clone-a-slice" class="headerlink" title="efficiently and perfectly clone a slice"></a>efficiently and perfectly clone a slice</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clone := <span class="built_in">append</span>(a[:<span class="number">0</span>:<span class="number">0</span>], a...)</span><br></pre></td></tr></table></figure>
+<h3 id="cgo-相关"><a href="#cgo-相关" class="headerlink" title="cgo 相关"></a>cgo 相关</h3><ol>
+<li><p>cgo中间文件生成<br><img src="/images/2018/cgo文件生成.png" alt="cgo中间文件"></p>
+</li>
+<li><p>cgo调用流程<br><img src="/images/2018/cgo调用流程.png" alt="cgo调用流程"></p>
+</li>
+</ol>
+<h3 id="interface-conclusion"><a href="#interface-conclusion" class="headerlink" title="interface conclusion"></a>interface conclusion</h3><ol>
+<li>interface provide:</li>
+</ol>
+<ul>
+<li>generic algorithms</li>
+<li>hidden implementation</li>
+<li>interception points</li>
+</ul>
+<ol start="2">
+<li>implicit satisfication</li>
+</ol>
+<ul>
+<li>break dependencies</li>
+</ul>
+<ol start="3">
+<li>type assertion</li>
+</ol>
+<ul>
+<li>to extend behaviors</li>
+<li>to classify errors</li>
+<li>to maintain compatibility</li>
+</ul>
 
       
     </div>
@@ -477,9 +591,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/go/" rel="tag"># go</a>
-          
             <a href="/tags/读书笔记/" rel="tag"># 读书笔记</a>
+          
+            <a href="/tags/go/" rel="tag"># go</a>
           
         </div>
       
@@ -603,7 +717,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -719,7 +833,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#go-数组大小不能超过2GB"><span class="nav-number">1.</span> <span class="nav-text">go 数组大小不能超过2GB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#goroutine"><span class="nav-number">2.</span> <span class="nav-text">goroutine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻塞线程，延迟退出"><span class="nav-number">3.</span> <span class="nav-text">阻塞线程，延迟退出</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#go-grammer"><span class="nav-number">1.</span> <span class="nav-text">go grammer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#go-数组大小不能超过2GB"><span class="nav-number">2.</span> <span class="nav-text">go 数组大小不能超过2GB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#goroutine"><span class="nav-number">3.</span> <span class="nav-text">goroutine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻塞线程，延迟退出"><span class="nav-number">4.</span> <span class="nav-text">阻塞线程，延迟退出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成cgo中间文件"><span class="nav-number">5.</span> <span class="nav-text">生成cgo中间文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#go生成c函数，用于c语言调用"><span class="nav-number">6.</span> <span class="nav-text">go生成c函数，用于c语言调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#defer-amp-panic-amp-recover"><span class="nav-number">7.</span> <span class="nav-text">defer &amp; panic &amp; recover</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#channel"><span class="nav-number">8.</span> <span class="nav-text">channel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cocurrency-vs-parallel"><span class="nav-number">9.</span> <span class="nav-text">cocurrency vs parallel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nil-interface"><span class="nav-number">10.</span> <span class="nav-text">nil interface</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment"><span class="nav-number">11.</span> <span class="nav-text">assignment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice-operations"><span class="nav-number">12.</span> <span class="nav-text">slice operations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reset-some-contiguous-elements-in-array-or-slice"><span class="nav-number">13.</span> <span class="nav-text">reset some contiguous elements in array or slice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#efficiently-and-perfectly-clone-a-slice"><span class="nav-number">14.</span> <span class="nav-text">efficiently and perfectly clone a slice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cgo-相关"><span class="nav-number">15.</span> <span class="nav-text">cgo 相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interface-conclusion"><span class="nav-number">16.</span> <span class="nav-text">interface conclusion</span></a></li></ol></div>
             
 
           </div>
@@ -746,7 +860,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

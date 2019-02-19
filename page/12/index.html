@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wens07.github.io/2015/12/10/有用的公式2015-12-10/">
+    <link itemprop="mainEntityOfPage" href="http://wens07.github.io/2015/12/18/git命令学习2015-12-18/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wens.wq">
@@ -342,7 +342,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/12/10/有用的公式2015-12-10/" itemprop="url">有用的公式</a></h1>
+                <a class="post-title-link" href="/2015/12/18/git命令学习2015-12-18/" itemprop="url">git命令学习</a></h1>
         
 
         <div class="post-meta">
@@ -354,176 +354,409 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-10T11:15:59+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-18T12:40:28+08:00">
+                2015-12-18
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-14T15:19:55+08:00">
+                2018-09-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technique/" itemprop="url" rel="index">
+                    <span itemprop="name">technique</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/12/18/git命令学习2015-12-18/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2015/12/18/git命令学习2015-12-18/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2015/12/18/git命令学习2015-12-18/" class="leancloud_visitors" data-flag-title="git命令学习">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="git帮助"><a href="#git帮助" class="headerlink" title="git帮助"></a>git帮助</h1><p><code>git help [command]</code></p>
+<h1 id="本地创建repository-推送到远端"><a href="#本地创建repository-推送到远端" class="headerlink" title="本地创建repository, 推送到远端"></a>本地创建repository, 推送到远端</h1><ol>
+<li><code>git init</code></li>
+<li><p><code>git remote add [remote repository name]  [remote repository url]</code><br> git remote add origin <a href="https://github.com/BlockLink/blocklink_crosschain_privatekey.git" target="_blank" rel="noopener">https://github.com/BlockLink/blocklink_crosschain_privatekey.git</a></p>
+</li>
+<li><p><code>git push -u [remote repository name]  [remote branch name]</code><br> git push -u origin master</p>
+</li>
+</ol>
+<h1 id="分支相关"><a href="#分支相关" class="headerlink" title="分支相关"></a>分支相关</h1><h3 id="跳转分支"><a href="#跳转分支" class="headerlink" title="跳转分支"></a>跳转分支</h3><p><code>git checkout &lt;branch&gt;</code></p>
+<blockquote>
+<p>跳转到<branch>分支:将HEAD指向<branch>, 并 更新index和文件.</branch></branch></p>
+</blockquote>
+<h3 id="创建本地分支并且推送到远端"><a href="#创建本地分支并且推送到远端" class="headerlink" title="创建本地分支并且推送到远端"></a>创建本地分支并且推送到远端</h3><ol>
+<li><p>创建本地分支<br><code>git checkout -b [branch_name]</code></p>
+</li>
+<li><p>推送到远端<br><code>git push &lt;remote_repository_path&gt; &lt;branch_name&gt;[:&lt;remote_branch_name&gt;]</code></p>
+</li>
+<li><p>设置跟踪分支<br><code>git branch -u &lt;remote_repository_path/remote_branch_name&gt;</code></p>
+</li>
+</ol>
+<h3 id="设置跟踪分支"><a href="#设置跟踪分支" class="headerlink" title="设置跟踪分支"></a>设置跟踪分支</h3><p><code>git checkout [-b [branch]] [--track] &lt;remotename&gt;/&lt;branch&gt;</code></p>
+<blockquote>
+<p><em>用于对未创建的分支建立跟踪分支</em>; 并且跳转到<branch>分支上.</branch></p>
+</blockquote>
+<p><code>git branch -u &lt;remotename&gt;/&lt;branch&gt;</code> or<br><code>git branch --set-upstream-to=origin/&lt;branch&gt; &lt;localbranch&gt;</code></p>
+<blockquote>
+<p>为当前所在的分支创建跟踪分支</p>
+</blockquote>
+<p>一般如果你直接通过clone命令拉取一个仓库, 则git会自动设置一个本地master到origin/master的跟踪<br>分支.<br><code>* master 3cf359f [origin/master] Site updated: 2015-12-18 11:55:19</code><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/12/18/git命令学习2015-12-18/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wens07.github.io/2015/12/17/Manacher-s-algorithm2015-12-17/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wens.wq">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WengQiang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/12/17/Manacher-s-algorithm2015-12-17/" itemprop="url">Manacher's algorithm</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-17T11:17:32+08:00">
+                2015-12-17
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-18T12:28:05+08:00">
+                2018-08-18
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technique/" itemprop="url" rel="index">
+                    <span itemprop="name">technique</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/12/17/Manacher-s-algorithm2015-12-17/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2015/12/17/Manacher-s-algorithm2015-12-17/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2015/12/17/Manacher-s-algorithm2015-12-17/" class="leancloud_visitors" data-flag-title="Manacher's algorithm">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>if  p[i’] &lt;= R - i; then p[i] = p[i’]<br>  else p[i] &gt;= R -i (which we should expand i (the center) past the rigth edge to get it)</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wens07.github.io/2015/12/10/c-cpp-IO2015-12-10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wens.wq">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WengQiang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/12/10/c-cpp-IO2015-12-10/" itemprop="url">c/cpp IO</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-10T16:56:34+08:00">
                 2015-12-10
               </time>
             
 
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
               <span class="post-meta-divider">|</span>
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
 
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2015/12/10/有用的公式2015-12-10/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2015/12/10/有用的公式2015-12-10/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2015/12/10/有用的公式2015-12-10/" class="leancloud_visitors" data-flag-title="有用的公式">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="温度表示法互相转换"><a href="#温度表示法互相转换" class="headerlink" title="温度表示法互相转换"></a>温度表示法互相转换</h3><p>C = (5/9)(F - 32)</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wens07.github.io/2015/06/18/2015-6-c与cpp的不同2015-06-18/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wens.wq">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WengQiang's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/06/18/2015-6-c与cpp的不同2015-06-18/" itemprop="url">c与cpp的不同</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
             
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="fa fa-calendar-check-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-18T20:39:01+08:00">
-                2015-06-18
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-18T12:27:11+08:00">
+                2018-08-18
               </time>
-            
-
-            
-
             
           </span>
 
@@ -558,8 +791,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/06/18/2015-6-c与cpp的不同2015-06-18/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2015/06/18/2015-6-c与cpp的不同2015-06-18/" itemprop="commentCount"></span>
+                <a href="/2015/12/10/c-cpp-IO2015-12-10/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2015/12/10/c-cpp-IO2015-12-10/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -567,7 +800,7 @@
 
           
           
-             <span id="/2015/06/18/2015-6-c与cpp的不同2015-06-18/" class="leancloud_visitors" data-flag-title="c与cpp的不同">
+             <span id="/2015/12/10/c-cpp-IO2015-12-10/" class="leancloud_visitors" data-flag-title="c/cpp IO">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -599,180 +832,19 @@
 
       
         
-          
-            <h3 id="sizeof-‘a’-的值"><a href="#sizeof-‘a’-的值" class="headerlink" title="sizeof(‘a’)的值"></a>sizeof(‘a’)的值</h3><p><code>sizeof(&#39;a&#39;)</code>: c中’a’的字符常量是int型, 所以输出4.<br>               c++中是char型,所以输出1.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wens07.github.io/2015/06/16/2015-6-c-problems-set2015-06-16/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wens.wq">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WengQiang's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/06/16/2015-6-c-problems-set2015-06-16/" itemprop="url">c-problems set</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-16T17:03:30+08:00">
-                2015-06-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/technique/" itemprop="url" rel="index">
-                    <span itemprop="name">technique</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2015/06/16/2015-6-c-problems-set2015-06-16/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2015/06/16/2015-6-c-problems-set2015-06-16/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2015/06/16/2015-6-c-problems-set2015-06-16/" class="leancloud_visitors" data-flag-title="c-problems set">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="Linux-program-startup"><a href="#Linux-program-startup" class="headerlink" title="Linux program startup"></a>Linux program startup</h3><p><img src="/images/c_linux_startup.png" alt="c linux startup"></p>
-<ol>
-<li>the shell or gui calls <code>execve()</code> which execute linux system call execve(), it will set up a stack for you, and push onto it <strong>argc</strong>, <strong>argv</strong>, <strong>envp</strong>. the filedescription  0, 1, 2 are left to whatever the shell set them to. The loader does much work for you setting up your relocations, and as we’ll see much later, calling your preinitializers. When everything is ready, control is handed to your program by calling  _start().</li>
+          <h3 id="c中读取输出"><a href="#c中读取输出" class="headerlink" title="c中读取输出"></a>c中读取输出</h3><ol>
+<li><p>单个字符<br> <code>int fgetc( FILE *stream );</code><br> <code>int fputc( int ch, FILE *stream );</code></p>
+<p> <code>int ungetc( int ch, FILE *stream );</code></p>
+</li>
+<li><p>一串字符<br> <code>char *fgets( char *restrict str, int count, FILE *restrict stream );</code><br>读取count-1个字符(一个用于存储’\0’__ null-terminated), parse stop when end-of-file or a newline found;  <strong>it contain the newline character</strong></p>
+<p> <code>int fputs( const char *restrict str, FILE *restrict stream );</code></p>
+</li>
+<li><p>unix最大打开文件数<br> <code>#define    FOPEN_MAX    20    /* must be &lt;= OPEN_MAX &lt;sys/syslimits.h&gt; */</code></p>
+</li>
 </ol>
-<h3 id="escape-sequences-in-c"><a href="#escape-sequences-in-c" class="headerlink" title="escape sequences in c"></a>escape sequences in c</h3><p><img src="/images/2015/c_escape_sequence.png" alt="escape sequence"></p>
-<blockquote>
-<p>/000  —- / 后面1,2,or 3三个8进制的数,表示character在character set中的值<br>  /xhh —– / 后面任意个16进制的数,表示character在character set中的值</p>
-</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/06/16/2015-6-c-problems-set2015-06-16/#more" rel="contents">
+            <a class="btn" href="/2015/12/10/c-cpp-IO2015-12-10/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -814,7 +886,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -864,7 +936,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -991,7 +1063,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

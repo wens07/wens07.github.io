@@ -123,7 +123,7 @@
 <meta property="og:site_name" content="WengQiang&#39;s Blog">
 <meta property="og:description" content="linux添加用户的相关命令 useradd  添加用户useradd -d /home/wengqiang -m wengqiang -s /bin/bash创建用户wengqiang  usermod 修改创建用户的相关属性usermod -s /bin/sh wengqiang修改用户wengqiang的登录shell   usermod -aG sudo wengqiang将用户wengq">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-18T04:37:54.050Z">
+<meta property="og:updated_time" content="2019-01-23T15:43:00.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="useful commands">
 <meta name="twitter:description" content="linux添加用户的相关命令 useradd  添加用户useradd -d /home/wengqiang -m wengqiang -s /bin/bash创建用户wengqiang  usermod 修改创建用户的相关属性usermod -s /bin/sh wengqiang修改用户wengqiang的登录shell   usermod -aG sudo wengqiang将用户wengq">
@@ -358,7 +358,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-23T23:43:00+08:00">
+                2019-01-23
+              </time>
             
           </span>
 
@@ -456,6 +468,51 @@
 </ol>
 <h3 id="windows下验证校验码命令"><a href="#windows下验证校验码命令" class="headerlink" title="windows下验证校验码命令"></a>windows下验证校验码命令</h3><p><code>Certutil</code>(Certutil /?)</p>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">certutil -hashfile xxx MD5</span><br><span class="line">certutil -hashfile xxx <span class="keyword">SHA1</span></span><br><span class="line"><span class="keyword">certutil </span>-hashfile xxx <span class="keyword">SHA256</span></span><br></pre></td></tr></table></figure>
+<h3 id="获取本机ip"><a href="#获取本机ip" class="headerlink" title="获取本机ip"></a>获取本机ip</h3><p><code>curl https://ip.cn</code></p>
+<h3 id="使用openssl生成secp256k1的key-pair"><a href="#使用openssl生成secp256k1的key-pair" class="headerlink" title="使用openssl生成secp256k1的key-pair"></a>使用openssl生成secp256k1的key-pair</h3><ol>
+<li><p>生成<br><code>openssl ecparam -name secp256k1 -genkey -out ec-priv.pem</code></p>
+</li>
+<li><p>输出<br><code>openssl ec -in ec-priv.pem -text -noout</code></p>
+</li>
+</ol>
+<h3 id="linux-磁盘相关命令"><a href="#linux-磁盘相关命令" class="headerlink" title="linux 磁盘相关命令"></a>linux 磁盘相关命令</h3><ol>
+<li><p>blkid<br>列出机器上设备的uuid或label等信息</p>
+</li>
+<li><p>pvdisplay|pvcreate<br>显示physical volume相关信息或者创建physical volume</p>
+</li>
+<li><p>lvdisplay|lvcreate|vgextend vgdisplay|vgcreate|vgextend</p>
+</li>
+</ol>
+<h3 id="clang-amp-g-显示类的内存分布"><a href="#clang-amp-g-显示类的内存分布" class="headerlink" title="clang&amp;g++显示类的内存分布"></a>clang&amp;g++显示类的内存分布</h3><p><code>clang++ -cc1 -emit-llvm -fdump-record-layouts thefile.cpp</code><br><code>g++ -fdump-class-hierarchy -c test.cpp</code></p>
+<h3 id="go"><a href="#go" class="headerlink" title="go"></a>go</h3><ol>
+<li><p>go-wrk<br>http benchmark utility<br><code>go get github.com/adjust/go-wrk</code></p>
+</li>
+<li><p>go tool pprof<br>get profile info of the program</p>
+</li>
+</ol>
+<p>add following line in import part<br><code>import _ net/http/pprof</code></p>
+<p><code>go tool pprof --seconds=5 localhost:8000/debug/pprof/profile</code></p>
+<ol start="3">
+<li>go-torch<br><code>go get github.com/uber/go-torch</code></li>
+</ol>
+<h3 id="检测端口是否使用"><a href="#检测端口是否使用" class="headerlink" title="检测端口是否使用"></a>检测端口是否使用</h3><ol>
+<li><p>tcp port<br><code>telnet ip port</code></p>
+</li>
+<li><p>udp port<br><code>netcat(nc) -vnzu ip port</code></p>
+</li>
+</ol>
+<h3 id="windows添加启动程序"><a href="#windows添加启动程序" class="headerlink" title="windows添加启动程序"></a>windows添加启动程序</h3><ol>
+<li><p>用户下<br><code>win + r</code> <code>shell:startup</code> 打开当前用户的启动目录，将程序的快捷方式放入其中即可</p>
+</li>
+<li><p>系统下<br>“C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp”</p>
+</li>
+</ol>
+<h3 id="安装bundle插件"><a href="#安装bundle插件" class="headerlink" title="安装bundle插件"></a>安装bundle插件</h3><ol>
+<li>install Vundle.vim in …/bundle folder</li>
+<li><code>nvim +PluginInstall +qall</code></li>
+</ol>
+<h3 id="linux下查看c-编译后的symbols"><a href="#linux下查看c-编译后的symbols" class="headerlink" title="linux下查看c++编译后的symbols"></a>linux下查看c++编译后的symbols</h3><p><code>nm a.out | grep c++filt</code></p>
+<h3 id="vim-保存时获得sudo权限"><a href="#vim-保存时获得sudo权限" class="headerlink" title="vim 保存时获得sudo权限"></a>vim 保存时获得sudo权限</h3><p><code>:w !sudo tee %</code></p>
 
       
     </div>
@@ -597,7 +654,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -713,7 +770,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux添加用户的相关命令"><span class="nav-number">1.</span> <span class="nav-text">linux添加用户的相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文件的owner以及group"><span class="nav-number">2.</span> <span class="nav-text">修改文件的owner以及group</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-mac-产生随机串"><span class="nav-number">3.</span> <span class="nav-text">linux|mac 产生随机串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#windows下验证校验码命令"><span class="nav-number">4.</span> <span class="nav-text">windows下验证校验码命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux添加用户的相关命令"><span class="nav-number">1.</span> <span class="nav-text">linux添加用户的相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文件的owner以及group"><span class="nav-number">2.</span> <span class="nav-text">修改文件的owner以及group</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-mac-产生随机串"><span class="nav-number">3.</span> <span class="nav-text">linux|mac 产生随机串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#windows下验证校验码命令"><span class="nav-number">4.</span> <span class="nav-text">windows下验证校验码命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取本机ip"><span class="nav-number">5.</span> <span class="nav-text">获取本机ip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用openssl生成secp256k1的key-pair"><span class="nav-number">6.</span> <span class="nav-text">使用openssl生成secp256k1的key-pair</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-磁盘相关命令"><span class="nav-number">7.</span> <span class="nav-text">linux 磁盘相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clang-amp-g-显示类的内存分布"><span class="nav-number">8.</span> <span class="nav-text">clang&amp;g++显示类的内存分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#go"><span class="nav-number">9.</span> <span class="nav-text">go</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检测端口是否使用"><span class="nav-number">10.</span> <span class="nav-text">检测端口是否使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#windows添加启动程序"><span class="nav-number">11.</span> <span class="nav-text">windows添加启动程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装bundle插件"><span class="nav-number">12.</span> <span class="nav-text">安装bundle插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux下查看c-编译后的symbols"><span class="nav-number">13.</span> <span class="nav-text">linux下查看c++编译后的symbols</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim-保存时获得sudo权限"><span class="nav-number">14.</span> <span class="nav-text">vim 保存时获得sudo权限</span></a></li></ol></div>
             
 
           </div>
@@ -740,7 +797,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

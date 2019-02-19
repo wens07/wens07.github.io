@@ -123,7 +123,7 @@
 <meta property="og:site_name" content="WengQiang&#39;s Blog">
 <meta property="og:description" content="发明人以及相关节点时间 中本聪于2008-10-31号提出了比特币的设计白皮书 2009年公布了最初的实现代码， 第一个比特币是2009-01-03(18:15:05)生成">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-18T04:35:35.325Z">
+<meta property="og:updated_time" content="2019-01-09T09:19:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bitcoin">
 <meta name="twitter:description" content="发明人以及相关节点时间 中本聪于2008-10-31号提出了比特币的设计白皮书 2009年公布了最初的实现代码， 第一个比特币是2009-01-03(18:15:05)生成">
@@ -358,7 +358,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-09T17:19:30+08:00">
+                2019-01-09
+              </time>
             
           </span>
 
@@ -443,6 +455,126 @@
 <li>2009年公布了最初的实现代码， 第一个比特币是2009-01-03(18:15:05)生成</li>
 </ol>
 <a id="more"></a>
+<h3 id="secp256k1-elliptic-curve"><a href="#secp256k1-elliptic-curve" class="headerlink" title="secp256k1 elliptic curve"></a>secp256k1 elliptic curve</h3><ol>
+<li><p>curve<br>$$y^2 = x^3 + 7$$</p>
+</li>
+<li><p>params<br>$p = 0xFFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFE FFFFFC2F$<br>$a = 0$<br>$b = 7$<br>$Gx = 0x79BE667E F9DCBBAC 55A06295 CE870B07 029BFCDB 2DCE28D9 59F2815B 16F81798$<br>$Gy = 0x483ADA77 26A3C465 5DA4FBFC 0E1108A8 FD17B448 A6855419 9C47D08F FB10D4B8$<br>$n = 0xFFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFE BAAEDCE6 AF48A03B BFD25E8C D0364141$<br>$h = 1$<br>in general, the different point by given an X coordinate is $2*(h + 1)$</p>
+</li>
+</ol>
+<h3 id="private-key-amp-public-key"><a href="#private-key-amp-public-key" class="headerlink" title="private key &amp; public key"></a>private key &amp; public key</h3><ul>
+<li><p>private key<br>  generally, a private key is just a 32-bytes random number</p>
+</li>
+<li><p>public key</p>
+</li>
+</ul>
+<ol>
+<li>uncompressed(65 bytes)<br> 0x04 + x + y</li>
+<li>compressed(33 bytes, which omit the y value)<br> 0x02 or 0x03 (which means y is even or odd)</li>
+</ol>
+<h3 id="Elliptic-curve-finite-field-amp-ECDSA"><a href="#Elliptic-curve-finite-field-amp-ECDSA" class="headerlink" title="Elliptic curve(finite field) &amp; ECDSA"></a>Elliptic curve(finite field) &amp; ECDSA</h3><ul>
+<li><p>elliptic curve: $y^2 = x^3 + ax + b$</p>
+</li>
+<li><p>finite field: $F_p = {0, 1, … p-1} $ (usually p is a prime number)</p>
+<p>$n^{p-1} = 1 mod p$ where p is prime<br>$n^{p-2} = n^{-1} = 1/n mod n$ where p is prime</p>
+<p>in python: it is easy to calculate $n^{-1} = pow(n, p-2, p)$</p>
+</li>
+<li><p>group law</p>
+<p>$P_1 = (x_1, y_1), P_2=(x_2, y_2) \to P_3 = (x_3, y_3)$<br>$when x_1 \neq x_2$ </p>
+<p>$s = (y_2-y_1)/(x_2-x_1)$<br>$x_3 = s^2 - x_1 - x_2$<br>$y_3 = s(x_1 - x_3) - y_1$</p>
+</li>
+</ul>
+<ul>
+<li><p>ECDSA</p>
+<ol>
+<li><p>public key </p>
+<ul>
+<li>priv key: d (a randomly selected non-zero integer modulo the group order n)</li>
+<li>base Pointer: G</li>
+</ul>
+<p>pub key: $P = d * G$</p>
+</li>
+<li><p>signature</p>
+<ul>
+<li>hash of message to sign: e</li>
+<li>chooses a per-message secret random integer k such that 1 ≤ k ≤ n − 1(n is the order of subgroup)</li>
+<li>random point $RP = k * G$</li>
+</ul>
+<p>signature: (r, s); $r=x_{RP}$, $s=(e+r * d)/k$</p>
+</li>
+<li><p>verify signature</p>
+<ul>
+<li>calculate integer $i_1 = s^{-1}*e$  </li>
+<li>calculate integer $i_2 = s^{-1}*r$</li>
+<li><p>calculate random point $RP = i_1G + i_2P$  </p>
+<p>the signature is valid only if $r = x_{RP}$</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="recid-secp256k1-with-ECDSA"><a href="#recid-secp256k1-with-ECDSA" class="headerlink" title="recid(secp256k1) with ECDSA"></a>recid(secp256k1) with ECDSA</h3><p>0 &lt;= recid &lt;= 3</p>
+<p>for signature(r, s): init <code>recid = 0</code></p>
+<ul>
+<li>if r &gt; n (overflow),  <code>recid |= 2</code></li>
+<li>if y_{r} is odd, <code>recid |= 1</code></li>
+<li>if s is odd, <code>recid ^= 1</code></li>
+<li>if low s, <code>recid ^= 1</code></li>
+</ul>
+<h3 id="signature-amp-DER-encoding"><a href="#signature-amp-DER-encoding" class="headerlink" title="signature &amp; DER encoding"></a>signature &amp; DER encoding</h3><p><a href="https://github.com/bitcoin/bips/blob/master/bip-0062.mediawiki" target="_blank" rel="noopener">BIP62</a></p>
+<h3 id="Hierarchical-Deterministic-Wallet"><a href="#Hierarchical-Deterministic-Wallet" class="headerlink" title="Hierarchical Deterministic Wallet"></a>Hierarchical Deterministic Wallet</h3><p><a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki" target="_blank" rel="noopener">BIP32</a></p>
+<h3 id="pubkey-script-or-scriptPubkey-in-code"><a href="#pubkey-script-or-scriptPubkey-in-code" class="headerlink" title="pubkey script(or scriptPubkey in code)"></a>pubkey script(or scriptPubkey in code)</h3><ul>
+<li>the output script(pubkey script) form is: <code>OP_DUP OP_HASH160 Hash160(pubkey) OP_EQUALVERIFY OP_CHECKSIG</code></li>
+<li><p>the input script(signature script) form is: <code>signature  pubkey</code></p>
+</li>
+<li><p>the check process</p>
+</li>
+</ul>
+<ol>
+<li>the whole thing is: <code>signature pubkey OP_DUP OP_HASH160 Hash160(pubkey) OP_EQUALVERIFY OP_CHECKSIG</code></li>
+<li>operate the ops on stack </li>
+</ol>
+<p>note: script form can see in bitcoin source code by search “CScriptVisitor”</p>
+<h3 id="redeem-script"><a href="#redeem-script" class="headerlink" title="redeem script"></a>redeem script</h3><ul>
+<li>the output script(pubkey script) form is: <code>OP_HASH160 Hash160(redeemscript) OP_EQUAL</code></li>
+<li>the redeem script form is: <code>OP_2 pubkey1 pubkey2 pubkey2 OP_3 OP_CHECKMULTISIG</code>  //2 of 3 redeem script<pre><code>`pubkey OP_CHECKSIG` // single redeem script
+</code></pre></li>
+<li><p>the input script(signature script) form is: <code>OP_0 sig1 sig2 redeemScript</code></p>
+</li>
+<li><p>the check process</p>
+</li>
+</ul>
+<ol>
+<li>the whole thing is: <code>{OP_0 sig1 sig2 redeemScript}_stackcopy OP_HASH160 Hash160(redeemscript) OP_EQUAL</code></li>
+<li>operate the ops on stack</li>
+</ol>
+<h3 id="witness"><a href="#witness" class="headerlink" title="witness"></a>witness</h3><ol>
+<li><p>native witness program(currently all is  version 0 witness)</p>
+<ul>
+<li>the output script(pubkey script) form is: <code>version_byte  witness_program</code></li>
+<li>the input script(signature script) is empty, which currently in winness script</li>
+</ul>
+</li>
+<li><p>p2sh witness program</p>
+<ul>
+<li>the output script(pubkey script) is p2sh</li>
+<li>the redeem script form is: <code>version_byte witness_program</code></li>
+<li>the input script(signature script) like in redeem script</li>
+</ul>
+</li>
+</ol>
+<ol start="3">
+<li><p>P2WPKH or P2WSH</p>
+<ul>
+<li><p>if witness program is 20 byte</p>
+<p> it is interpreted as a pay-to-witness-public-key-hash (P2WPKH) program</p>
+</li>
+<li><p>if witness program is 32 byte</p>
+<p> It is interpreted as a pay-to-witness-script-hash (P2WSH) program</p>
+</li>
+</ul>
+</li>
+</ol>
 
       
     </div>
@@ -584,7 +716,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -700,7 +832,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#发明人以及相关节点时间"><span class="nav-number">1.</span> <span class="nav-text">发明人以及相关节点时间</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#发明人以及相关节点时间"><span class="nav-number">1.</span> <span class="nav-text">发明人以及相关节点时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#secp256k1-elliptic-curve"><span class="nav-number">2.</span> <span class="nav-text">secp256k1 elliptic curve</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#private-key-amp-public-key"><span class="nav-number">3.</span> <span class="nav-text">private key &amp; public key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elliptic-curve-finite-field-amp-ECDSA"><span class="nav-number">4.</span> <span class="nav-text">Elliptic curve(finite field) &amp; ECDSA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#recid-secp256k1-with-ECDSA"><span class="nav-number">5.</span> <span class="nav-text">recid(secp256k1) with ECDSA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#signature-amp-DER-encoding"><span class="nav-number">6.</span> <span class="nav-text">signature &amp; DER encoding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hierarchical-Deterministic-Wallet"><span class="nav-number">7.</span> <span class="nav-text">Hierarchical Deterministic Wallet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pubkey-script-or-scriptPubkey-in-code"><span class="nav-number">8.</span> <span class="nav-text">pubkey script(or scriptPubkey in code)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redeem-script"><span class="nav-number">9.</span> <span class="nav-text">redeem script</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#witness"><span class="nav-number">10.</span> <span class="nav-text">witness</span></a></li></ol></div>
             
 
           </div>
@@ -727,7 +859,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

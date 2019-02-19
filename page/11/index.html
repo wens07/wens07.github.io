@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wens07.github.io/2015/12/18/git命令学习2015-12-18/">
+    <link itemprop="mainEntityOfPage" href="http://wens07.github.io/2016/01/06/mac-osx-破解wpa-wpa2-wifi2016-01-06/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wens.wq">
@@ -342,7 +342,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/12/18/git命令学习2015-12-18/" itemprop="url">git命令学习</a></h1>
+                <a class="post-title-link" href="/2016/01/06/mac-osx-破解wpa-wpa2-wifi2016-01-06/" itemprop="url">mac osx 破解wpa/wpa2 wifi</a></h1>
         
 
         <div class="post-meta">
@@ -354,13 +354,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-18T12:40:28+08:00">
-                2015-12-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-06T23:35:26+08:00">
+                2016-01-06
               </time>
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-18T12:29:16+08:00">
+                2018-08-18
+              </time>
             
           </span>
 
@@ -395,8 +407,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/12/18/git命令学习2015-12-18/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2015/12/18/git命令学习2015-12-18/" itemprop="commentCount"></span>
+                <a href="/2016/01/06/mac-osx-破解wpa-wpa2-wifi2016-01-06/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/01/06/mac-osx-破解wpa-wpa2-wifi2016-01-06/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -404,7 +416,7 @@
 
           
           
-             <span id="/2015/12/18/git命令学习2015-12-18/" class="leancloud_visitors" data-flag-title="git命令学习">
+             <span id="/2016/01/06/mac-osx-破解wpa-wpa2-wifi2016-01-06/" class="leancloud_visitors" data-flag-title="mac osx 破解wpa/wpa2 wifi">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -436,38 +448,19 @@
 
       
         
-          <h1 id="git帮助"><a href="#git帮助" class="headerlink" title="git帮助"></a>git帮助</h1><p><code>git help [command]</code></p>
-<h1 id="本地创建repository-推送到远端"><a href="#本地创建repository-推送到远端" class="headerlink" title="本地创建repository, 推送到远端"></a>本地创建repository, 推送到远端</h1><ol>
-<li><code>git init</code></li>
-<li><p><code>git remote add [remote repository name]  [remote repository url]</code><br> git remote add origin <a href="https://github.com/BlockLink/blocklink_crosschain_privatekey.git" target="_blank" rel="noopener">https://github.com/BlockLink/blocklink_crosschain_privatekey.git</a></p>
+          <p>在mac osx下进行wpa/wpa2 加密的wifi破解</p>
+<ul>
+<li>首先要安装<code>aircrack-ng</code>工具<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#可以使用Homebrew进行安装</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>aircrack-ng</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>git push -u [remote repository name]  [remote branch name]</code><br> git push -u origin master</p>
+</ul>
+<p>如果安装过程中出现下载失败, <a href="/2016/01/06/brew-手工下载文件安装/">这篇文章</a></p>
+<ul>
+<li>用airport搜索附近wifi<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo airport -s</span></span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<h1 id="分支相关"><a href="#分支相关" class="headerlink" title="分支相关"></a>分支相关</h1><h3 id="跳转分支"><a href="#跳转分支" class="headerlink" title="跳转分支"></a>跳转分支</h3><p><code>git checkout &lt;branch&gt;</code></p>
-<blockquote>
-<p>跳转到<branch>分支:将HEAD指向<branch>, 并 更新index和文件.</branch></branch></p>
-</blockquote>
-<h3 id="创建本地分支并且推送到远端"><a href="#创建本地分支并且推送到远端" class="headerlink" title="创建本地分支并且推送到远端"></a>创建本地分支并且推送到远端</h3><ol>
-<li><p>创建本地分支<br><code>git checkout -b [branch_name]</code></p>
-</li>
-<li><p>推送到远端<br><code>git push &lt;remote_repository_path&gt; &lt;branch_name&gt;[:&lt;remote_branch_name&gt;]</code></p>
-</li>
-<li><p>设置跟踪分支<br><code>git branch -u &lt;remote_repository_path/remote_branch_name&gt;</code></p>
-</li>
-</ol>
-<h3 id="设置跟踪分支"><a href="#设置跟踪分支" class="headerlink" title="设置跟踪分支"></a>设置跟踪分支</h3><p><code>git checkout [-b [branch]] [--track] &lt;remotename&gt;/&lt;branch&gt;</code></p>
-<blockquote>
-<p><em>用于对未创建的分支建立跟踪分支</em>; 并且跳转到<branch>分支上.</branch></p>
-</blockquote>
-<p><code>git branch -u &lt;remotename&gt;/&lt;branch&gt;</code></p>
-<blockquote>
-<p>为当前所在的分支创建跟踪分支</p>
-</blockquote>
-<p>一般如果你直接通过clone命令拉取一个仓库, 则git会自动设置一个本地master到origin/master的跟踪<br>分支.<br><code>* master 3cf359f [origin/master] Site updated: 2015-12-18 11:55:19</code><br>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/12/18/git命令学习2015-12-18/#more" rel="contents">
+            <a class="btn" href="/2016/01/06/mac-osx-破解wpa-wpa2-wifi2016-01-06/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -518,7 +511,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wens07.github.io/2015/12/17/Manacher-s-algorithm2015-12-17/">
+    <link itemprop="mainEntityOfPage" href="http://wens07.github.io/2016/01/06/brew-手工下载文件安装2016-01-06/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wens.wq">
@@ -537,7 +530,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/12/17/Manacher-s-algorithm2015-12-17/" itemprop="url">Manacher's algorithm</a></h1>
+                <a class="post-title-link" href="/2016/01/06/brew-手工下载文件安装2016-01-06/" itemprop="url">brew 手工下载文件安装</a></h1>
         
 
         <div class="post-meta">
@@ -549,13 +542,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-17T11:17:32+08:00">
-                2015-12-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-06T19:33:05+08:00">
+                2016-01-06
               </time>
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-18T12:28:33+08:00">
+                2018-08-18
+              </time>
             
           </span>
 
@@ -590,8 +595,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/12/17/Manacher-s-algorithm2015-12-17/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2015/12/17/Manacher-s-algorithm2015-12-17/" itemprop="commentCount"></span>
+                <a href="/2016/01/06/brew-手工下载文件安装2016-01-06/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/01/06/brew-手工下载文件安装2016-01-06/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -599,7 +604,7 @@
 
           
           
-             <span id="/2015/12/17/Manacher-s-algorithm2015-12-17/" class="leancloud_visitors" data-flag-title="Manacher's algorithm">
+             <span id="/2016/01/06/brew-手工下载文件安装2016-01-06/" class="leancloud_visitors" data-flag-title="brew 手工下载文件安装">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -631,12 +636,18 @@
 
       
         
-          
-            <blockquote>
-<p>if  p[i’] &lt;= R - i; then p[i] = p[i’]<br>  else p[i] &gt;= R -i (which we should expand i (the center) past the rigth edge to get it)</p>
-</blockquote>
-
-          
+          <p>今天又碰到了<code>brew install</code>安装时不能下载相关的文件, 哎! 天朝的”防火墙”已无力吐槽…</p>
+<p>之前碰到过的, 记得brew可以手动下载文件放入到brew的cache文件夹即可. <strong>果然好记性不如烂笔头</strong>,这里将方法记录下,不用每次得上网去搜, 要是没有联网咋办!</p>
+<p><img src="/images/2016/brew install manully.png" alt="brew install failed"></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用如下命令得到brew下载的cache目录</span></span><br><span class="line"></span><br><span class="line">brew <span class="comment">--cache</span></span><br></pre></td></tr></table></figure>
+<p>将下载的文件放到该目录, 然后重新运行安装命令即可(<strong>要注意下载文件的文件名要[修改]与上面的一致</strong>)<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/01/06/brew-手工下载文件安装2016-01-06/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -683,7 +694,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wens07.github.io/2015/12/10/c-cpp-IO2015-12-10/">
+    <link itemprop="mainEntityOfPage" href="http://wens07.github.io/2016/01/02/Backtracking-Rat-in-Maze2016-01-02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wens.wq">
@@ -702,7 +713,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/12/10/c-cpp-IO2015-12-10/" itemprop="url">c/cpp IO</a></h1>
+                <a class="post-title-link" href="/2016/01/02/Backtracking-Rat-in-Maze2016-01-02/" itemprop="url">Backtracking(Rat in Maze)</a></h1>
         
 
         <div class="post-meta">
@@ -714,13 +725,25 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-10T16:56:34+08:00">
-                2015-12-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-02T22:37:44+08:00">
+                2016-01-02
               </time>
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-18T12:28:19+08:00">
+                2018-08-18
+              </time>
             
           </span>
 
@@ -755,8 +778,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/12/10/c-cpp-IO2015-12-10/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2015/12/10/c-cpp-IO2015-12-10/" itemprop="commentCount"></span>
+                <a href="/2016/01/02/Backtracking-Rat-in-Maze2016-01-02/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/01/02/Backtracking-Rat-in-Maze2016-01-02/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -764,7 +787,7 @@
 
           
           
-             <span id="/2015/12/10/c-cpp-IO2015-12-10/" class="leancloud_visitors" data-flag-title="c/cpp IO">
+             <span id="/2016/01/02/Backtracking-Rat-in-Maze2016-01-02/" class="leancloud_visitors" data-flag-title="Backtracking(Rat in Maze)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -796,19 +819,16 @@
 
       
         
-          <h3 id="c中读取输出"><a href="#c中读取输出" class="headerlink" title="c中读取输出"></a>c中读取输出</h3><ol>
-<li><p>单个字符<br> <code>int fgetc( FILE *stream );</code><br> <code>int fputc( int ch, FILE *stream );</code></p>
-<p> <code>int ungetc( int ch, FILE *stream );</code></p>
-</li>
-<li><p>一串字符<br> <code>char *fgets( char *restrict str, int count, FILE *restrict stream );</code><br>读取count-1个字符(一个用于存储’\0’__ null-terminated), parse stop when end-of-file or a newline found;  <strong>it contain the newline character</strong></p>
-<p> <code>int fputs( const char *restrict str, FILE *restrict stream );</code></p>
-</li>
-<li><p>unix最大打开文件数<br> <code>#define    FOPEN_MAX    20    /* must be &lt;= OPEN_MAX &lt;sys/syslimits.h&gt; */</code></p>
-</li>
-</ol>
+          <p>A Maze is given as N*N binary matrix of blocks where source block is the upper left most block i.e., maze[0][0] and destination block is lower rightmost block i.e., maze[N-1][N-1]. A rat starts from source and has to reach destination. The rat can move only in two directions: forward and down.</p>
+<p>In the maze matrix, 0 means the block is dead end and 1 means the block can be used in the path from source to destination. Note that this is a simple version of the typical Maze problem. For example, a more complex version can be that the rat can move in 4 directions and a more complex version can be with limited number of moves.</p>
+<p>Following is an example maze.</p>
+<blockquote>
+<p>Gray blocks are dead ends(value = 0).</p>
+</blockquote>
+<p><img src="/images/2016/ratinmaze_filled11.png" alt="ratinmaze_filled"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/12/10/c-cpp-IO2015-12-10/#more" rel="contents">
+            <a class="btn" href="/2016/01/02/Backtracking-Rat-in-Maze2016-01-02/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -850,7 +870,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -900,7 +920,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1027,7 +1047,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

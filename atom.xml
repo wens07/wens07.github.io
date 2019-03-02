@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wens07.github.io/"/>
-  <updated>2019-01-24T11:15:00.000Z</updated>
+  <updated>2019-03-02T15:54:21.512Z</updated>
   <id>http://wens07.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>design_pattern</title>
+    <link href="http://wens07.github.io/2019/03/01/design_pattern/"/>
+    <id>http://wens07.github.io/2019/03/01/design_pattern/</id>
+    <published>2019-03-01T14:39:40.000Z</published>
+    <updated>2019-03-02T15:54:21.512Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;factory-method-pattern&quot;&gt;&lt;a href=&quot;#factory-method-pattern&quot; class=&quot;headerlink&quot; title=&quot;factory method pattern&quot;&gt;&lt;/a&gt;factory method patte
+      
+    
+    </summary>
+    
+      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+      <category term="随笔" scheme="http://wens07.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="c/c++" scheme="http://wens07.github.io/tags/c-c/"/>
+    
+      <category term="读书笔记" scheme="http://wens07.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>llvm&amp;clang 源码编译</title>
@@ -49,12 +76,15 @@
     
     <summary type="html">
     
-      
-      
-        &lt;h3 id=&quot;centos-7-64-系统&quot;&gt;&lt;a href=&quot;#centos-7-64-系统&quot; class=&quot;headerlink&quot; title=&quot;centos 7(64) 系统&quot;&gt;&lt;/a&gt;centos 7(64) 系统&lt;/h3&gt;&lt;ol&gt;
+      &lt;h3 id=&quot;centos-7-64-系统&quot;&gt;&lt;a href=&quot;#centos-7-64-系统&quot; class=&quot;headerlink&quot; title=&quot;centos 7(64) 系统&quot;&gt;&lt;/a&gt;centos 7(64) 系统&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;防火墙&lt;/li&gt;
 &lt;/ol&gt;
-      
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;查看防火墙是否开启&lt;br&gt;&lt;code&gt;firewall-cmd --state&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;重载防火墙,使新规则生效&lt;br&gt;&lt;code&gt;firewall-cmd --complete-reload&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;启动&amp;amp;停止 防火墙&lt;br&gt;&lt;code&gt;sytemctl start firewalld&lt;/code&gt;&lt;br&gt;&lt;code&gt;systemctl stop firewalld&lt;/code&gt;&lt;/p&gt;
     
     </summary>
     
@@ -70,15 +100,21 @@
     <link href="http://wens07.github.io/2018/12/07/cpp%E6%B8%A9%E6%95%85%E7%9F%A5%E6%96%B0(c++17)/"/>
     <id>http://wens07.github.io/2018/12/07/cpp温故知新(c++17)/</id>
     <published>2018-12-07T14:39:40.000Z</published>
-    <updated>2019-02-12T05:41:50.000Z</updated>
+    <updated>2019-03-01T05:52:34.000Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;h3 id=&quot;storage-duration&quot;&gt;&lt;a href=&quot;#storage-duration&quot; class=&quot;headerlink&quot; title=&quot;storage duration&quot;&gt;&lt;/a&gt;storage duration&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;stro
-      
+      &lt;h3 id=&quot;storage-duration&quot;&gt;&lt;a href=&quot;#storage-duration&quot; class=&quot;headerlink&quot; title=&quot;storage duration&quot;&gt;&lt;/a&gt;storage duration&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;automatic&lt;/strong&gt; storage duration&lt;br&gt;The storage for the object is allocated at the beginning of the enclosing code block and deallocated at the end. All local objects have this storage duration, except those declared static, extern or thread_local.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;static&lt;/strong&gt; storage duration&lt;br&gt;The storage for the object is allocated when the program begins and deallocated when the program ends. Only one instance of the object exists. All objects declared at namespace scope (including global namespace) have this storage duration, plus those declared with static or extern.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;thread_local&lt;/strong&gt; storage duration&lt;br&gt;The storage for the object is allocated when the thread begins and deallocated when the thread ends. Each thread has its own instance of the object. Only objects declared thread_local have this storage duration. thread_local can appear together with static or extern to adjust linkage.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;dynamic&lt;/strong&gt; storage duration&lt;br&gt;The storage for the object is allocated and deallocated per request by using dynamic memory allocation functions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -300,7 +336,7 @@ b: 3
     <link href="http://wens07.github.io/2017/11/03/cmake%E5%A4%87%E5%BF%98-2017-11-03/"/>
     <id>http://wens07.github.io/2017/11/03/cmake备忘-2017-11-03/</id>
     <published>2017-11-03T09:55:00.000Z</published>
-    <updated>2018-08-18T04:36:41.444Z</updated>
+    <updated>2019-02-25T05:50:56.000Z</updated>
     
     <summary type="html">
     
@@ -368,7 +404,7 @@ b: 3
     <link href="http://wens07.github.io/2017/05/18/blockchain%20--%20encryption%20and%20decryption-2017-05-18/"/>
     <id>http://wens07.github.io/2017/05/18/blockchain -- encryption and decryption-2017-05-18/</id>
     <published>2017-05-18T08:49:00.000Z</published>
-    <updated>2018-10-31T02:01:24.000Z</updated>
+    <updated>2019-02-27T02:39:07.000Z</updated>
     
     <summary type="html">
     
@@ -515,31 +551,6 @@ b: 3
       <category term="script" scheme="http://wens07.github.io/tags/script/"/>
     
       <category term="python" scheme="http://wens07.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker&amp;virtualization</title>
-    <link href="http://wens07.github.io/2017/01/18/docker&amp;virtualization-2017-01-18/"/>
-    <id>http://wens07.github.io/2017/01/18/docker&amp;virtualization-2017-01-18/</id>
-    <published>2017-01-18T03:21:00.000Z</published>
-    <updated>2018-09-29T07:16:50.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;设置docker加速器&quot;&gt;&lt;a href=&quot;#设置docker加速器&quot; class=&quot;headerlink&quot; title=&quot;设置docker加速器&quot;&gt;&lt;/a&gt;设置docker加速器&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;Docker版本为1.12或更高&lt;br&gt;创建或编辑/etc/docker/daemon.json, 修改成如下形式：&lt;figure class=&quot;highlight json&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;&quot;registry-mirrors&quot;&lt;/span&gt;: [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&quot;加速地址&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;&quot;insecure-registries&quot;&lt;/span&gt;: []&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
-    
-    
-      <category term="tool" scheme="http://wens07.github.io/tags/tool/"/>
-    
-      <category term="docker" scheme="http://wens07.github.io/tags/docker/"/>
     
   </entry>
   

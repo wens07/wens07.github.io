@@ -585,7 +585,7 @@
   <entry>
     <title><![CDATA[hexo博客配置与优化(一)]]></title>
     <url>%2F2015%2F01%2F01%2F2015-1-hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BC%98%E5%8C%96-%E4%B8%802015-01-01%2F</url>
-    <content type="text"><![CDATA[添加统计代码添加Google与百度统计 在”path/yourtheme/_config.yml”中添加如下一行:baidu_tongji: true 在path/yourtheme/layout/_partial下添加一个baidu-tongji.ejs, 并加入你在百度统计中得到的代码，我的如下所示： 在你要显示百度统计的地方加入下面一行代码，比如我的是在after-footer.ejs&lt;%- partial(&#39;baidu-tongji&#39;) %&gt; 以上以百度统计为例，因为Google统计因为墙的原因可能会有某些问题。 提交sitemap分别到Google站长平台和百度站长平台根据提示进行相关设置和提交sitemap,等待一段时间后(没研究过具体要多久，反正第二天肯定是可以了)，即可实现站内搜索。]]></content>
+    <content type="text"><![CDATA[添加统计代码添加Google与百度统计 在”path/yourtheme/_config.yml”中添加如下一行:baidu_tongji: true 在path/yourtheme/layout/_partial下添加一个baidu-tongji.ejs, 并加入你在百度统计中得到的代码，我的如下所示： 在你要显示百度统计的地方加入下面一行代码，比如我的是在after-footer.ejs&lt;%- partial(&#39;baidu-tongji&#39;) %&gt; 以上以百度统计为例，因为Google统计因为墙的原因可能会有某些问题。 提交sitemap分别到Google站长平台和百度站长平台根据提示进行相关设置和提交sitemap,等待一段时间后(没研究过具体要多久，反正第二天肯定是可以了)，即可实现站内搜索。 修改文章内超链样式themes\next\source\css\_custom\custom.styl 修改底部标签样式修改themes\next\layout_macro\post.swig中文件，command+f搜索rel=”tag”&gt;#，将#替换成]]></content>
       <categories>
         <category>technique</category>
       </categories>

@@ -94,10 +94,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=7.0.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Panda_Kungfu_32px_556429_easyicon.net.png?v=7.0.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=7.0.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Panda_Kungfu_16px_556429_easyicon.net.png?v=7.0.1">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
@@ -145,7 +145,7 @@
 <meta property="og:description" content="添加统计代码添加Google与百度统计 在”path/yourtheme/_config.yml”中添加如下一行:baidu_tongji: true">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wens07.github.io/images/baidutongji.png">
-<meta property="og:updated_time" content="2019-03-03T15:38:46.486Z">
+<meta property="og:updated_time" content="2019-03-04T12:21:40.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo博客配置与优化(一)">
 <meta name="twitter:description" content="添加统计代码添加Google与百度统计 在”path/yourtheme/_config.yml”中添加如下一行:baidu_tongji: true">
@@ -455,7 +455,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-03 23:38:46" itemprop="dateModified" datetime="2019-03-03T23:38:46+08:00">2019-03-03</time>
+                <time title="修改时间：2019-03-04 20:21:40" itemprop="dateModified" datetime="2019-03-04T20:21:40+08:00">2019-03-04</time>
               
             
           </span>
@@ -521,7 +521,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">507</span>
+                <span title="本文字数">1.1k</span>
               
 
               
@@ -569,6 +569,17 @@
 <h3 id="提交sitemap"><a href="#提交sitemap" class="headerlink" title="提交sitemap"></a>提交sitemap</h3><p>分别到<a href="https://www.google.com/webmasters/tools/home" target="_blank" rel="noopener">Google站长平台</a>和<a href="http://zhanzhang.baidu.com/" target="_blank" rel="noopener">百度站长平台</a>根据提示进行相关设置和提交sitemap,等待一段时间后(没研究过具体要多久，反正第二天肯定是可以了)，即可实现站内搜索。</p>
 <h3 id="修改文章内超链样式"><a href="#修改文章内超链样式" class="headerlink" title="修改文章内超链样式"></a>修改文章内超链样式</h3><p><code>themes\next\source\css\_custom\custom.styl</code></p>
 <h3 id="修改底部标签样式"><a href="#修改底部标签样式" class="headerlink" title="修改底部标签样式"></a>修改底部标签样式</h3><p>修改themes\next\layout_macro\post.swig中文件，command+f搜索rel=”tag”&gt;#，将#替换成<i class="fa fa-tag"></i></p>
+<h3 id="在文章末尾添加“文章结束”标记"><a href="#在文章末尾添加“文章结束”标记" class="headerlink" title="在文章末尾添加“文章结束”标记"></a>在文章末尾添加“文章结束”标记</h3><ol>
+<li><p>在<code>themes\next\layout\_macro文件夹中新建passage-end-tag.swig文件</code>, 并添加如下内容：</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    </span><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> not is_index %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"text-align:center;color: #ccc;font-size:14px;"</span>&gt;</span>-------------本文结束<span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-paw"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>感谢您的阅读-------------<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    </span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>themes\next\layout\_macro\post.swig</code>中<code>post-body</code>结束后，添加如下内容：</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">  </span><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> not is_index %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">    </span><span class="template-tag">&#123;% <span class="name"><span class="name">include</span></span> 'passage-end-tag.swig' %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">  </span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改主题配置文件，添加如下内容：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文章末尾添加“本文结束”标记</span></span><br><span class="line"><span class="attr">passage_end_tag:</span></span><br><span class="line"><span class="attr">  enabled:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
@@ -578,6 +589,16 @@
     
     
     
+
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
 
     
 
@@ -885,7 +906,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加统计代码"><span class="nav-number">1.</span> <span class="nav-text">添加统计代码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#添加Google与百度统计"><span class="nav-number">1.0.1.</span> <span class="nav-text">添加Google与百度统计</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#提交sitemap"><span class="nav-number">2.</span> <span class="nav-text">提交sitemap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章内超链样式"><span class="nav-number">3.</span> <span class="nav-text">修改文章内超链样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改底部标签样式"><span class="nav-number">4.</span> <span class="nav-text">修改底部标签样式</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加统计代码"><span class="nav-number">1.</span> <span class="nav-text">添加统计代码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#添加Google与百度统计"><span class="nav-number">1.0.1.</span> <span class="nav-text">添加Google与百度统计</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#提交sitemap"><span class="nav-number">2.</span> <span class="nav-text">提交sitemap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章内超链样式"><span class="nav-number">3.</span> <span class="nav-text">修改文章内超链样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改底部标签样式"><span class="nav-number">4.</span> <span class="nav-text">修改底部标签样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在文章末尾添加“文章结束”标记"><span class="nav-number">5.</span> <span class="nav-text">在文章末尾添加“文章结束”标记</span></a></li></div>
             
 
           </div>
@@ -925,7 +946,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">75k</span>
+    <span title="站点总字数">76k</span>
   
 
   
@@ -934,7 +955,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">1:08</span>
+    <span title="站点阅读时长">1:09</span>
   
 </div>
 

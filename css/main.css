@@ -1946,7 +1946,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a22a04;
+  background: #2296ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3141,6 +3141,9 @@ ul.breadcrumb li+li:last-child {
   border-top-style: solid;
   border-top-color: #a166ab;
   box-shadow: 0px -10px 10px 0px rgba(0,0,0,0.15);
+}
+.footer-inner {
+  padding-left: 0px;
 }
 .posts-expand .post-tags a {
   border-bottom: none;

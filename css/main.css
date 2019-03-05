@@ -1946,7 +1946,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2296ff;
+  background: #ffa7ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3608,7 +3608,7 @@ code.description {
 }
 @media (max-width: 767px) {
   .site-title {
-    font-size: 70px !important;
+    font-size: 20px !important;
     letter-spacing: 0px !important;
   }
   .site-subtitle {

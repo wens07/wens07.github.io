@@ -33,9 +33,9 @@
     
     </summary>
     
-      <category term="随笔" scheme="http://wens07.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
       <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+      <category term="随笔" scheme="http://wens07.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
       <category term="algorithm" scheme="http://wens07.github.io/tags/algorithm/"/>
@@ -47,23 +47,22 @@
     <link href="http://wens07.github.io/2019/03/06/eos/"/>
     <id>http://wens07.github.io/2019/03/06/eos/</id>
     <published>2019-03-06T14:39:40.000Z</published>
-    <updated>2019-03-06T07:02:05.000Z</updated>
+    <updated>2019-03-12T12:33:58.167Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;获取抵押列表&lt;br&gt;&lt;code&gt;cleos -u http://jungle2.cryptolions.io:80  system listbw wenstestnet1&lt;/code&gt;&lt;/li&gt;
+      &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Developer reference site&lt;br&gt;&lt;a href=&quot;https://developers.eos.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;EOSIO Developer Portal&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;mainnet &amp;amp; testnet site&lt;br&gt;&lt;a href=&quot;https://bloks.io/wallet&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;eos mainnet&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://monitor.jungletestnet.io/#home&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;eos jungle2.0 testnet&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
-
-      
     
     </summary>
     
-      <category term="随笔" scheme="http://wens07.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
       <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+      <category term="随笔" scheme="http://wens07.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
       <category term="eos" scheme="http://wens07.github.io/tags/eos/"/>
@@ -88,14 +87,14 @@
     
     </summary>
     
-      <category term="随笔" scheme="http://wens07.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
       <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
     
+      <category term="随笔" scheme="http://wens07.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="c/c++" scheme="http://wens07.github.io/tags/c-c/"/>
     
       <category term="读书笔记" scheme="http://wens07.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="c/c++" scheme="http://wens07.github.io/tags/c-c/"/>
     
   </entry>
   
@@ -174,14 +173,14 @@
     
     </summary>
     
-      <category term="随笔" scheme="http://wens07.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
       <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
     
+      <category term="随笔" scheme="http://wens07.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="c/c++" scheme="http://wens07.github.io/tags/c-c/"/>
     
       <category term="读书笔记" scheme="http://wens07.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="c/c++" scheme="http://wens07.github.io/tags/c-c/"/>
     
   </entry>
   
@@ -247,9 +246,9 @@ b: 3
     
     </summary>
     
-      <category term="随笔" scheme="http://wens07.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
       <category term="technique" scheme="http://wens07.github.io/categories/technique/"/>
+    
+      <category term="随笔" scheme="http://wens07.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
       <category term="读书笔记" scheme="http://wens07.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>

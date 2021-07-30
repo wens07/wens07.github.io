@@ -102,8 +102,14 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: git
+- type: git
   repo: https://github.com/wens07/wens07.github.io.git
   branch: master
   message:
+
+- type: rsync
+  host: 188.127.237.203
+  user: root
+  root: /root/website
+
 

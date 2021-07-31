@@ -107,9 +107,4 @@ deploy:
   branch: master
   message:
 
-- type: rsync
-  host: 188.127.237.203
-  user: root
-  root: /root/website
-
 

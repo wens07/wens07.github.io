@@ -1,7 +1,7 @@
 ---
 layout: post
 title: rust读书笔记
-date: 2019-03-31 22:39:40
+date: 2020-03-31 22:39:40
 categories: 
   - [technique]
   - [随笔]

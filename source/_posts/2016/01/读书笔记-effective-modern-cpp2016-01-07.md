@@ -2,7 +2,7 @@
 layout: post
 title: 读书笔记 effective modern c++
 date: 2016-01-07 22:39:40
-categories: 
+categories:
   - [technique]
   - [随笔]
 tags: [读书笔记, c/c++]
@@ -268,7 +268,7 @@ cv.notify_one()
 
 {
 std::unique_lock<std::mutex> ul(m);
-cond.wait(ul, []{return flag;})  // should use condition, avoid spurious wakeup or cannot wakeup forever
+cv.wait(ul, []{return flag;})  // should use condition, avoid spurious wakeup or cannot wakeup forever
 }
 
 

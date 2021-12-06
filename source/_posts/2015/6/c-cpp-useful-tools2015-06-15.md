@@ -29,7 +29,7 @@ see the symbol table
 `nm libwens.so`
 
 ### strings
-find the printable strings in a object, or other binary, file 
+find the printable strings in a object, or other binary, file
 
 
 ### clang++ & g++ options
@@ -49,7 +49,7 @@ find the printable strings in a object, or other binary, file
 #       error Boost.PFR library requires MSVC with c++17 support (Visual Studio 2017 or later).
 #   endif
 #elif __cplusplus < 201402L
-#   error Boost.PFR library requires at least C++14.    
+#   error Boost.PFR library requires at least C++14.
 #endif
 ```
 
@@ -72,5 +72,21 @@ find the printable strings in a object, or other binary, file
 1. intel vtune amplifier
 
 
-
+### gdb
+1. `break xxxx if xxxx`
+2.  break then execute command
+```
+(gdb) b do_mmap_pgoff
+Breakpoint 1 at 0xffffffff8111a441: file mm/mmap.c, line 940.
+(gdb) command 1
+Type commands for when breakpoint 1 is hit, one per line.
+End with a line saying just "end".
+>print addr
+>print len
+>print prot
+>end
+(gdb)
+```
+3. `gdb --args pizzamaker --deep-dish --toppings=pepperoni`
+4. `macro expand task_is_stopped_or_traced(init_task)`
 

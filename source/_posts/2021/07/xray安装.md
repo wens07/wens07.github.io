@@ -1,7 +1,7 @@
 ---
 title: xray安装
 date: 2021-07-30 10:15:00
-updated: 2021-07-30 10:15:00
+updated: 2021-11-30 10:15:00
 categories: technique
 tags: [tool]
 keywords: [xray, v2ray, proxy]
@@ -28,6 +28,8 @@ toc:
 - 开机启动或停止 防火墙
 `systemctl enable firewalld`
 `systemctl disable firewalld`
+
+<!-- more -->
 
 2. 添加端口
 

@@ -2,7 +2,8 @@
 layout: post
 title: rust读书笔记
 date: 2020-03-31 22:39:40
-categories: 
+updated: 2021-11-10 08:40:59
+categories:
   - [technique]
   - [随笔]
 tags: [读书笔记, rust]
@@ -20,7 +21,7 @@ toc:
 <!-- more -->
 
 - macros
-  1. declarative macro  
+  1. declarative macro
     `macro_rules! vec{}`
   2. procedural macro (custom derive, attribute-like, function-like)
     ```rust
@@ -38,6 +39,9 @@ toc:
         Pancakes::hello_macro();
     }
     ```
+  3. some macros
+     - `#[derive(Debug)]` :to use Debug trait(printable {:?})
+     - `#[cfg(test)]`: let rust only compile such code when use cargo test
 
 - main two return style
 ```rust
@@ -83,7 +87,7 @@ fn some_function<T, U>(t: &T, u: &U) -> i32
           U: Clone + Debug{}
 ```
 
-- lifetime 
+- lifetime
 
 1. `'static` means the reference can live in entire program.
 2. lifetime ellision
@@ -93,7 +97,6 @@ fn some_function<T, U>(t: &T, u: &U) -> i32
 >
 >rule three: if there are multiple input lifetime parameters, but one of them is &self or &mut self because this is a method, the lifetime of self is assigned to all output lifetime parameters.
 
-```
 
 ### module
 1. the path of module

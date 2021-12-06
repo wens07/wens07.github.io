@@ -1,3 +1,15 @@
+---
+layout: post
+title: markdown-usage
+date: 2020-03-31 22:39:40
+updated: 2020-03-31 22:39:40
+categories:
+  - [随笔]
+tags: [读书笔记, markdown]
+keywords: ["markdown", "读书笔记"]
+toc:
+---
+
 ## insert picture
 ![show name](the location of picture)
 

@@ -1,3 +1,16 @@
+---
+layout: post
+title: rocksdb笔记
+date: 2020-06-31 22:39:40
+updated: 2020-06-31 22:39:40
+categories:
+  - [technique]
+  - [随笔]
+tags: [读书笔记, rocksdb]
+keywords: ["rocksdb", "读书笔记"]
+toc:
+---
+
 ### rocksdb 读写
 ![rockdb read_write](../images/2021/rocksdb_readwrite.jpg)
 
@@ -5,13 +18,13 @@
   it can be used to completely recover the data in memtable
 
   > Options::wal_dir: the directory to store wal files
-  > Options::wal_ttl: the timeout to delete the wal file 
+  > Options::wal_ttl: the timeout to delete the wal file
 
-- memtable: the write cache of rocksdb  
+- memtable: the write cache of rocksdb
 - block cache: the read cache of rocksdb
 
 
-> when write, it write memtable and wal at the same time  
+> when write, it write memtable and wal at the same time
 > when read, it will read  memtable and block cache first, then read sstable
 
 > by default, when we flush the memtable to table file, we also delete the wal file, since we don't need it anymore for recovery(the data from the log is "persisted" in table file)
@@ -38,13 +51,13 @@ Internally, each SSTable contains a sequence of blocks (typically each block is 
 1. options::disable_auto_compactions
 disable automatic compaction
 
-2. options.compaction_style 
+2. options.compaction_style
 enable/disable compaction and set compaction style
 
-3. options.compaction_pri 
+3. options.compaction_pri
 indicated different algorithms to pick files to compact
 
-- other  
+- other
 dynamic level size target mode: enable it by set  *options.level_compaction_dynamic_level_bytes=true*.
 
 level-based compaction

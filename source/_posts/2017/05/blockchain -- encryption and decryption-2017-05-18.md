@@ -21,10 +21,19 @@ secp256k1(the parameters of ecdsa used in bitcoin)
 1. scrypt
 2. pbkdf2
 
-### proof of stake 
+### proof of stake
 1. the node(producing block) selection:
     two most commonly used methods: 'Randomised Block Selection' and  'Coin Age Selection'
 
-### dpow 
+### dpow
 
 **also see post in {% post_link bitcoin-2017-05-19 %}**
+
+### DSA && ECDSA
+both based on no generally efficient solution to solve a discrete logarithm problem
+- DSA: discrete logarithm problem with modular exponentiation
+- ecdsa: discrete logarithm problem wiht elliptic curves
+
+### ECDSA && EdDSA
+1. using different family of elliptic curve
+2. EdDSA While offering slight advantages in speed over ECDSA, its popularity comes from an improvement in security. Instead of relying on a random number for the nonce value, EdDSA generates a nonce deterministically as a hash making it collision resistant

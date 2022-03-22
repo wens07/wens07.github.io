@@ -2,7 +2,7 @@
 layout: post
 title: cpp温故知新(c++17)
 date: 2018-12-07 22:39:40
-categories: 
+categories:
   - [technique]
   - [随笔]
 tags: [读书笔记, c/c++]
@@ -11,10 +11,10 @@ toc:
 ---
 
 ### storage duration
-- **automatic** storage duration  
+- **automatic** storage duration
 The storage for the object is allocated at the beginning of the enclosing code block and deallocated at the end. All local objects have this storage duration, except those declared static, extern or thread_local.
 
-- **static** storage duration  
+- **static** storage duration
  The storage for the object is allocated when the program begins and deallocated when the program ends. Only one instance of the object exists. All objects declared at namespace scope (including global namespace) have this storage duration, plus those declared with static or extern.
 
  - **thread_local** storage duration
@@ -24,12 +24,12 @@ The storage for the object is allocated at the beginning of the enclosing code b
 The storage for the object is allocated and deallocated per request by using dynamic memory allocation functions.
 
 <!-- more -->
-### linkage 
-- no linkage  
-  The name can be referred to only from the scope it is in.  
+### linkage
+- no linkage
+  The name can be referred to only from the scope it is in.
 variables in block scope(except extern)
 
-- static linkage  
+- static linkage
   The name can be referred to from all scopes in the current translation unit.
 
 variable in namespace scope
@@ -83,10 +83,10 @@ int main() {
     Test t;
     auto v = t.getname();
     printf("%s\n", typeid(v).name());
-   
+
     auto a = Test{}.getname();
     printf("%s\n", typeid(a).name());
-   
+
 
 
     getchar();
@@ -98,15 +98,15 @@ int main() {
 
 - value categories
 
-expression -> glvalue(generalized lvalue) and rvalue  
-glvalue -> lvalue and xvalue(expiring value)  
-rvalue -> xvalue and prvalue(pure rvalue)  
+expression -> glvalue(generalized lvalue) and rvalue
+glvalue -> lvalue and xvalue(expiring value)
+rvalue -> xvalue and prvalue(pure rvalue)
 
 
-simple:  
-lvalue: everything has name and string literal (identiy of an object)  
-prvalue: temporaries and other literal (perform initialization/compute an object)  
-xvalue: value from std::move() (denote an object whose resource can be reused)  
+simple:
+lvalue: everything has name and string literal (identiy of an object)
+prvalue: temporaries and other literal (perform initialization/compute an object)
+xvalue: value from std::move() (denote an object whose resource can be reused)
 **glvalue produce locations, prvalue preform initialize **
 
 c++17:
@@ -118,7 +118,7 @@ materialization to get temporary object -> prvalue to xvalue conversion
 ### lambda funcion vs std::function
 
 1. std::function cannot inline by compiler
-2. when lambda with capture assigned to std::function, std::function will do heap allocation(some implementation may not heap-alloacte when less than specific threshhold) 
+2. when lambda with capture assigned to std::function, std::function will do heap allocation(some implementation may not heap-alloacte when less than specific threshhold)
 
 ### sizeof & alignof
 1. alignof(T) = max(alignof(member1), alignof(member2)...)
@@ -187,7 +187,7 @@ Salution s{17}
 
 ```cpp
 //with P0883 maybe fixed in c++20
-std::atomic<int> x1;    //does zero initialize 
+std::atomic<int> x1;    //does zero initialize
 std::atomic<int> x2{};  //does not zero initialize
 
 struct counter {
@@ -213,8 +213,8 @@ assert((c == std::complex{0, 0})); //ok
 1. registers
 rax(64) ->  eax(32) -> ax(16) -> ah(8) and al(8) (left bits zeroed)
 
-`rax`: return value  
-`rdi`: 1st param  
+`rax`: return value
+`rdi`: 1st param
 `rsi`: 2nd param
 
 
@@ -255,3 +255,13 @@ rax(64) ->  eax(32) -> ax(16) -> ah(8) and al(8) (left bits zeroed)
 - avoid std::endl
 - prefer return std::unique_ptr<T> to std::shared_ptr<T>
 
+### shared_ptr thread safe
+1. [atomic smart pointers](https://www.modernescpp.com/index.php/atomic-smart-pointers)
+
+### spinlock
+- in user mode or general application mode, you should avoid spinlock.
+- in kernel mode(low-level stuff), you only hold the lock about several instructions and latency is important,
+a spinlock maybe better solution than a lock.
+
+
+###

@@ -1,12 +1,13 @@
 ---
 layout: post
-title: cpp温故知新(c++17)
+title: cpp温故知新(c++20)
 date: 2018-12-07 22:39:40
+updated: 2023-04-10 19:15:00
 categories:
   - [technique]
   - [随笔]
 tags: [读书笔记, c/c++]
-keywords: ["c++", "c++17", 读书笔记]
+keywords: ["c++", "c++17"， "c++20", 读书笔记]
 toc:
 ---
 
@@ -264,4 +265,9 @@ rax(64) ->  eax(32) -> ax(16) -> ah(8) and al(8) (left bits zeroed)
 a spinlock maybe better solution than a lock.
 
 
-###
+###  c++17&c++20 new features
+- c++17
+fold expressions, typename in template parameters, auto for non-type template parameter, class template argument deduction
+
+- c++20
+template lambdas, string literals as non-type template parameters, constrains(template requires), concepts

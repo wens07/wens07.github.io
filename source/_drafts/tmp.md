@@ -1,8 +1,8 @@
 ### centos clear old kernels
-1. `rpm -q kernel`   
+1. `rpm -q kernel`
     list current all kernels
 
-2. `sudo yum install yum-utils`    
+2. `sudo yum install yum-utils`
     `sudo package-cleanup --oldkernels --count=2`
 
 
@@ -26,7 +26,7 @@ sdelete -s
 `VBoxManage modifyhd vm.vdi --compact`
 
 #### disk resize(default size:M)
-`VBoxManage modifymedium Debian.vdi --resize 30960 --compact` 
+`VBoxManage modifymedium Debian.vdi --resize 30960 --compact`
 
 
 ### thread-safe initialization of data
@@ -101,3 +101,7 @@ using make_array_n_t = typename make_array_n<T, SIZE, N>::type;
 ### c++ initialization
 ![c++ initialization](/images/cpp_init.jpg)
 
+### registers on x86-64 architecture
+1. return register: eax
+>> trivial return type can be return by return register, but non-trivial things
+shoud return by the return slot(by a hidden parameter)

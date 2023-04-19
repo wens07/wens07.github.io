@@ -7,7 +7,7 @@ categories:
   - [technique]
   - [随笔]
 tags: [读书笔记, c/c++]
-keywords: ["c++", "c++17"， "c++20", 读书笔记]
+keywords: ["c++", "c++17", "c++20", 读书笔记]
 toc:
 ---
 

@@ -16,7 +16,7 @@ Following is an example maze.
 
 > Gray blocks are dead ends(value = 0).
 
-![ratinmaze_filled](/images/2016/ratinmaze_filled11.png)
+![ratinmaze_filled](/source/images/2016/ratinmaze_filled11.png)
 
 <!-- more -->
 Following is binary matrix representation of the above maze
@@ -29,7 +29,7 @@ Following is binary matrix representation of the above maze
 ```
 
 Following is maze with highlighted solution path.
-![ratinmaze_filled_path](/images/2016/ratinmaze_filled_path1.png)
+![ratinmaze_filled_path](/source/images/2016/ratinmaze_filled_path1.png)
 
 Following is the solution matrix(output of program) for the above input maze.
 
@@ -155,7 +155,7 @@ bool solveMazeUtil(int maze[N][N], int x, int y, int sol[N][N])
             unmark x,y as part of solution path */
         sol[x][y] = 0;
         return false;
-    }   
+    }
 
     return false;
 }

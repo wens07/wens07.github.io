@@ -97,9 +97,9 @@ using make_array_n_t = typename make_array_n<T, SIZE, N>::type;
 
 ```
 
-
+<!--
 ### c++ initialization
-![c++ initialization](/images/cpp_init.jpg)
+not to image [c++ initialization](/images/cpp_init.jpg) -->
 
 ### registers on x86-64 architecture
 1. return register: eax

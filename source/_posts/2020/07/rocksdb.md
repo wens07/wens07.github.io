@@ -12,7 +12,7 @@ toc:
 ---
 
 ### rocksdb 读写
-![rockdb read_write](../images/2021/rocksdb_readwrite.jpg)
+![rockdb read_write](/source/images/2021/rocksdb_readwrite.jpg)
 
 - wal: write ahead log
   it can be used to completely recover the data in memtable
@@ -34,7 +34,7 @@ toc:
 - sst: sorted string table
 - lsm tree: Log Structured Merge Tree
 
-![lsm tree](../images/2021/lsm_tree_example1.png)
+![lsm tree](/source/images/2021/lsm_tree_example1.png)
 
 On level 0, files are sorted based on the time they are flushed. Their key range (as defined by FileMetaData.smallest and FileMetaData.largest) are mostly overlapped with each other. So it needs to look up every L0 file. As a result, key/values are moved from L0 down the LSM tree gradually. Compaction sorts key/values and split them into files. From level 1 and below, SST files are sorted based on key
 

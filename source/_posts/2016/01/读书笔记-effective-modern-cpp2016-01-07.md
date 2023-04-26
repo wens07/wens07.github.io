@@ -116,7 +116,7 @@ auto&& var2 = var1;
 ### smart pointers
 1. shared_ptr
 shared_ptr 是普通raw pointer的两倍大小，它通常含有两个ptr，如下图所示：
-![shared_ptr](/images/2016/shared_ptr.png)
+![shared_ptr](/source/images/2016/shared_ptr.png)
   以下三种情况会创建control block：
   - std::make_shared 总是会创建
   - 当shared_ptr由unique_ptr构造
@@ -127,7 +127,7 @@ shared_ptr 是普通raw pointer的两倍大小，它通常含有两个ptr，如�
 用于悬浮指针的情况, 可以使用std::weak_ptr::lock成员函数知道其持有的指针是否dangle; 它返回一个std::shared_ptr指针，如果dangle，则返回NULL
 可以用一下两个例子说明：
   - 两个shared_ptr指向同个pointer，其中一个shared_ptr被destroy的情况
-![weak_ptr](/images/2016/weak_ptr.png)
+![weak_ptr](/source/images/2016/weak_ptr.png)
   如上图所示：A, C share指向B， B也指向A（此时可用weak_ptr）; A指针destroy的情况。
 
   - observer设计模式中

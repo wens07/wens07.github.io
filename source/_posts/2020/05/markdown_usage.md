@@ -12,7 +12,15 @@ toc:
 
 ## insert picture
 ![show name](the location of picture)
+>> ![bios wakeonlan](/source/images/2023/bios_wake_on_lan.bmp)
 
+
+## 换行
+- 行尾两个空格或多个空格或换行符
+- 使用<br>
+
+## 多级有序列表
+下一级做两个空格的缩进
 
 ## reference
 - '>'

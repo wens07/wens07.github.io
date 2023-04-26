@@ -20,16 +20,16 @@ toc:
 
 - 查看打开的端口
 `firewall-cmd --list-ports`
+<!-- more -->
 
 - 启动&停止 防火墙
 `sytemctl start firewalld`
 `systemctl stop firewalld`
-<!-- more -->
+
 - 开机启动或停止 防火墙
 `systemctl enable firewalld`
 `systemctl disable firewalld`
 
-<!-- more -->
 
 2. 添加端口
 

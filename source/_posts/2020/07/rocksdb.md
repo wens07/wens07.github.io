@@ -22,7 +22,7 @@ toc:
 
 - memtable: the write cache of rocksdb
 - block cache: the read cache of rocksdb
-
+<!-- more -->
 
 > when write, it write memtable and wal at the same time
 > when read, it will read  memtable and block cache first, then read sstable

@@ -75,8 +75,8 @@ certutil -hashfile xxx SHA256
 `g++ -fdump-class-hierarchy -c test.cpp`
 
 
-### go 
-1. go-wrk 
+### go
+1. go-wrk
 http benchmark utility
 `go get github.com/adjust/go-wrk`
 
@@ -130,3 +130,15 @@ add following line in import part
 
 ### 查看最常用10个命令
 `cat .bash_history | sort | uniq -c |  sort -rn | head -n 10`
+
+### ubuntu下查看以及修改core dump location
+`sysctl kernel.core_pattern` or ` cat /proc/sys/kernel/core_pattern`<br>
+`sudo sysctl -w kernel.core_pattern=/tmp/mydumps/core_%e.%p_%t`
+
+###  compile gcc[missing prerequisites]
+1. inside the gcc source dir, download
+`./contrib/download_prerequisites`
+2. missing gengtype-lex.cc
+`sudo apt install flex`
+3. build gcc
+``

@@ -2,7 +2,7 @@
 title: c/cpp-useful-tools
 date: 2015-06-15 11:57:15
 categories: technique
-tags: c/c++
+tags: [c/c++, command, tool]
 keywords: [c, c++, tool]
 toc:
 ---
@@ -95,3 +95,6 @@ End with a line saying just "end".
    `ctrl+x+2` swith between windows
 5. `ctrl+l` clear the gdb commandline or reflesh the screen
 6. `set print pretty on`  open print pretty
+7. `info share`  no info in bt, maybe miss sharelib
+8. `file the_exec_file`  no info in bt, maybe not read the symble of executable
+9. `start` go to program start(main function, generally)

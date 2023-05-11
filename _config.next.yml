@@ -820,8 +820,8 @@ plausible:
 # You can visit https://www.leancloud.cn to get AppID and AppKey.
 leancloud_visitors:
   enable: false
-  app_id: gIfwGB5XPR5CIwzUjy54fww0-gzGzoHsz
-  app_key: ct7WMS1aOrIvu1t17Snk7RA9
+  app_id: m0xoYy8HwJkM2xmIkVYaikAa-MdYXbMMI
+  app_key: i7hxbwPbNhHPhml8dvEyRkGn
   # Required for apps from CN region
   server_url: # <your server url>
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security

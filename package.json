@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@paralleldrive/cuid2": "github:paralleldrive/cuid2",
+    "@waline/hexo-next": "^3.0.1",
     "hexo": "^5.0.0",
     "hexo-deployer-git": "^3.0.0",
     "hexo-deployer-rsync": "^2.0.0",

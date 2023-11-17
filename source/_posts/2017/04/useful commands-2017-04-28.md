@@ -142,3 +142,9 @@ add following line in import part
 `sudo apt install flex`
 3. build gcc
 ``
+
+### search linux shell command by prefix
+1. ctrl + r<br>
+    type `ctrl + r` then type command prefix, you can keep typing `ctrl + r` to cycle previous matching commands
+2. ctrl + s<br>
+    search backwards in history.

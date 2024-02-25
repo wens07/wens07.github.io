@@ -97,7 +97,22 @@ int main() {
 
 ```
 
-- value categories
+
+5. constexpr<br>
+    may be available at compile-time but not guarantee<br>
+   consteval<br>
+    must evaluate at commpile time<br>
+    ```
+    if consteval {
+
+    }
+    ```
+
+   **you cannot evaluate runtime functions at compile-time**
+
+
+
+6.  value categories
 
 expression -> glvalue(generalized lvalue) and rvalue
 glvalue -> lvalue and xvalue(expiring value)

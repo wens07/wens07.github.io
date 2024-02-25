@@ -95,6 +95,11 @@ End with a line saying just "end".
    `ctrl+x+2` swith between windows
 5. `ctrl+l` clear the gdb commandline or reflesh the screen
 6. `set print pretty on`  open print pretty
-7. `info share`  no info in bt, maybe miss sharelib
-8. `file the_exec_file`  no info in bt, maybe not read the symble of executable
-9. `start` go to program start(main function, generally)
+7. `set print array-indexes on` open array index
+8. `info share`  no info in bt, maybe miss sharelib
+9. `file the_exec_file`  no info in bt, maybe not read the symble of executable
+10. `start` go to program start(main function, generally)
+11. `record` debug reverse
+12. `g++ -g3` for macro info, which -g is g2 for default
+13. `dprintf location, format_string`  dynamic printf in gdb
+14. `show non-stop/ show scheduler-locking`  gdb non-stop mode or all-stop mode

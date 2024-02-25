@@ -1,13 +1,14 @@
 ---
-title: ubuntu18.04LTS安装搜狗输入法
+title: ubuntu LTS安装软件
 date: 2018-08-24 16:52:02
-updated: 2018-08-24 16:52:02
+updated: 2024-2-25 10:52:02
 categories: technique
 tags: tool
-keywords: [ubuntu, sougou, 搜狗]
+keywords: [ubuntu, tool, install]
 toc:
 ---
 
+## 安转sogou输入法
 ### 卸载ibus
 
 `sudo apt remove ibus`
@@ -42,3 +43,29 @@ toc:
 ### 打开fcitx输入法配置
 
 进行配置sougou输入法
+
+## 安装、更新gcc版本以及各个版本选择
+1. install gcc
+```bash
+sudo apt update
+sudo apt install build-essential
+gcc --version
+```
+
+2. update apt list & add gcc test repo
+```bash
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+```
+
+3. install the needed gcc version
+```bash
+sudo apt update
+sudo apt install gcc-13 g++-13 -y
+```
+4. handle and set serveral gcc versions
+```bash
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-13 13 --slave /usr/bin/g++ g++ /usr/bin/g++-13
+sudo update-alternatives --config gcc
+```

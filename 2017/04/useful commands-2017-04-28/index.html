@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Panda_Kungfu_32px_556429_easyicon.net.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Panda_Kungfu_16px_556429_easyicon.net.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wengqiang.site","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="linux添加用户的相关命令 useradd  添加用户useradd -d &#x2F;home&#x2F;wengqiang -m wengqiang -s &#x2F;bin&#x2F;bash创建用户wengqiang  usermod 修改创建用户的相关属性usermod -s &#x2F;bin&#x2F;sh wengqiang修改用户wengqiang的登录shell   usermod -aG sudo wengqiang将用户wengq">
+<meta property="og:type" content="article">
+<meta property="og:title" content="useful commands">
+<meta property="og:url" content="http://wengqiang.site/2017/04/useful%20commands-2017-04-28/index.html">
+<meta property="og:site_name" content="WengQiang&#39;s Blog">
+<meta property="og:description" content="linux添加用户的相关命令 useradd  添加用户useradd -d &#x2F;home&#x2F;wengqiang -m wengqiang -s &#x2F;bin&#x2F;bash创建用户wengqiang  usermod 修改创建用户的相关属性usermod -s &#x2F;bin&#x2F;sh wengqiang修改用户wengqiang的登录shell   usermod -aG sudo wengqiang将用户wengq">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-04-28T08:16:00.000Z">
+<meta property="article:modified_time" content="2023-11-17T08:15:46.115Z">
+<meta property="article:author" content="wens.wq">
+<meta property="article:tag" content="command">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://wengqiang.site/2017/04/useful%20commands-2017-04-28/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://wengqiang.site/2017/04/useful%20commands-2017-04-28/","path":"2017/04/useful commands-2017-04-28/","title":"useful commands"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>useful commands | WengQiang's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://waline.wengqiang.site">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">WengQiang's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">where there is a will, there is a way!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E7%9A%84%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">linux添加用户的相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E7%9A%84owner%E4%BB%A5%E5%8F%8Agroup"><span class="nav-number">2.</span> <span class="nav-text">修改文件的owner以及group</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-mac-%E4%BA%A7%E7%94%9F%E9%9A%8F%E6%9C%BA%E4%B8%B2"><span class="nav-number">3.</span> <span class="nav-text">linux|mac 产生随机串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#windows%E4%B8%8B%E9%AA%8C%E8%AF%81%E6%A0%A1%E9%AA%8C%E7%A0%81%E5%91%BD%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">windows下验证校验码命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%9C%AC%E6%9C%BAip"><span class="nav-number">5.</span> <span class="nav-text">获取本机ip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8openssl%E7%94%9F%E6%88%90secp256k1%E7%9A%84key-pair"><span class="nav-number">6.</span> <span class="nav-text">使用openssl生成secp256k1的key-pair</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-%E7%A3%81%E7%9B%98%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">7.</span> <span class="nav-text">linux 磁盘相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clang-amp-g-%E6%98%BE%E7%A4%BA%E7%B1%BB%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E5%B8%83"><span class="nav-number">8.</span> <span class="nav-text">clang&amp;g++显示类的内存分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#go"><span class="nav-number">9.</span> <span class="nav-text">go</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%B5%8B%E7%AB%AF%E5%8F%A3%E6%98%AF%E5%90%A6%E4%BD%BF%E7%94%A8"><span class="nav-number">10.</span> <span class="nav-text">检测端口是否使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#windows%E6%B7%BB%E5%8A%A0%E5%90%AF%E5%8A%A8%E7%A8%8B%E5%BA%8F"><span class="nav-number">11.</span> <span class="nav-text">windows添加启动程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85bundle%E6%8F%92%E4%BB%B6"><span class="nav-number">12.</span> <span class="nav-text">安装bundle插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux%E4%B8%8B%E6%9F%A5%E7%9C%8Bc-%E7%BC%96%E8%AF%91%E5%90%8E%E7%9A%84symbols"><span class="nav-number">13.</span> <span class="nav-text">linux下查看c++编译后的symbols</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim-%E4%BF%9D%E5%AD%98%E6%97%B6%E8%8E%B7%E5%BE%97sudo%E6%9D%83%E9%99%90"><span class="nav-number">14.</span> <span class="nav-text">vim 保存时获得sudo权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9E%E6%8E%A5%E7%9A%84top10%E7%9A%84%E7%94%A8%E6%88%B7ip"><span class="nav-number">15.</span> <span class="nav-text">查看连接的top10的用户ip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%9C%80%E5%B8%B8%E7%94%A810%E4%B8%AA%E5%91%BD%E4%BB%A4"><span class="nav-number">16.</span> <span class="nav-text">查看最常用10个命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ubuntu%E4%B8%8B%E6%9F%A5%E7%9C%8B%E4%BB%A5%E5%8F%8A%E4%BF%AE%E6%94%B9core-dump-location"><span class="nav-number">17.</span> <span class="nav-text">ubuntu下查看以及修改core dump location</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#compile-gcc-missing-prerequisites"><span class="nav-number">18.</span> <span class="nav-text">compile gcc[missing prerequisites]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#search-linux-shell-command-by-prefix"><span class="nav-number">19.</span> <span class="nav-text">search linux shell command by prefix</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wens.wq"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">wens.wq</p>
+  <div class="site-description" itemprop="description">胡编一通, 乱写一气. 猴赛雷.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wens07" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wens07" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wens.wq@gmail.com" title="E-Mail → mailto:wens.wq@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/wens_wq" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wens_wq" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/3872400/wens07?tab=profile" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;3872400&#x2F;wens07?tab&#x3D;profile" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          友情链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://www.stroustrup.com/" title="http:&#x2F;&#x2F;www.stroustrup.com&#x2F;" rel="noopener" target="_blank">Bjarne Stroustrup's</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://awesomecpp.com/" title="http:&#x2F;&#x2F;awesomecpp.com" rel="noopener" target="_blank">Awesome Modern C++</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/isocpp/CppCoreGuidelines" title="https:&#x2F;&#x2F;github.com&#x2F;isocpp&#x2F;CppCoreGuidelines" rel="noopener" target="_blank">C++ Core Guidelines</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://isocpp.org/faq" title="https:&#x2F;&#x2F;isocpp.org&#x2F;faq" rel="noopener" target="_blank">C++ FAQ @ isocpp.org</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.v2ex.com/?r=wens07" title="http:&#x2F;&#x2F;www.v2ex.com&#x2F;?r&#x3D;wens07" rel="noopener" target="_blank">v2ex(way to explore)</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://wengqiang.site/2017/04/useful%20commands-2017-04-28/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wens.wq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WengQiang's Blog">
+      <meta itemprop="description" content="胡编一通, 乱写一气. 猴赛雷.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="useful commands | WengQiang's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          useful commands
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-04-28 16:16:00" itemprop="dateCreated datePublished" datetime="2017-04-28T16:16:00+08:00">2017-04-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-17 16:15:46" itemprop="dateModified" datetime="2023-11-17T16:15:46+08:00">2023-11-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technique/" itemprop="url" rel="index"><span itemprop="name">technique</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2017/04/useful%20commands-2017-04-28/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2017/04/useful%20commands-2017-04-28/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="linux添加用户的相关命令"><a href="#linux添加用户的相关命令" class="headerlink" title="linux添加用户的相关命令"></a>linux添加用户的相关命令</h3><ol>
+<li><p>useradd  添加用户<br><code>useradd -d /home/wengqiang -m wengqiang -s /bin/bash</code><br>创建用户wengqiang</p>
+</li>
+<li><p>usermod 修改创建用户的相关属性<br><code>usermod -s /bin/sh wengqiang</code><br>修改用户wengqiang的登录shell</p>
+</li>
+</ol>
+<p><code>usermod -aG sudo wengqiang</code><br>将用户wengqinag加入到sudo group中</p>
+<ol start="3">
+<li>passwd 修改用户的密码<br><code>passwd wengqiang</code></li>
+</ol>
+<h3 id="修改文件的owner以及group"><a href="#修改文件的owner以及group" class="headerlink" title="修改文件的owner以及group"></a>修改文件的owner以及group</h3><p><code>chown owner_name:group_name file_name</code></p>
+<span id="more"></span>
+
+
+<h3 id="linux-mac-产生随机串"><a href="#linux-mac-产生随机串" class="headerlink" title="linux|mac 产生随机串"></a>linux|mac 产生随机串</h3><ol>
+<li>linux上 <code>cat /dev/urandom | tr -dc A-Z9 | head -c $&#123;1:-81&#125;</code></li>
+<li>mac上 <code>cat /dev/urandom | LC_ALL=C tr -dc &#39;A-Z9&#39; | fold -w 81 | head -n 1</code></li>
+</ol>
+<h3 id="windows下验证校验码命令"><a href="#windows下验证校验码命令" class="headerlink" title="windows下验证校验码命令"></a>windows下验证校验码命令</h3><p><code>Certutil</code>(Certutil &#x2F;?)</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">certutil -hashfile xxx MD5</span><br><span class="line">certutil -hashfile xxx <span class="keyword">SHA1</span></span><br><span class="line"><span class="keyword"></span>certutil -hashfile xxx <span class="keyword">SHA256</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="获取本机ip"><a href="#获取本机ip" class="headerlink" title="获取本机ip"></a>获取本机ip</h3><p><code>curl https://ip.cn</code></p>
+<h3 id="使用openssl生成secp256k1的key-pair"><a href="#使用openssl生成secp256k1的key-pair" class="headerlink" title="使用openssl生成secp256k1的key-pair"></a>使用openssl生成secp256k1的key-pair</h3><ol>
+<li><p>生成<br><code>openssl ecparam -name secp256k1 -genkey -out ec-priv.pem</code></p>
+</li>
+<li><p>输出<br><code>openssl ec -in ec-priv.pem -text -noout</code></p>
+</li>
+</ol>
+<h3 id="linux-磁盘相关命令"><a href="#linux-磁盘相关命令" class="headerlink" title="linux 磁盘相关命令"></a>linux 磁盘相关命令</h3><ol>
+<li><p>blkid<br>列出机器上设备的uuid或label等信息</p>
+</li>
+<li><p>pvdisplay|pvcreate<br>显示physical volume相关信息或者创建physical volume</p>
+</li>
+<li><p>lvdisplay|lvcreate|vgextend vgdisplay|vgcreate|vgextend</p>
+</li>
+</ol>
+<h3 id="clang-amp-g-显示类的内存分布"><a href="#clang-amp-g-显示类的内存分布" class="headerlink" title="clang&amp;g++显示类的内存分布"></a>clang&amp;g++显示类的内存分布</h3><p><code>clang++ -cc1 -emit-llvm -fdump-record-layouts thefile.cpp</code><br><code>g++ -fdump-class-hierarchy -c test.cpp</code></p>
+<h3 id="go"><a href="#go" class="headerlink" title="go"></a>go</h3><ol>
+<li><p>go-wrk<br>http benchmark utility<br><code>go get github.com/adjust/go-wrk</code></p>
+</li>
+<li><p>go tool pprof<br>get profile info of the program</p>
+</li>
+</ol>
+<p>add following line in import part<br><code>import _ net/http/pprof</code></p>
+<p><code>go tool pprof --seconds=5 localhost:8000/debug/pprof/profile</code></p>
+<ol start="3">
+<li>go-torch<br><code>go get github.com/uber/go-torch</code></li>
+</ol>
+<h3 id="检测端口是否使用"><a href="#检测端口是否使用" class="headerlink" title="检测端口是否使用"></a>检测端口是否使用</h3><ol>
+<li><p>tcp port<br><code>telnet ip port</code></p>
+</li>
+<li><p>udp port<br><code>netcat(nc) -vnzu ip port</code></p>
+</li>
+</ol>
+<h3 id="windows添加启动程序"><a href="#windows添加启动程序" class="headerlink" title="windows添加启动程序"></a>windows添加启动程序</h3><ol>
+<li><p>用户下<br><code>win + r</code> <code>shell:startup</code> 打开当前用户的启动目录，将程序的快捷方式放入其中即可</p>
+</li>
+<li><p>系统下<br>“C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp”</p>
+</li>
+</ol>
+<h3 id="安装bundle插件"><a href="#安装bundle插件" class="headerlink" title="安装bundle插件"></a>安装bundle插件</h3><ol>
+<li>install Vundle.vim in …&#x2F;bundle folder</li>
+<li><code>nvim +PluginInstall +qall</code></li>
+</ol>
+<h3 id="linux下查看c-编译后的symbols"><a href="#linux下查看c-编译后的symbols" class="headerlink" title="linux下查看c++编译后的symbols"></a>linux下查看c++编译后的symbols</h3><p><code>nm a.out | grep c++filt</code></p>
+<h3 id="vim-保存时获得sudo权限"><a href="#vim-保存时获得sudo权限" class="headerlink" title="vim 保存时获得sudo权限"></a>vim 保存时获得sudo权限</h3><p><code>:w !sudo tee %</code></p>
+<h3 id="查看连接的top10的用户ip"><a href="#查看连接的top10的用户ip" class="headerlink" title="查看连接的top10的用户ip"></a>查看连接的top10的用户ip</h3><p><code>netstat -nat | awk &#39;&#123;print $5&#125;&#39; | awk -F &#39;:&#39; &#39;&#123;print $1&#125;&#39; | sort | uniq -c | sort -rn | head -n 10</code></p>
+<h3 id="查看最常用10个命令"><a href="#查看最常用10个命令" class="headerlink" title="查看最常用10个命令"></a>查看最常用10个命令</h3><p><code>cat .bash_history | sort | uniq -c |  sort -rn | head -n 10</code></p>
+<h3 id="ubuntu下查看以及修改core-dump-location"><a href="#ubuntu下查看以及修改core-dump-location" class="headerlink" title="ubuntu下查看以及修改core dump location"></a>ubuntu下查看以及修改core dump location</h3><p><code>sysctl kernel.core_pattern</code> or <code> cat /proc/sys/kernel/core_pattern</code><br><br><code>sudo sysctl -w kernel.core_pattern=/tmp/mydumps/core_%e.%p_%t</code></p>
+<h3 id="compile-gcc-missing-prerequisites"><a href="#compile-gcc-missing-prerequisites" class="headerlink" title="compile gcc[missing prerequisites]"></a>compile gcc[missing prerequisites]</h3><ol>
+<li>inside the gcc source dir, download<br><code>./contrib/download_prerequisites</code></li>
+<li>missing gengtype-lex.cc<br><code>sudo apt install flex</code></li>
+<li>build gcc<br>&#96;&#96;</li>
+</ol>
+<h3 id="search-linux-shell-command-by-prefix"><a href="#search-linux-shell-command-by-prefix" class="headerlink" title="search linux shell command by prefix"></a>search linux shell command by prefix</h3><ol>
+<li>ctrl + r<br><br> type <code>ctrl + r</code> then type command prefix, you can keep typing <code>ctrl + r</code> to cycle previous matching commands</li>
+<li>ctrl + s<br><br> search backwards in history.</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>wens.wq
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://wengqiang.site/2017/04/useful%20commands-2017-04-28/" title="useful commands">http://wengqiang.site/2017/04/useful commands-2017-04-28/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/command/" rel="tag"><i class="fa fa-tag"></i> command</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/03/Golang-2017-03-17/" rel="prev" title="Golang">
+                  <i class="fa fa-chevron-left"></i> Golang
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/05/screen%20memo-2017-05-05/" rel="next" title="screen memo">
+                  screen memo <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2013 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wens.wq</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline.wengqiang.site","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"emoji":["https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"meta":["nick","mail"],"requiredMeta":["nick","mail"],"pageSize":10,"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/2017/04/useful%20commands-2017-04-28/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

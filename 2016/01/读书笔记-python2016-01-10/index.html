@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Panda_Kungfu_32px_556429_easyicon.net.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Panda_Kungfu_16px_556429_easyicon.net.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wengqiang.site","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="create new object or modify the object create new object slice operator([:]); + operator;    dir 和 help 函数 var &#x3D; &#39;&#39;; dir(var) 可以输出var那个object中的所有方法。 var &#x3D; &#39;&#39;; ty &#x3D; type(var); help(ty.m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读书笔记 python">
+<meta property="og:url" content="http://wengqiang.site/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-python2016-01-10/index.html">
+<meta property="og:site_name" content="WengQiang&#39;s Blog">
+<meta property="og:description" content="create new object or modify the object create new object slice operator([:]); + operator;    dir 和 help 函数 var &#x3D; &#39;&#39;; dir(var) 可以输出var那个object中的所有方法。 var &#x3D; &#39;&#39;; ty &#x3D; type(var); help(ty.m">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-01-09T16:54:33.000Z">
+<meta property="article:modified_time" content="2022-03-22T02:07:06.033Z">
+<meta property="article:author" content="wens.wq">
+<meta property="article:tag" content="读书笔记">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://wengqiang.site/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-python2016-01-10/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://wengqiang.site/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-python2016-01-10/","path":"2016/01/读书笔记-python2016-01-10/","title":"读书笔记 python"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>读书笔记 python | WengQiang's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://waline.wengqiang.site">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">WengQiang's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">where there is a will, there is a way!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#create-new-object-or-modify-the-object"><span class="nav-number">1.</span> <span class="nav-text">create new object or modify the object</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dir-%E5%92%8C-help-%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">dir 和 help 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-x2F-c-%E8%B0%83%E7%94%A8python%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">c&#x2F;c++ 调用python函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0%E5%92%8Clist%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0%E5%8C%BA%E5%88%AB"><span class="nav-number">4.</span> <span class="nav-text">string中的函数和list中的函数区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#regular-expression"><span class="nav-number">5.</span> <span class="nav-text">regular expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E7%94%A8shell%E4%B8%AD%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="nav-number">6.</span> <span class="nav-text">调用shell中的命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#print%E5%87%BD%E6%95%B0"><span class="nav-number">7.</span> <span class="nav-text">print函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4list%E4%B8%AD%E7%9A%84%E6%9F%90%E9%A1%B9"><span class="nav-number">8.</span> <span class="nav-text">删除list中的某项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tuple-in-python"><span class="nav-number">9.</span> <span class="nav-text">tuple in python</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9D%97"><span class="nav-number">10.</span> <span class="nav-text">动态导入模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#doc-string-in-function"><span class="nav-number">11.</span> <span class="nav-text">doc string in function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python-%E2%80%94-doctest"><span class="nav-number">12.</span> <span class="nav-text">python — doctest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E7%94%A8%E7%9A%84package"><span class="nav-number">13.</span> <span class="nav-text">有用的package</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python%E4%B8%AD%E7%9A%84threading-module-%E5%92%8C-multiprocessing-module"><span class="nav-number">14.</span> <span class="nav-text">python中的threading module 和 multiprocessing module</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python-import-module"><span class="nav-number">15.</span> <span class="nav-text">python import module</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python-socket"><span class="nav-number">16.</span> <span class="nav-text">python socket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pyinstaller-%E6%89%93%E5%8C%85python"><span class="nav-number">17.</span> <span class="nav-text">pyinstaller 打包python</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#args-and-kwargs"><span class="nav-number">18.</span> <span class="nav-text">*args and **kwargs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#int-amp-bytes"><span class="nav-number">19.</span> <span class="nav-text">int &amp; bytes</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wens.wq"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">wens.wq</p>
+  <div class="site-description" itemprop="description">胡编一通, 乱写一气. 猴赛雷.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wens07" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wens07" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wens.wq@gmail.com" title="E-Mail → mailto:wens.wq@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/wens_wq" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wens_wq" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/3872400/wens07?tab=profile" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;3872400&#x2F;wens07?tab&#x3D;profile" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          友情链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://www.stroustrup.com/" title="http:&#x2F;&#x2F;www.stroustrup.com&#x2F;" rel="noopener" target="_blank">Bjarne Stroustrup's</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://awesomecpp.com/" title="http:&#x2F;&#x2F;awesomecpp.com" rel="noopener" target="_blank">Awesome Modern C++</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/isocpp/CppCoreGuidelines" title="https:&#x2F;&#x2F;github.com&#x2F;isocpp&#x2F;CppCoreGuidelines" rel="noopener" target="_blank">C++ Core Guidelines</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://isocpp.org/faq" title="https:&#x2F;&#x2F;isocpp.org&#x2F;faq" rel="noopener" target="_blank">C++ FAQ @ isocpp.org</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.v2ex.com/?r=wens07" title="http:&#x2F;&#x2F;www.v2ex.com&#x2F;?r&#x3D;wens07" rel="noopener" target="_blank">v2ex(way to explore)</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://wengqiang.site/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-python2016-01-10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wens.wq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WengQiang's Blog">
+      <meta itemprop="description" content="胡编一通, 乱写一气. 猴赛雷.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="读书笔记 python | WengQiang's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          读书笔记 python
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-01-10 00:54:33" itemprop="dateCreated datePublished" datetime="2016-01-10T00:54:33+08:00">2016-01-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-03-22 10:07:06" itemprop="dateModified" datetime="2022-03-22T10:07:06+08:00">2022-03-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technique/" itemprop="url" rel="index"><span itemprop="name">technique</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-python2016-01-10/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-python2016-01-10/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="create-new-object-or-modify-the-object"><a href="#create-new-object-or-modify-the-object" class="headerlink" title="create new object or modify the object"></a>create new object or modify the object</h3><ul>
+<li>create new object<blockquote>
+<p>slice operator([:]); + operator;</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="dir-和-help-函数"><a href="#dir-和-help-函数" class="headerlink" title="dir 和 help 函数"></a>dir 和 help 函数</h3><ol>
+<li><code>var = &#39;&#39;; dir(var)</code><br> 可以输出var那个object中的所有方法。</li>
+<li><code>var = &#39;&#39;; ty = type(var); help(ty.method)</code><br> 可以输出var的类型中method的相关信息。</li>
+</ol>
+<span id="more"></span>
+
+<h3 id="c-x2F-c-调用python函数"><a href="#c-x2F-c-调用python函数" class="headerlink" title="c&#x2F;c++ 调用python函数"></a>c&#x2F;c++ 调用python函数</h3><p>流程如下：</p>
+<ol>
+<li>我们先定义一个python函数<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def great_function(a)</span><br><span class="line">  <span class="params">...</span><span class="params">...</span><span class="params">...</span></span><br></pre></td></tr></table></figure></li>
+<li>我们使用上面的python函数定义一个c&#x2F;c++函数<blockquote>
+<p>假设上面的great_function在一个module中， 比如说， 这个module名字叫great_module.py</p>
+</blockquote>
+</li>
+</ol>
+<p>那么c&#x2F;c++中函数可以使用下面方法进行定义：</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">include</span> &lt;<span class="module-access"><span class="module"><span class="identifier">Python</span>.</span></span>h&gt;</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> great<span class="constructor">_function_from_python(<span class="params">int</span> <span class="params">a</span>)</span></span><br><span class="line"> &#123;</span><br><span class="line">    <span class="built_in">int</span> res;</span><br><span class="line">    PyObject *pModule, *pFunc;</span><br><span class="line">    PyObject *pArgs, *pValue;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* import the module*/</span></span><br><span class="line">    pModule = <span class="constructor">PyImport_Import(PyString_FromString(<span class="string">&quot;great_module&quot;</span>)</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* great_function in great_module */</span></span><br><span class="line">    pFunc = <span class="constructor">PyObject_GetAttrString(<span class="params">pModule</span>, <span class="string">&quot;great_function&quot;</span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* build args */</span></span><br><span class="line">    pArgs = <span class="constructor">PyTuple_New(1)</span>;</span><br><span class="line">    <span class="constructor">PyTuple_SetItem(<span class="params">pArgs</span>,0, PyInt_FromLong(<span class="params">a</span>)</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* call */</span></span><br><span class="line">    pValue = <span class="constructor">PyObject_CallObject(<span class="params">pFunc</span>, <span class="params">pArgs</span>)</span>;</span><br><span class="line"></span><br><span class="line">    res = <span class="constructor">PyInt_AsLong(<span class="params">pValue</span>)</span>;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>所有python元素，module、function、tuple、string等等， 实际上都是PyObject。c&#x2F;c++中操纵它们，一律使用PyObject指针。</p>
+</li>
+<li><p>Python的类型可以与c&#x2F;c++语言可以相互转换。 Python类型xxx转换为c&#x2F;c++语言类型yyy要使用Pyxxx_Asyyy函数；c&#x2F;c++中类型yyy转换为Python类型xxx使用Pyxxx_Fromyyy函数。</p>
+</li>
+<li><p>可以创建Python类型的变量， 使用Pyxxx_New可以创建类型为xxx的变量。</p>
+</li>
+<li><p>若var是Tuple， 则var[i] &#x3D; b对应于PyTuple_SetItem(var, i, b)</p>
+</li>
+</ul>
+<ol start="3">
+<li>最后可以在c&#x2F;c++中测试<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">include</span> &lt;<span class="module-access"><span class="module"><span class="identifier">Python</span>.</span></span>h&gt;</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> great<span class="constructor">_function_from_python(<span class="params">int</span> <span class="params">a</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> main(<span class="built_in">int</span> argc, <span class="built_in">char</span> *argv<span class="literal">[]</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="constructor">Py_Initialize()</span>;</span><br><span class="line">    printf(<span class="string">&quot;%d&quot;</span>,great<span class="constructor">_function_from_python(2)</span>);</span><br><span class="line">    <span class="constructor">Py_Finalize()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="string中的函数和list中的函数区别"><a href="#string中的函数和list中的函数区别" class="headerlink" title="string中的函数和list中的函数区别"></a>string中的函数和list中的函数区别</h3><blockquote>
+<p>string 中的函数一般都是创建一个新的string，而原来的string保留； list 中的函数一般修改参数，返回None。</p>
+</blockquote>
+<h3 id="regular-expression"><a href="#regular-expression" class="headerlink" title="regular expression"></a>regular expression</h3><ol>
+<li><code>\s</code> — matches a whitespace character.</li>
+<li>‘\S’ — matches a non-whitespace character.</li>
+<li><ul>
+<li>— apply to the immediately preceding character and indicates to match zero or more of the preceding characters.</li>
+</ul>
+</li>
+<li>*? — like above, but in “non-greedy mode”.</li>
+<li>() — added to a regular expression, they are ignored and allow you to extract a particular subset of the matched string.</li>
+<li>\b — matches the empty string, but only at the start or end of a word.</li>
+<li>\B — like above, but not in the start or end of the word.</li>
+<li>\d — matches any decimal digit, equivalent to the set[0-9].</li>
+<li>\D — matches any non-digit character, equivalent to [^0-9].</li>
+</ol>
+<h3 id="调用shell中的命令"><a href="#调用shell中的命令" class="headerlink" title="调用shell中的命令"></a>调用shell中的命令</h3><blockquote>
+<p>Any program that you can launch from the shell can also be launched from Python using a <strong>pipe</strong>.</p>
+</blockquote>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cmd</span> = <span class="string">&#x27;ls -l&#x27;</span></span><br><span class="line"><span class="attr">fp</span> = os.popen(cmd)</span><br></pre></td></tr></table></figure>
+
+<h3 id="print函数"><a href="#print函数" class="headerlink" title="print函数"></a>print函数</h3><ul>
+<li><p>输出格式, 类似c中的printf, 也可以控制宽度和精度</p>
+<blockquote>
+<p>%d — 整形<br>%x — 16进制<br>%o — 8进制<br>bin() 函数 — 2进制<br>%f —  浮点数<br>%s — string 字符串<br>%r —  类似%s, 当时字符串会带上‘’； 也可能会带上待打印对象的一些信息</p>
+</blockquote>
+</li>
+<li><p>print 会自动在末尾加上换行符, 如何要让它不加上‘\n’，只需在最后的参数加上’,’<br>  <code>print var1, var2,</code></p>
+</li>
+</ul>
+<h3 id="删除list中的某项"><a href="#删除list中的某项" class="headerlink" title="删除list中的某项"></a>删除list中的某项</h3><ul>
+<li><p>pop</p>
+<blockquote>
+<p>lst.pop(index), and return the value that will be deleted</p>
+</blockquote>
+</li>
+<li><p>del</p>
+<blockquote>
+<p>del lst[index], and return None<br>del lst[:], and return None</p>
+</blockquote>
+</li>
+<li><p>remove</p>
+<blockquote>
+<p>lst.remove(thevalue), and return None</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="tuple-in-python"><a href="#tuple-in-python" class="headerlink" title="tuple in python"></a>tuple in python</h3><blockquote>
+<p>a tuple is a comma-separated list of values:<br>    t &#x3D; ‘a’, ‘b’, ‘c’<br>  although it is not necessary, it is common in python to enclose a tuple in parentheses to help us quickly identify tuples when we look in python code.<br>    t &#x3D; (‘a’, ‘b’, ‘c’)</p>
+</blockquote>
+<blockquote>
+<p>and to create a tuple with a single element, you have to include the final comma:<br>    t_single &#x3D; (‘a’,)</p>
+</blockquote>
+<h3 id="动态导入模块"><a href="#动态导入模块" class="headerlink" title="动态导入模块"></a>动态导入模块</h3><ol>
+<li>use <code>importlib</code> module (also has a <code>imp</code> module which deprecated in 3.4)</li>
+</ol>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> importlib</span><br><span class="line"></span><br><span class="line">mymodule = importlib.import_module(<span class="string">&#x27;modulename&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>use <code>__import__</code> built_in function<br><code>mymodule = __import__(&#39;modulename&#39;)</code></p>
+</li>
+<li><p>examples in &lt;<dive into python>&gt;</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>modulenames = [<span class="string">&#x27;sys&#x27;</span>, <span class="string">&#x27;os&#x27;</span>, <span class="string">&#x27;re&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>modulenames</span><br><span class="line">output&gt; [<span class="string">&#x27;sys&#x27;</span>, <span class="string">&#x27;os&#x27;</span>, <span class="string">&#x27;re&#x27;</span>]</span><br><span class="line">modules = <span class="built_in">map</span>(<span class="built_in">__import__</span>, modulenames)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>modules</span><br><span class="line">output&gt; [&lt;module <span class="string">&#x27;sys&#x27;</span> (built_in)&gt;,</span><br><span class="line">          &lt;module <span class="string">&#x27;os&#x27;</span> <span class="keyword">from</span> <span class="string">&#x27;thepath&#x27;</span>&gt;,</span><br><span class="line">          &lt;module <span class="string">&#x27;re&#x27;</span> <span class="keyword">from</span> <span class="string">&#x27;thepath&#x27;</span>&gt;]</span><br><span class="line">modules[<span class="number">0</span>].version</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="doc-string-in-function"><a href="#doc-string-in-function" class="headerlink" title="doc string in function"></a>doc string in function</h3><p>将以下代码保存为test.py, 在函数中以”””……””””的包起字符串就是一个doc string:</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">buildConnectionString</span>(<span class="params">params</span>):</span><br><span class="line">  <span class="string">&quot;&quot;&quot;Build a connection string from a dictionary of parameters.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  Returns string.&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="string">&quot;;&quot;</span>.join([<span class="string">&quot;%s = %s&quot;</span> % (k, v) <span class="keyword">for</span> k, v <span class="keyword">in</span> params.items()])</span><br></pre></td></tr></table></figure>
+
+<p>可以以一下方式输出其doc string：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> test</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span> test.buildConnectionString.doc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="python-—-doctest"><a href="#python-—-doctest" class="headerlink" title="python — doctest"></a>python — doctest</h3><ul>
+<li>in some class</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, key, value=<span class="literal">None</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Returns the value associated with key or value if key isn&#x27;t</span></span><br><span class="line"><span class="string">    in the dictionary</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; d = OrderedDict(dict(s=1, a=2, n=3, i=4, t=5, y=6))</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; d.get(&quot;X&quot;, 21)</span></span><br><span class="line"><span class="string">    21</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; d.get(&quot;i&quot;)</span></span><br><span class="line"><span class="string">    4</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> self.__<span class="built_in">dict</span>.get(key, value)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>add following three line to the module</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line"><span class="keyword">import</span> doctest</span><br><span class="line">doctest.testmod()</span><br></pre></td></tr></table></figure>
+
+<h3 id="有用的package"><a href="#有用的package" class="headerlink" title="有用的package"></a>有用的package</h3><ul>
+<li>collections: ChainMap, Counter, defaultdict, deque, namedtuple, OrderedDict</li>
+<li>functools: lru_cache, partial, singleddispatch, warps</li>
+<li>itertools: count, islice, cycle, repeat, compress, dropwhile, filterfalse</li>
+</ul>
+<h3 id="python中的threading-module-和-multiprocessing-module"><a href="#python中的threading-module-和-multiprocessing-module" class="headerlink" title="python中的threading module 和 multiprocessing module"></a>python中的threading module 和 multiprocessing module</h3><p>– python 中的thread 对于io操作是效率最高的， 而且内部实现多线程也是在一个主的线程里，类似协程</p>
+<h3 id="python-import-module"><a href="#python-import-module" class="headerlink" title="python import module"></a>python import module</h3><ol>
+<li>首先在<code>sys.modules</code>中找</li>
+<li>若找不到， 则开始在<code>sys.meta_path</code>中查找（它包含一个finder objects的列表）– 通过<code>find_spec()</code>函数进行查找</li>
+<li>若找到，则会返回一个<code>module spec</code>的对象， 其内包含loader，用于导入时使用</li>
+</ol>
+<h3 id="python-socket"><a href="#python-socket" class="headerlink" title="python socket"></a>python socket</h3><ul>
+<li>if socket.recv() return 0, means the other side is closed(or is in the process of closing)<br><strong>if you get returned value 0, it means the socket is broken</strong></li>
+</ul>
+<h3 id="pyinstaller-打包python"><a href="#pyinstaller-打包python" class="headerlink" title="pyinstaller 打包python"></a>pyinstaller 打包python</h3><p><code>C:\Python27\Scripts\pyinstaller.exe -F -w  /path/to/the/python/scripts</code></p>
+<h3 id="args-and-kwargs"><a href="#args-and-kwargs" class="headerlink" title="*args and **kwargs"></a>*args and **kwargs</h3><p>非keyword的variable arguments 和 keyword的variable argument</p>
+<h3 id="int-amp-bytes"><a href="#int-amp-bytes" class="headerlink" title="int &amp; bytes"></a>int &amp; bytes</h3><p>from_bytes &amp; to_bytes builtin method</p>
+
+    </div>
+
+    
+    
+    
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>wens.wq
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://wengqiang.site/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-python2016-01-10/" title="读书笔记 python">http://wengqiang.site/2016/01/读书笔记-python2016-01-10/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 读书笔记</a>
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-effective-modern-cpp2016-01-07/" rel="prev" title="读书笔记 effective modern c++">
+                  <i class="fa fa-chevron-left"></i> 读书笔记 effective modern c++
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/01/eclipse-IDE2016-01-18/" rel="next" title="eclipse IDE">
+                  eclipse IDE <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2013 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wens.wq</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline.wengqiang.site","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"emoji":["https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"meta":["nick","mail"],"requiredMeta":["nick","mail"],"pageSize":10,"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-python2016-01-10/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

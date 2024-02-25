@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Panda_Kungfu_32px_556429_easyicon.net.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Panda_Kungfu_16px_556429_easyicon.net.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wengqiang.site","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="发明人以及相关节点时间 中本聪于2008-10-31号提出了比特币的设计白皮书 2009年公布了最初的实现代码， 第一个比特币是2009-01-03(18:15:05)生成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bitcoin">
+<meta property="og:url" content="http://wengqiang.site/2017/05/bitcoin-2017-05-19/index.html">
+<meta property="og:site_name" content="WengQiang&#39;s Blog">
+<meta property="og:description" content="发明人以及相关节点时间 中本聪于2008-10-31号提出了比特币的设计白皮书 2009年公布了最初的实现代码， 第一个比特币是2009-01-03(18:15:05)生成">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-05-19T06:46:00.000Z">
+<meta property="article:modified_time" content="2021-11-30T02:15:00.000Z">
+<meta property="article:author" content="wens.wq">
+<meta property="article:tag" content="blockchain">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://wengqiang.site/2017/05/bitcoin-2017-05-19/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://wengqiang.site/2017/05/bitcoin-2017-05-19/","path":"2017/05/bitcoin-2017-05-19/","title":"bitcoin"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>bitcoin | WengQiang's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://waline.wengqiang.site">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">WengQiang's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">where there is a will, there is a way!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E6%98%8E%E4%BA%BA%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%85%B3%E8%8A%82%E7%82%B9%E6%97%B6%E9%97%B4"><span class="nav-number">1.</span> <span class="nav-text">发明人以及相关节点时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#secp256k1-elliptic-curve"><span class="nav-number">2.</span> <span class="nav-text">secp256k1 elliptic curve</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#private-key-amp-public-key"><span class="nav-number">3.</span> <span class="nav-text">private key &amp; public key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elliptic-curve-finite-field-amp-ECDSA"><span class="nav-number">4.</span> <span class="nav-text">Elliptic curve(finite field) &amp; ECDSA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#recid-secp256k1-with-ECDSA"><span class="nav-number">5.</span> <span class="nav-text">recid(secp256k1) with ECDSA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#signature-amp-DER-encoding"><span class="nav-number">6.</span> <span class="nav-text">signature &amp; DER encoding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hierarchical-Deterministic-Wallet"><span class="nav-number">7.</span> <span class="nav-text">Hierarchical Deterministic Wallet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pubkey-script-or-scriptPubkey-in-code"><span class="nav-number">8.</span> <span class="nav-text">pubkey script(or scriptPubkey in code)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redeem-script"><span class="nav-number">9.</span> <span class="nav-text">redeem script</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#witness"><span class="nav-number">10.</span> <span class="nav-text">witness</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#double-spend"><span class="nav-number">11.</span> <span class="nav-text">double spend</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wens.wq"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">wens.wq</p>
+  <div class="site-description" itemprop="description">胡编一通, 乱写一气. 猴赛雷.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wens07" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wens07" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wens.wq@gmail.com" title="E-Mail → mailto:wens.wq@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/wens_wq" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wens_wq" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/3872400/wens07?tab=profile" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;3872400&#x2F;wens07?tab&#x3D;profile" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          友情链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://www.stroustrup.com/" title="http:&#x2F;&#x2F;www.stroustrup.com&#x2F;" rel="noopener" target="_blank">Bjarne Stroustrup's</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://awesomecpp.com/" title="http:&#x2F;&#x2F;awesomecpp.com" rel="noopener" target="_blank">Awesome Modern C++</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/isocpp/CppCoreGuidelines" title="https:&#x2F;&#x2F;github.com&#x2F;isocpp&#x2F;CppCoreGuidelines" rel="noopener" target="_blank">C++ Core Guidelines</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://isocpp.org/faq" title="https:&#x2F;&#x2F;isocpp.org&#x2F;faq" rel="noopener" target="_blank">C++ FAQ @ isocpp.org</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.v2ex.com/?r=wens07" title="http:&#x2F;&#x2F;www.v2ex.com&#x2F;?r&#x3D;wens07" rel="noopener" target="_blank">v2ex(way to explore)</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://wengqiang.site/2017/05/bitcoin-2017-05-19/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wens.wq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WengQiang's Blog">
+      <meta itemprop="description" content="胡编一通, 乱写一气. 猴赛雷.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="bitcoin | WengQiang's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          bitcoin
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-05-19 14:46:00" itemprop="dateCreated datePublished" datetime="2017-05-19T14:46:00+08:00">2017-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-11-30 10:15:00" itemprop="dateModified" datetime="2021-11-30T10:15:00+08:00">2021-11-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/cryptocurrency/" itemprop="url" rel="index"><span itemprop="name">cryptocurrency</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2017/05/bitcoin-2017-05-19/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2017/05/bitcoin-2017-05-19/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="发明人以及相关节点时间"><a href="#发明人以及相关节点时间" class="headerlink" title="发明人以及相关节点时间"></a>发明人以及相关节点时间</h3><ol>
+<li>中本聪于2008-10-31号提出了比特币的设计白皮书</li>
+<li>2009年公布了最初的实现代码， 第一个比特币是2009-01-03(18:15:05)生成</li>
+</ol>
+<span id="more"></span>
+
+<h3 id="secp256k1-elliptic-curve"><a href="#secp256k1-elliptic-curve" class="headerlink" title="secp256k1 elliptic curve"></a>secp256k1 elliptic curve</h3><ol>
+<li><p>curve<br>$$y^2 &#x3D; x^3 + 7$$</p>
+</li>
+<li><p>params<br>$p &#x3D; 0xFFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFE FFFFFC2F$<br>$a &#x3D; 0$<br>$b &#x3D; 7$<br>$Gx &#x3D; 0x79BE667E F9DCBBAC 55A06295 CE870B07 029BFCDB 2DCE28D9 59F2815B 16F81798$<br>$Gy &#x3D; 0x483ADA77 26A3C465 5DA4FBFC 0E1108A8 FD17B448 A6855419 9C47D08F FB10D4B8$<br>$n &#x3D; 0xFFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFE BAAEDCE6 AF48A03B BFD25E8C D0364141$<br>$h &#x3D; 1$<br>in general, the different point by given an X coordinate is $2*(h + 1)$</p>
+</li>
+</ol>
+<h3 id="private-key-amp-public-key"><a href="#private-key-amp-public-key" class="headerlink" title="private key &amp; public key"></a>private key &amp; public key</h3><ul>
+<li><p>private key<br>  generally, a private key is just a 32-bytes random number</p>
+</li>
+<li><p>public key</p>
+</li>
+</ul>
+<ol>
+<li>uncompressed(65 bytes)<br> 0x04 + x + y</li>
+<li>compressed(33 bytes, which omit the y value)<br> 0x02 or 0x03 (which means y is even or odd)</li>
+</ol>
+<h3 id="Elliptic-curve-finite-field-amp-ECDSA"><a href="#Elliptic-curve-finite-field-amp-ECDSA" class="headerlink" title="Elliptic curve(finite field) &amp; ECDSA"></a>Elliptic curve(finite field) &amp; ECDSA</h3><ul>
+<li><p>elliptic curve: $y^2 &#x3D; x^3 + ax + b$</p>
+</li>
+<li><p>finite field: $F_p &#x3D; {0, 1, … p-1} $ (usually p is a prime number)</p>
+<p>$n^{p-1} &#x3D; 1 mod p$ where p is prime<br>$n^{p-2} &#x3D; n^{-1} &#x3D; 1&#x2F;n mod n$ where p is prime</p>
+<p>in python: it is easy to calculate $n^{-1} &#x3D; pow(n, p-2, p)$</p>
+</li>
+<li><p>group law</p>
+<p>$P_1 &#x3D; (x_1, y_1), P_2&#x3D;(x_2, y_2) \to P_3 &#x3D; (x_3, y_3)$<br>$when x_1 \neq x_2$</p>
+<p>$s &#x3D; (y_2-y_1)&#x2F;(x_2-x_1)$<br>$x_3 &#x3D; s^2 - x_1 - x_2$<br>$y_3 &#x3D; s(x_1 - x_3) - y_1$</p>
+</li>
+<li><p>ECDSA</p>
+<ol>
+<li>public key<ul>
+<li>priv key: d (a randomly selected non-zero integer modulo the group order n)</li>
+<li>base Pointer: G</li>
+</ul>
+</li>
+</ol>
+<p>  pub key: $P &#x3D; d * G$</p>
+<ol start="2">
+<li>signature<ul>
+<li>hash of message to sign: e</li>
+<li>chooses a per-message secret random integer k such that 1 ≤ k ≤ n − 1(n is the order of subgroup)</li>
+<li>random point $RP &#x3D; k * G$</li>
+</ul>
+</li>
+</ol>
+<p>  signature: (r, s); $r&#x3D;x_{RP}$, $s&#x3D;(e+r * d)&#x2F;k$</p>
+<ol start="3">
+<li><p>verify signature</p>
+<ul>
+<li>calculate integer $i_1 &#x3D; s^{-1}*e$</li>
+<li>calculate integer $i_2 &#x3D; s^{-1}*r$</li>
+<li>calculate random point $RP &#x3D; i_1G + i_2P$</li>
+</ul>
+<p> the signature is valid only if $r &#x3D; x_{RP}$</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="recid-secp256k1-with-ECDSA"><a href="#recid-secp256k1-with-ECDSA" class="headerlink" title="recid(secp256k1) with ECDSA"></a>recid(secp256k1) with ECDSA</h3><p>0 &lt;&#x3D; recid &lt;&#x3D; 3</p>
+<p>for signature(r, s): init <code>recid = 0</code></p>
+<ul>
+<li>if r &gt; n (overflow),  <code>recid |= 2</code></li>
+<li>if y_{r} is odd, <code>recid |= 1</code></li>
+<li>if s is odd, <code>recid ^= 1</code></li>
+<li>if low s, <code>recid ^= 1</code></li>
+</ul>
+<h3 id="signature-amp-DER-encoding"><a href="#signature-amp-DER-encoding" class="headerlink" title="signature &amp; DER encoding"></a>signature &amp; DER encoding</h3><p><a target="_blank" rel="noopener" href="https://github.com/bitcoin/bips/blob/master/bip-0062.mediawiki">BIP62</a></p>
+<h3 id="Hierarchical-Deterministic-Wallet"><a href="#Hierarchical-Deterministic-Wallet" class="headerlink" title="Hierarchical Deterministic Wallet"></a>Hierarchical Deterministic Wallet</h3><p><a target="_blank" rel="noopener" href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP32</a></p>
+<h3 id="pubkey-script-or-scriptPubkey-in-code"><a href="#pubkey-script-or-scriptPubkey-in-code" class="headerlink" title="pubkey script(or scriptPubkey in code)"></a>pubkey script(or scriptPubkey in code)</h3><ul>
+<li><p>the output script(pubkey script) form is: <code>OP_DUP OP_HASH160 Hash160(pubkey) OP_EQUALVERIFY OP_CHECKSIG</code></p>
+</li>
+<li><p>the input script(signature script) form is: <code>signature  pubkey</code></p>
+</li>
+<li><p>the check process</p>
+</li>
+</ul>
+<ol>
+<li>the whole thing is: <code>signature pubkey OP_DUP OP_HASH160 Hash160(pubkey) OP_EQUALVERIFY OP_CHECKSIG</code></li>
+<li>operate the ops on stack</li>
+</ol>
+<p>note: script form can see in bitcoin source code by search “CScriptVisitor”</p>
+<h3 id="redeem-script"><a href="#redeem-script" class="headerlink" title="redeem script"></a>redeem script</h3><ul>
+<li><p>the output script(pubkey script) form is: <code>OP_HASH160 Hash160(redeemscript) OP_EQUAL</code></p>
+</li>
+<li><p>the redeem script form is: <code>OP_2 pubkey1 pubkey2 pubkey2 OP_3 OP_CHECKMULTISIG</code>  &#x2F;&#x2F;2 of 3 redeem script<br>                       <code>pubkey OP_CHECKSIG</code> &#x2F;&#x2F; single redeem script</p>
+</li>
+<li><p>the input script(signature script) form is: <code>OP_0 sig1 sig2 redeemScript</code></p>
+</li>
+<li><p>the check process</p>
+</li>
+</ul>
+<ol>
+<li>the whole thing is: <code>&#123;OP_0 sig1 sig2 redeemScript&#125;_stackcopy OP_HASH160 Hash160(redeemscript) OP_EQUAL</code></li>
+<li>operate the ops on stack</li>
+</ol>
+<h3 id="witness"><a href="#witness" class="headerlink" title="witness"></a>witness</h3><ol>
+<li>native witness program(currently all is  version 0 witness)</li>
+</ol>
+<ul>
+<li>the output script(pubkey script) form is: <code>version_byte  witness_program</code></li>
+<li>the input script(signature script) is empty, which currently in winness script</li>
+</ul>
+<ol start="2">
+<li>p2sh witness program</li>
+</ol>
+<ul>
+<li>the output script(pubkey script) is p2sh</li>
+<li>the redeem script form is: <code>version_byte witness_program</code></li>
+<li>the input script(signature script) like in redeem script</li>
+</ul>
+<ol start="3">
+<li>P2WPKH or P2WSH</li>
+</ol>
+<ul>
+<li><p>if witness program is 20 byte</p>
+<p>  it is interpreted as a pay-to-witness-public-key-hash (P2WPKH) program</p>
+</li>
+<li><p>if witness program is 32 byte</p>
+<p>  It is interpreted as a pay-to-witness-script-hash (P2WSH) program</p>
+</li>
+</ul>
+<h3 id="double-spend"><a href="#double-spend" class="headerlink" title="double spend"></a>double spend</h3><ul>
+<li>51% attack</li>
+<li>race attack</li>
+<li>finney attack: attacker make a block with certain tx in advance, then create another conflict tx to network</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>wens.wq
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://wengqiang.site/2017/05/bitcoin-2017-05-19/" title="bitcoin">http://wengqiang.site/2017/05/bitcoin-2017-05-19/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/blockchain/" rel="tag"><i class="fa fa-tag"></i> blockchain</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/05/blockchain%20--%20encryption%20and%20decryption-2017-05-18/" rel="prev" title="blockchain -- encryption and decryption">
+                  <i class="fa fa-chevron-left"></i> blockchain -- encryption and decryption
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/05/metaverse-2017-05-27/" rel="next" title="metaverse">
+                  metaverse <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2013 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wens.wq</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline.wengqiang.site","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"emoji":["https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"meta":["nick","mail"],"requiredMeta":["nick","mail"],"pageSize":10,"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/2017/05/bitcoin-2017-05-19/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

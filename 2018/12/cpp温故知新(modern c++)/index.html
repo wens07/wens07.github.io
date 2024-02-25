@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Panda_Kungfu_32px_556429_easyicon.net.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Panda_Kungfu_16px_556429_easyicon.net.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wengqiang.site","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="storage duration automatic storage durationThe storage for the object is allocated at the beginning of the enclosing code block and deallocated at the end. All local objects have this storage duration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cpp温故知新(c++20)">
+<meta property="og:url" content="http://wengqiang.site/2018/12/cpp%E6%B8%A9%E6%95%85%E7%9F%A5%E6%96%B0(modern%20c++)/index.html">
+<meta property="og:site_name" content="WengQiang&#39;s Blog">
+<meta property="og:description" content="storage duration automatic storage durationThe storage for the object is allocated at the beginning of the enclosing code block and deallocated at the end. All local objects have this storage duration">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-12-07T14:39:40.000Z">
+<meta property="article:modified_time" content="2023-04-10T11:15:00.000Z">
+<meta property="article:author" content="wens.wq">
+<meta property="article:tag" content="c&#x2F;c++">
+<meta property="article:tag" content="读书笔记">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://wengqiang.site/2018/12/cpp%E6%B8%A9%E6%95%85%E7%9F%A5%E6%96%B0(modern%20c++)/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://wengqiang.site/2018/12/cpp%E6%B8%A9%E6%95%85%E7%9F%A5%E6%96%B0(modern%20c++)/","path":"2018/12/cpp温故知新(modern c++)/","title":"cpp温故知新(c++20)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>cpp温故知新(c++20) | WengQiang's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://waline.wengqiang.site">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">WengQiang's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">where there is a will, there is a way!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#storage-duration"><span class="nav-number">1.</span> <span class="nav-text">storage duration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linkage"><span class="nav-number">2.</span> <span class="nav-text">linkage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#perfect-Forwarding"><span class="nav-number">3.</span> <span class="nav-text">perfect Forwarding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emplace-back-vs-push-back"><span class="nav-number">4.</span> <span class="nav-text">emplace_back vs push_back</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#container"><span class="nav-number">5.</span> <span class="nav-text">container</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new-features"><span class="nav-number">6.</span> <span class="nav-text">new features</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lambda-funcion-vs-std-function"><span class="nav-number">7.</span> <span class="nav-text">lambda funcion vs std::function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sizeof-amp-alignof"><span class="nav-number">8.</span> <span class="nav-text">sizeof &amp; alignof</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#determine-compile-type"><span class="nav-number">9.</span> <span class="nav-text">determine compile type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copy-ellison-for-initialization-from-temporaries-prvalues-is-required-in-c-17"><span class="nav-number">10.</span> <span class="nav-text">copy ellison for initialization from temporaries(prvalues) is required in c++17</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#auto-decays"><span class="nav-number">11.</span> <span class="nav-text">auto decays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#initialization"><span class="nav-number">12.</span> <span class="nav-text">initialization {}</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#enum-initializaiont-with-integer"><span class="nav-number">13.</span> <span class="nav-text">enum initializaiont with integer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#uniform-initialization-is-not-quite-work-with-atomic-and-assert-maybe-fixed-int-c-20"><span class="nav-number">14.</span> <span class="nav-text">uniform initialization is not quite work with atomic and assert(maybe fixed int c++20)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#compiler-related"><span class="nav-number">15.</span> <span class="nav-text">compiler related</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#practical-performance-practices"><span class="nav-number">16.</span> <span class="nav-text">practical performance practices</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shared-ptr-thread-safe"><span class="nav-number">17.</span> <span class="nav-text">shared_ptr thread safe</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spinlock"><span class="nav-number">18.</span> <span class="nav-text">spinlock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-17-amp-c-20-new-features"><span class="nav-number">19.</span> <span class="nav-text">c++17&amp;c++20 new features</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wens.wq"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">wens.wq</p>
+  <div class="site-description" itemprop="description">胡编一通, 乱写一气. 猴赛雷.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wens07" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wens07" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wens.wq@gmail.com" title="E-Mail → mailto:wens.wq@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/wens_wq" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wens_wq" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/3872400/wens07?tab=profile" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;3872400&#x2F;wens07?tab&#x3D;profile" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          友情链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://www.stroustrup.com/" title="http:&#x2F;&#x2F;www.stroustrup.com&#x2F;" rel="noopener" target="_blank">Bjarne Stroustrup's</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://awesomecpp.com/" title="http:&#x2F;&#x2F;awesomecpp.com" rel="noopener" target="_blank">Awesome Modern C++</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/isocpp/CppCoreGuidelines" title="https:&#x2F;&#x2F;github.com&#x2F;isocpp&#x2F;CppCoreGuidelines" rel="noopener" target="_blank">C++ Core Guidelines</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://isocpp.org/faq" title="https:&#x2F;&#x2F;isocpp.org&#x2F;faq" rel="noopener" target="_blank">C++ FAQ @ isocpp.org</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.v2ex.com/?r=wens07" title="http:&#x2F;&#x2F;www.v2ex.com&#x2F;?r&#x3D;wens07" rel="noopener" target="_blank">v2ex(way to explore)</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://wengqiang.site/2018/12/cpp%E6%B8%A9%E6%95%85%E7%9F%A5%E6%96%B0(modern%20c++)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wens.wq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WengQiang's Blog">
+      <meta itemprop="description" content="胡编一通, 乱写一气. 猴赛雷.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="cpp温故知新(c++20) | WengQiang's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          cpp温故知新(c++20)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-12-07 22:39:40" itemprop="dateCreated datePublished" datetime="2018-12-07T22:39:40+08:00">2018-12-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-10 19:15:00" itemprop="dateModified" datetime="2023-04-10T19:15:00+08:00">2023-04-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technique/" itemprop="url" rel="index"><span itemprop="name">technique</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/12/cpp%E6%B8%A9%E6%95%85%E7%9F%A5%E6%96%B0(modern%20c++)/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/12/cpp%E6%B8%A9%E6%95%85%E7%9F%A5%E6%96%B0(modern%20c++)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="storage-duration"><a href="#storage-duration" class="headerlink" title="storage duration"></a>storage duration</h3><ul>
+<li><p><strong>automatic</strong> storage duration<br>The storage for the object is allocated at the beginning of the enclosing code block and deallocated at the end. All local objects have this storage duration, except those declared static, extern or thread_local.</p>
+</li>
+<li><p><strong>static</strong> storage duration<br> The storage for the object is allocated when the program begins and deallocated when the program ends. Only one instance of the object exists. All objects declared at namespace scope (including global namespace) have this storage duration, plus those declared with static or extern.</p>
+</li>
+<li><p><strong>thread_local</strong> storage duration<br> The storage for the object is allocated when the thread begins and deallocated when the thread ends. Each thread has its own instance of the object. Only objects declared thread_local have this storage duration. thread_local can appear together with static or extern to adjust linkage.</p>
+</li>
+<li><p><strong>dynamic</strong> storage duration<br>The storage for the object is allocated and deallocated per request by using dynamic memory allocation functions.</p>
+</li>
+</ul>
+<span id="more"></span>
+<h3 id="linkage"><a href="#linkage" class="headerlink" title="linkage"></a>linkage</h3><ul>
+<li><p>no linkage<br>The name can be referred to only from the scope it is in.<br>variables in block scope(except extern)</p>
+</li>
+<li><p>static linkage<br>The name can be referred to from all scopes in the current translation unit.</p>
+</li>
+</ul>
+<p>variable in namespace scope</p>
+<ol>
+<li>variabales in namespace scope declared <em>static</em></li>
+<li>const-qulified(or constexpr) variable not declared extern</li>
+<li>data member in anonymous unions</li>
+<li>variables in anonymous namespace</li>
+</ol>
+<ul>
+<li>external linkage<br>other variable in namespace scope</li>
+</ul>
+<h3 id="perfect-Forwarding"><a href="#perfect-Forwarding" class="headerlink" title="perfect Forwarding"></a>perfect Forwarding</h3><p>it used to reserve the r or l value property of a parameter in generic context.</p>
+<h3 id="emplace-back-vs-push-back"><a href="#emplace-back-vs-push-back" class="headerlink" title="emplace_back vs push_back"></a>emplace_back vs push_back</h3><ol>
+<li>emplace_back cannot use to initilize aggregated things.(up to c++17, it is specialized to none list in-place construction)</li>
+</ol>
+<h3 id="container"><a href="#container" class="headerlink" title="container"></a>container</h3><ol>
+<li>vector vs deque<br>for small size use vector, otherwise use deque instead.</li>
+</ol>
+<h3 id="new-features"><a href="#new-features" class="headerlink" title="new features"></a>new features</h3><ol>
+<li><p>structured binding<br>auto [res1, res2] &#x3D; …</p>
+</li>
+<li><p>init statement of if or switch</p>
+</li>
+<li><p>constexpr if</p>
+</li>
+<li><p>c++11 unknow before</p>
+</li>
+</ol>
+<ul>
+<li>function reload<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::string name&#123;<span class="string">&quot;wens&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">std::string <span class="title">getname</span><span class="params">()</span> &amp;&amp; </span>&#123; <span class="built_in">printf</span>(<span class="string">&quot;in &amp;&amp; function\n&quot;</span>); <span class="keyword">return</span> name;&#125;</span><br><span class="line">    <span class="function"><span class="type">const</span> std::string&amp; <span class="title">getname</span><span class="params">()</span> <span class="type">const</span>&amp; </span>&#123;  <span class="built_in">printf</span>(<span class="string">&quot;in const&amp; function\n&quot;</span>); <span class="keyword">return</span> name;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Test t;</span><br><span class="line">    <span class="keyword">auto</span> v = t.<span class="built_in">getname</span>();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, <span class="built_in">typeid</span>(v).<span class="built_in">name</span>());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> a = Test&#123;&#125;.<span class="built_in">getname</span>();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, <span class="built_in">typeid</span>(a).<span class="built_in">name</span>());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="5">
+<li><p>constexpr<br><br> may be available at compile-time but not guarantee<br><br>consteval<br><br> must evaluate at commpile time<br></p>
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">consteval</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>you cannot evaluate runtime functions at compile-time</strong></p>
+</li>
+<li><p>value categories</p>
+</li>
+</ol>
+<p>expression -&gt; glvalue(generalized lvalue) and rvalue<br>glvalue -&gt; lvalue and xvalue(expiring value)<br>rvalue -&gt; xvalue and prvalue(pure rvalue)</p>
+<p>simple:<br>lvalue: everything has name and string literal (identiy of an object)<br>prvalue: temporaries and other literal (perform initialization&#x2F;compute an object)<br>xvalue: value from std::move() (denote an object whose resource can be reused)<br>**glvalue produce locations, prvalue preform initialize **</p>
+<p>c++17:<br>prvalue perform initialization -&gt; no temporary object yet<br>glvalue produce locations<br>materialization to get temporary object -&gt; prvalue to xvalue conversion</p>
+<h3 id="lambda-funcion-vs-std-function"><a href="#lambda-funcion-vs-std-function" class="headerlink" title="lambda funcion vs std::function"></a>lambda funcion vs std::function</h3><ol>
+<li>std::function cannot inline by compiler</li>
+<li>when lambda with capture assigned to std::function, std::function will do heap allocation(some implementation may not heap-alloacte when less than specific threshhold)</li>
+</ol>
+<h3 id="sizeof-amp-alignof"><a href="#sizeof-amp-alignof" class="headerlink" title="sizeof &amp; alignof"></a>sizeof &amp; alignof</h3><ol>
+<li>alignof(T) &#x3D; max(alignof(member1), alignof(member2)…)</li>
+<li>sizeof(T) % alignof(T) &#x3D;&#x3D; 0</li>
+</ol>
+<h3 id="determine-compile-type"><a href="#determine-compile-type" class="headerlink" title="determine compile type"></a>determine compile type</h3><ol>
+<li><code>_MSC_VER</code></li>
+<li><code>__clang__</code></li>
+<li><code>__GNUC__</code></li>
+</ol>
+<h3 id="copy-ellison-for-initialization-from-temporaries-prvalues-is-required-in-c-17"><a href="#copy-ellison-for-initialization-from-temporaries-prvalues-is-required-in-c-17" class="headerlink" title="copy ellison for initialization from temporaries(prvalues) is required in c++17"></a>copy ellison for initialization from temporaries(prvalues) is required in c++17</h3><p>callable copy&#x2F;move constructor no longer required</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">Test</span>() = <span class="keyword">default</span>;</span><br><span class="line">  <span class="comment">//no copy/move constructor</span></span><br><span class="line">  <span class="built_in">Test</span>(<span class="type">const</span> Test&amp; ) = <span class="keyword">delete</span>;</span><br><span class="line">  <span class="built_in">Test</span>(Test&amp;&amp; ) = <span class="keyword">delete</span>;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(Test t)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">foo</span>( <span class="built_in">Test</span>() ) <span class="comment">//is ok in c++17</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="auto-decays"><a href="#auto-decays" class="headerlink" title="auto decays"></a>auto decays</h3><ol>
+<li>raw arrays convert to pointers</li>
+<li>functions convert to function pointers</li>
+<li>top-level references are removed</li>
+<li>top-level const&#x2F;volatile are removed</li>
+</ol>
+<h3 id="initialization"><a href="#initialization" class="headerlink" title="initialization {}"></a>initialization {}</h3><ul>
+<li><p>to pass mutiple parameters to ordinary constructors<br>different types ok</p>
+</li>
+<li><p>as an std::initializer_list&lt;&gt;<br>must be homogeneous(same types or can conversion to the same type)<br>only for {}</p>
+</li>
+<li><p>() initialization for ordinary constructor only<br>{} initialization for all constructors</p>
+<ol>
+<li>std::initialization_list&lt;&gt; constructors has higher priority</li>
+<li>but the default constructor has the highest priority</li>
+</ol>
+</li>
+<li><p>to aggregate object wiht initializer list{}, member is value initiaized<br>without any initializer list and no default member initialization, then uninitialized</p>
+</li>
+</ul>
+<h3 id="enum-initializaiont-with-integer"><a href="#enum-initializaiont-with-integer" class="headerlink" title="enum initializaiont with integer"></a>enum initializaiont with integer</h3><ol>
+<li>only with direct list initialization</li>
+<li>if the enum has fixed underlying type</li>
+<li>since c++17</li>
+</ol>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="keyword">class</span> <span class="symbol">Salution</span>&#123;mr, ms&#125;;</span><br><span class="line"></span><br><span class="line">Salution s&#123;<span class="number">17</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="uniform-initialization-is-not-quite-work-with-atomic-and-assert-maybe-fixed-int-c-20"><a href="#uniform-initialization-is-not-quite-work-with-atomic-and-assert-maybe-fixed-int-c-20" class="headerlink" title="uniform initialization is not quite work with atomic and assert(maybe fixed int c++20)"></a>uniform initialization is not quite work with atomic and assert(maybe fixed int c++20)</h3><ol>
+<li>atomic</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//with P0883 maybe fixed in c++20</span></span><br><span class="line">std::atomic&lt;<span class="type">int</span>&gt; x1;    <span class="comment">//does zero initialize</span></span><br><span class="line">std::atomic&lt;<span class="type">int</span>&gt; x2&#123;&#125;;  <span class="comment">//does not zero initialize</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">counter</span> &#123;</span><br><span class="line">   <span class="type">int</span> external_counter = <span class="number">0</span>;</span><br><span class="line">   <span class="type">int</span> count = <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">std::atomic&lt;counter&gt; c1; <span class="comment">//does not initialize with 0 and 1</span></span><br><span class="line">std::atomic&lt;counter&gt; c2; <span class="comment">//does also not initialize with 0 and 1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>assert<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">assert</span>(c == std::<span class="built_in">complex</span>(<span class="number">0</span>, <span class="number">0</span>)); <span class="comment">//ok</span></span><br><span class="line"><span class="built_in">assert</span>(c == std::complex&#123;<span class="number">0</span>, <span class="number">0</span>&#125;); <span class="comment">//does not compile</span></span><br><span class="line"><span class="built_in">assert</span>((c == std::complex&#123;<span class="number">0</span>, <span class="number">0</span>&#125;)); <span class="comment">//ok</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="compiler-related"><a href="#compiler-related" class="headerlink" title="compiler related"></a>compiler related</h3><ol>
+<li>registers<br>rax(64) -&gt;  eax(32) -&gt; ax(16) -&gt; ah(8) and al(8) (left bits zeroed)</li>
+</ol>
+<p><code>rax</code>: return value<br><code>rdi</code>: 1st param<br><code>rsi</code>: 2nd param</p>
+<ol start="2">
+<li>Underscore <code>(_)</code> is special, as C++ reserves the following to be used by the compiler and the standard library</li>
+</ol>
+<ul>
+<li>any identifier that starts with an <code>_</code> followed by an upper-case letter, and</li>
+<li>any identifier that contains two consecutive underscores <code>(i.e. __)</code> anywhere in its name</li>
+</ul>
+<ol start="3">
+<li>platform judge<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">if</span> defined(_WIN32)</span></span><br><span class="line"><span class="comment">/* we&#x27;re on windows */</span></span><br><span class="line"><span class="meta">#<span class="keyword">elif</span> defined(__GNUC__) &amp;&amp; !defined(__clang__)</span></span><br><span class="line"><span class="comment">/* we&#x27;re on gcc ! */</span></span><br><span class="line"><span class="meta">#<span class="keyword">elif</span> defined(__clang__)</span></span><br><span class="line"><span class="comment">/* we&#x27;re on clang */</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line"><span class="comment">/* ¯\_(ツ)_/¯ */</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="practical-performance-practices"><a href="#practical-performance-practices" class="headerlink" title="practical performance practices"></a>practical performance practices</h3><ol>
+<li>const &amp; initialize</li>
+</ol>
+<ul>
+<li>always const</li>
+<li>always initialize</li>
+<li>use IIFE can help you initialize</li>
+<li>don’t recalculate values that can be calculated once</li>
+</ul>
+<ol start="2">
+<li>list vs vector vs array vs containers</li>
+</ol>
+<ul>
+<li>always prefer std::array</li>
+<li>then std::vector</li>
+</ul>
+<ol start="3">
+<li>others</li>
+</ol>
+<ul>
+<li>avoid object copying</li>
+<li>avoid automatic conversion: using conversion explicit</li>
+<li>don’t pass smart pointers</li>
+<li>avoid std::endl</li>
+<li>prefer return std::unique_ptr<T> to std::shared_ptr<T></li>
+</ul>
+<h3 id="shared-ptr-thread-safe"><a href="#shared-ptr-thread-safe" class="headerlink" title="shared_ptr thread safe"></a>shared_ptr thread safe</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://www.modernescpp.com/index.php/atomic-smart-pointers">atomic smart pointers</a></li>
+</ol>
+<h3 id="spinlock"><a href="#spinlock" class="headerlink" title="spinlock"></a>spinlock</h3><ul>
+<li>in user mode or general application mode, you should avoid spinlock.</li>
+<li>in kernel mode(low-level stuff), you only hold the lock about several instructions and latency is important,<br>a spinlock maybe better solution than a lock.</li>
+</ul>
+<h3 id="c-17-amp-c-20-new-features"><a href="#c-17-amp-c-20-new-features" class="headerlink" title="c++17&amp;c++20 new features"></a>c++17&amp;c++20 new features</h3><ul>
+<li><p>c++17<br>fold expressions, typename in template parameters, auto for non-type template parameter, class template argument deduction<br>inline variable(constexpr imply inline now), nested namespace</p>
+</li>
+<li><p>c++20<br>template lambdas, string literals as non-type template parameters, constrains(template requires), concepts</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>wens.wq
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://wengqiang.site/2018/12/cpp%E6%B8%A9%E6%95%85%E7%9F%A5%E6%96%B0(modern%20c++)/" title="cpp温故知新(c++20)">http://wengqiang.site/2018/12/cpp温故知新(modern c++)/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/c-c/" rel="tag"><i class="fa fa-tag"></i> c/c++</a>
+              <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 读书笔记</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/08/ubuntu%20LTS%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/" rel="prev" title="ubuntu LTS安装软件">
+                  <i class="fa fa-chevron-left"></i> ubuntu LTS安装软件
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/01/v2ray%E5%AE%89%E8%A3%85/" rel="next" title="v2ray安装">
+                  v2ray安装 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2013 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wens.wq</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline.wengqiang.site","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"emoji":["https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"meta":["nick","mail"],"requiredMeta":["nick","mail"],"pageSize":10,"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/2018/12/cpp%E6%B8%A9%E6%95%85%E7%9F%A5%E6%96%B0(modern%20c++)/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

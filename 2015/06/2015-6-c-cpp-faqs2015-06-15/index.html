@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Panda_Kungfu_32px_556429_easyicon.net.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Panda_Kungfu_16px_556429_easyicon.net.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wengqiang.site","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="linkages in function and object1234567891011&#x2F;* object *&#x2F;	  &#x2F;* function *&#x2F;int o1;		  int f1();		&#x2F;* external linkage *&#x2F;static int o2;	  static int f2();	&#x2F;* internal linkage *&#x2F;static int o3;	  static int">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c&#x2F;cpp-faqs">
+<meta property="og:url" content="http://wengqiang.site/2015/06/2015-6-c-cpp-faqs2015-06-15/index.html">
+<meta property="og:site_name" content="WengQiang&#39;s Blog">
+<meta property="og:description" content="linkages in function and object1234567891011&#x2F;* object *&#x2F;	  &#x2F;* function *&#x2F;int o1;		  int f1();		&#x2F;* external linkage *&#x2F;static int o2;	  static int f2();	&#x2F;* internal linkage *&#x2F;static int o3;	  static int">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2015-06-15T03:14:09.000Z">
+<meta property="article:modified_time" content="2022-03-22T02:07:06.033Z">
+<meta property="article:author" content="wens.wq">
+<meta property="article:tag" content="c&#x2F;c++">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://wengqiang.site/2015/06/2015-6-c-cpp-faqs2015-06-15/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://wengqiang.site/2015/06/2015-6-c-cpp-faqs2015-06-15/","path":"2015/06/2015-6-c-cpp-faqs2015-06-15/","title":"c/cpp-faqs"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>c/cpp-faqs | WengQiang's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://waline.wengqiang.site">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">WengQiang's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">where there is a will, there is a way!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#linkages-in-function-and-object"><span class="nav-number">1.</span> <span class="nav-text">linkages in function and object</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extern-mean-in-a-function-declaration"><span class="nav-number">2.</span> <span class="nav-text">extern mean in a function declaration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What%E2%80%99s-the-difference-between-these-two-declarations"><span class="nav-number">3.</span> <span class="nav-text">What’s the difference between these two declarations?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-the-difference-between-these-initializations"><span class="nav-number">4.</span> <span class="nav-text">What is the difference between these initializations?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#array-%E6%98%AF%E6%95%B0%E7%BB%84-%E5%88%99array-%E5%92%8C-amp-array-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">5.</span> <span class="nav-text">array 是数组,  则array 和 &amp;array 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E7%AC%A6%E5%8F%B7%E8%A7%84%E5%88%99-unsigned-preserving-%E5%92%8C%E5%80%BC%E8%A7%84%E5%88%99-value-preserving"><span class="nav-number">6.</span> <span class="nav-text">无符号规则(unsigned preserving)和值规则(value preserving)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#int-main-vs-int-main-void"><span class="nav-number">7.</span> <span class="nav-text">int main() vs int main(void)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#members-can-initialize-in-class-declaration"><span class="nav-number">8.</span> <span class="nav-text">members can initialize in class declaration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-%E4%B8%AD%E7%BB%A7%E6%89%BF%E7%9A%84%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="nav-number">9.</span> <span class="nav-text">c++中继承的相关问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delete-%E4%B8%80%E4%B8%AA%E6%8C%87%E9%92%88"><span class="nav-number">10.</span> <span class="nav-text">delete 一个指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E7%AC%94"><span class="nav-number">11.</span> <span class="nav-text">随笔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BAgcc-x2F-g-%E9%A2%84%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">12.</span> <span class="nav-text">显示gcc&#x2F;g++ 预定义变量的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-ctor-and-dtor"><span class="nav-number">13.</span> <span class="nav-text">c++ ctor and dtor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iterator-validation-after-erase"><span class="nav-number">14.</span> <span class="nav-text">iterator validation after erase</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wens.wq"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">wens.wq</p>
+  <div class="site-description" itemprop="description">胡编一通, 乱写一气. 猴赛雷.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wens07" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wens07" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wens.wq@gmail.com" title="E-Mail → mailto:wens.wq@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/wens_wq" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wens_wq" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/3872400/wens07?tab=profile" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;3872400&#x2F;wens07?tab&#x3D;profile" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          友情链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://www.stroustrup.com/" title="http:&#x2F;&#x2F;www.stroustrup.com&#x2F;" rel="noopener" target="_blank">Bjarne Stroustrup's</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://awesomecpp.com/" title="http:&#x2F;&#x2F;awesomecpp.com" rel="noopener" target="_blank">Awesome Modern C++</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/isocpp/CppCoreGuidelines" title="https:&#x2F;&#x2F;github.com&#x2F;isocpp&#x2F;CppCoreGuidelines" rel="noopener" target="_blank">C++ Core Guidelines</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://isocpp.org/faq" title="https:&#x2F;&#x2F;isocpp.org&#x2F;faq" rel="noopener" target="_blank">C++ FAQ @ isocpp.org</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.v2ex.com/?r=wens07" title="http:&#x2F;&#x2F;www.v2ex.com&#x2F;?r&#x3D;wens07" rel="noopener" target="_blank">v2ex(way to explore)</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://wengqiang.site/2015/06/2015-6-c-cpp-faqs2015-06-15/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wens.wq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WengQiang's Blog">
+      <meta itemprop="description" content="胡编一通, 乱写一气. 猴赛雷.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="c/cpp-faqs | WengQiang's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          c/cpp-faqs
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2015-06-15 11:14:09" itemprop="dateCreated datePublished" datetime="2015-06-15T11:14:09+08:00">2015-06-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-03-22 10:07:06" itemprop="dateModified" datetime="2022-03-22T10:07:06+08:00">2022-03-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technique/" itemprop="url" rel="index"><span itemprop="name">technique</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2015/06/2015-6-c-cpp-faqs2015-06-15/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2015/06/2015-6-c-cpp-faqs2015-06-15/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="linkages-in-function-and-object"><a href="#linkages-in-function-and-object" class="headerlink" title="linkages in function and object"></a>linkages in function and object</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* object */</span>	  <span class="comment">/* function */</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> o1;		  <span class="function"><span class="built_in">int</span> <span class="title">f1</span>()</span>;		<span class="comment">/* external linkage */</span></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">int</span> o2;	  <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">f2</span>()</span>;	<span class="comment">/* internal linkage */</span></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">int</span> o3;	  <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">f3</span>()</span>;	<span class="comment">/* internal linkage */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">int</span> o1;	  <span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">f1</span>()</span>;	<span class="comment">/* ERROR, both have external linkage */</span></span><br><span class="line"><span class="built_in">int</span> o2;					<span class="comment">/* ERROR, o2 has internal linkage */</span></span><br><span class="line">		  <span class="function"><span class="built_in">int</span> <span class="title">f2</span>()</span>;		<span class="comment">/* OK, picks up internal linkage */</span></span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">int</span> o3;	  <span class="function"><span class="keyword">extern</span> <span class="built_in">int</span> <span class="title">f3</span>()</span>;	<span class="comment">/* OK, both pick up internal linkage */</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<p>The difference is case (2); where functions do pick up a previous linkage even without “extern”, objects don’t.</p>
+<h3 id="extern-mean-in-a-function-declaration"><a href="#extern-mean-in-a-function-declaration" class="headerlink" title="extern mean in a function declaration"></a>extern mean in a function declaration</h3><p>extern is significant only with data declarations. In function declarations, it can be used as a stylistic hint to indicate that the function’s definition is probably in another source file, but there is no formal difference between</p>
+<p><code>extern int f();</code> and <code>int f()</code>;</p>
+<h3 id="What’s-the-difference-between-these-two-declarations"><a href="#What’s-the-difference-between-these-two-declarations" class="headerlink" title="What’s the difference between these two declarations?"></a>What’s the difference between these two declarations?</h3><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="type">x1</span> &#123; ... &#125;;</span><br><span class="line">typedef <span class="keyword">struct</span> &#123; ... &#125; x2;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>The first form declares a <strong>structure tag</strong>; the second declares a <strong>typedef</strong>. The main difference is that the second declaration is of a slightly more abstract type–its users don’t necessarily know that it is a structure, and the keyword struct is not used when declaring instances of it:</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x2 b<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>Structures declared with tags, on the other hand, must be defined with the</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="type">x1</span> a;</span><br></pre></td></tr></table></figure>
+<h3 id="What-is-the-difference-between-these-initializations"><a href="#What-is-the-difference-between-these-initializations" class="headerlink" title="What is the difference between these initializations?"></a>What is the difference between these initializations?</h3><p><code>char a[] = &quot;string literal&quot;;</code><br><code>char *p  = &quot;string literal&quot;;</code></p>
+<p>A string literal (the formal term for a double-quoted string in C source) can be used in two slightly different ways:</p>
+<ol>
+<li>As the initializer for an array of char, as in the declaration of char a[] , it specifies the initial values of the characters in that array (and, if necessary, its size).</li>
+<li>Anywhere else, it turns into an unnamed, static array of characters, and this unnamed array may be stored in read-only memory, and which therefore cannot necessarily be modified. In an expression context, the array is converted at once to a pointer, as usual (see section 6), so the second declaration initializes p to point to the unnamed array’s first element.</li>
+</ol>
+<p>Some compilers have a switch controlling whether string literals are writable or not (for compiling old code), and some may have options to cause string literals to be formally treated as arrays of const char (for better error catching).</p>
+<h3 id="array-是数组-则array-和-amp-array-的区别"><a href="#array-是数组-则array-和-amp-array-的区别" class="headerlink" title="array 是数组,  则array 和 &amp;array 的区别"></a>array 是数组,  则array 和 &amp;array 的区别</h3><p>区别在于类型<br>    在标准c中, &amp;array生成一个”T型数组”的指针,指向整个数组. 对于数组的简单引用则生成一个T型的指针,指向数组的第一个元素.</p>
+<p><code>int a[10]</code><br>对a的引用类型是”int型的指针”, 而&amp;a是”10个int的数组的指针”.</p>
+<p><code>int array[row][col]</code><br>对array的引用类型是”col个int的数组的指针”, 而&amp;array的类型是”row个col个int的数组的数组的指针”.</p>
+<h3 id="无符号规则-unsigned-preserving-和值规则-value-preserving"><a href="#无符号规则-unsigned-preserving-和值规则-value-preserving" class="headerlink" title="无符号规则(unsigned preserving)和值规则(value preserving)"></a>无符号规则(unsigned preserving)和值规则(value preserving)</h3><ol>
+<li><p>“unsigned preserving,” is used: when an unsigned type needs to be widened, it is widened to an unsigned type; when an unsigned type mixes with a signed type, the result is an unsigned type.</p>
+</li>
+<li><p>The other rule, specified by ISO C, is known as “value preserving,” in which the result type depends on the relative sizes of the operand types. When an unsigned char or unsigned short is widened, the result type is int if an int is large enough to represent all the values of the smaller type. Otherwise, the result type is unsigned int. The value preserving rule produces the least surprise arithmetic result for most expressions.</p>
+</li>
+</ol>
+<p>Compilation Behavior:<br>Only in the transition or ISO modes (-Xt or -Xs) does the ISO C compiler use the unsigned preserving promotions; in the other two modes, conforming (–Xc) and ISO (–Xa), the value preserving promotion rules are used.</p>
+<h3 id="int-main-vs-int-main-void"><a href="#int-main-vs-int-main-void" class="headerlink" title="int main() vs int main(void)"></a>int main() vs int main(void)</h3><ol>
+<li>在c++中两种方式都表示声明一个函数, 它没有参数; 一样的</li>
+<li>在c中, int main(void) 在c11标准中定义, 表示函数没有参数</li>
+</ol>
+<h3 id="members-can-initialize-in-class-declaration"><a href="#members-can-initialize-in-class-declaration" class="headerlink" title="members can initialize in class declaration"></a>members can initialize in class declaration</h3><blockquote>
+<p>in c++11 <em>non-static</em> data members, <em>static constexpr</em> data members, and <em>static const data members of integral or enumeration type</em> may be initialized in the class declaration. e.g.</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">X</span> &#123;</span><br><span class="line">    <span class="type">int</span> i=<span class="number">5</span>;</span><br><span class="line">    <span class="type">const</span> <span class="type">float</span> f=<span class="number">3.12f</span>;</span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> <span class="type">int</span> j=<span class="number">42</span>;</span><br><span class="line">    <span class="type">static</span> <span class="keyword">constexpr</span> <span class="type">float</span> g=<span class="number">9.5f</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="c-中继承的相关问题"><a href="#c-中继承的相关问题" class="headerlink" title="c++中继承的相关问题"></a>c++中继承的相关问题</h3><ol>
+<li>在public inheritance中<blockquote>
+<p> hide an inherited public: member function is evil</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="delete-一个指针"><a href="#delete-一个指针" class="headerlink" title="delete 一个指针"></a>delete 一个指针</h3><ol>
+<li>当一个指针是NULL时, delete p是安全的</li>
+<li>delete p twice, it is a disaster.</li>
+</ol>
+<h3 id="随笔"><a href="#随笔" class="headerlink" title="随笔"></a>随笔</h3><ol>
+<li>“M &amp; M rule”: for a member variable, the mutable and mutex(or atomic) go together.</li>
+<li>to the compiler, the function signature is same whether you include const in front of a value parameter or not.</li>
+</ol>
+<h3 id="显示gcc-x2F-g-预定义变量的区别"><a href="#显示gcc-x2F-g-预定义变量的区别" class="headerlink" title="显示gcc&#x2F;g++ 预定义变量的区别"></a>显示gcc&#x2F;g++ 预定义变量的区别</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">16</span>:<span class="number">13</span>:<span class="number">41</span> <span class="number">0</span> ~] $ g++ -E -dM -std=c++<span class="number">0</span>x -x c++ /dev/null &gt;b</span><br><span class="line">[<span class="number">16</span>:<span class="number">13</span>:<span class="number">44</span> <span class="number">0</span> ~] $ g++ -E -dM -std=c++<span class="number">98</span> -x c++ /dev/null &gt;a</span><br><span class="line">[<span class="number">16</span>:<span class="number">13</span>:<span class="number">50</span> <span class="number">0</span> ~] $ diff -u a b</span><br><span class="line">--- a   <span class="number">2010</span><span class="number">-06</span><span class="number">-02</span> <span class="number">16</span>:<span class="number">13</span>:<span class="number">50.200787591</span> +<span class="number">0200</span></span><br><span class="line">+++ b   <span class="number">2010</span><span class="number">-06</span><span class="number">-02</span> <span class="number">16</span>:<span class="number">13</span>:<span class="number">44.456912378</span> +<span class="number">0200</span></span><br><span class="line">@@ <span class="number">-20</span>,<span class="number">6</span> +<span class="number">20</span>,<span class="number">7</span> @@</span><br><span class="line"> <span class="meta">#<span class="keyword">define</span> __linux 1</span></span><br><span class="line"> <span class="meta">#<span class="keyword">define</span> __DEC32_EPSILON__ 1E-6DF</span></span><br><span class="line"> <span class="meta">#<span class="keyword">define</span> __unix 1</span></span><br><span class="line">+<span class="meta">#<span class="keyword">define</span> __GXX_EXPERIMENTAL_CXX0X__ 1</span></span><br><span class="line"> <span class="meta">#<span class="keyword">define</span> __LDBL_MAX_EXP__ 16384</span></span><br><span class="line"> <span class="meta">#<span class="keyword">define</span> __linux__ 1</span></span><br><span class="line"> <span class="meta">#<span class="keyword">define</span> __SCHAR_MAX__ 127</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="c-ctor-and-dtor"><a href="#c-ctor-and-dtor" class="headerlink" title="c++ ctor and dtor"></a>c++ ctor and dtor</h3><p>base-class subobjects, const or reference nonstatic data members. A base-class subobject, or a nonstatic data member, not mentioned in the member-initializer list is implicitly initialized with a default constructor, i.e. a constructor that can be called with no argument. Consequently, the language rules imply that all subobjects are constructed by the time the first statement of the constructor body (if not empty) is executed.</p>
+<h3 id="iterator-validation-after-erase"><a href="#iterator-validation-after-erase" class="headerlink" title="iterator validation after erase"></a>iterator validation after erase</h3><ul>
+<li>sequence container</li>
+</ul>
+<ol>
+<li>vector: the iterator following the itertor which erased is invalid</li>
+<li>string: the iterator following the itertor which erased is invalid</li>
+<li>array: no erase function</li>
+<li>deque: all iterator is invalid, unless the erased iterator is the begining or the end, in which case, only the erased iterator is invalid.</li>
+<li>list: not affect other iterator</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>wens.wq
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://wengqiang.site/2015/06/2015-6-c-cpp-faqs2015-06-15/" title="c&#x2F;cpp-faqs">http://wengqiang.site/2015/06/2015-6-c-cpp-faqs2015-06-15/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/c-c/" rel="tag"><i class="fa fa-tag"></i> c/c++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2015/06/2015-6-android-phone2015-06-02/" rel="prev" title="android phone">
+                  <i class="fa fa-chevron-left"></i> android phone
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2015/06/2015-6-c-cpp-useful-tools2015-06-15/" rel="next" title="c/cpp-useful-tools">
+                  c/cpp-useful-tools <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2013 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wens.wq</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline.wengqiang.site","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"emoji":["https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"meta":["nick","mail"],"requiredMeta":["nick","mail"],"pageSize":10,"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/2015/06/2015-6-c-cpp-faqs2015-06-15/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

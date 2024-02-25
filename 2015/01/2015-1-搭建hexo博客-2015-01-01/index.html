@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Panda_Kungfu_32px_556429_easyicon.net.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Panda_Kungfu_16px_556429_easyicon.net.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wengqiang.site","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="安装hexo 安装hexo  首先如果没有安装Node.js和Git, 则要先安装这两个  npm install -g hexo-cli  hexo的更新  npm update -g (好像得重新按照1中的命令重新安装hexo)   创建本地博客 初始化博客  在你想建立博客的文件夹下执行hexo init  选择主题  选择自己喜欢的主题, 一般从github上clone到theme文件夹下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建hexo博客">
+<meta property="og:url" content="http://wengqiang.site/2015/01/2015-1-%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2-2015-01-01/index.html">
+<meta property="og:site_name" content="WengQiang&#39;s Blog">
+<meta property="og:description" content="安装hexo 安装hexo  首先如果没有安装Node.js和Git, 则要先安装这两个  npm install -g hexo-cli  hexo的更新  npm update -g (好像得重新按照1中的命令重新安装hexo)   创建本地博客 初始化博客  在你想建立博客的文件夹下执行hexo init  选择主题  选择自己喜欢的主题, 一般从github上clone到theme文件夹下">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://wengqiang.site/images/2015/add_google_sitemap.png">
+<meta property="article:published_time" content="2014-12-31T16:24:00.000Z">
+<meta property="article:modified_time" content="2023-11-17T08:20:04.973Z">
+<meta property="article:author" content="wens.wq">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://wengqiang.site/images/2015/add_google_sitemap.png">
+
+
+<link rel="canonical" href="http://wengqiang.site/2015/01/2015-1-%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2-2015-01-01/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://wengqiang.site/2015/01/2015-1-%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2-2015-01-01/","path":"2015/01/2015-1-搭建hexo博客-2015-01-01/","title":"搭建hexo博客"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>搭建hexo博客 | WengQiang's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://waline.wengqiang.site">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">WengQiang's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">where there is a will, there is a way!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85hexo"><span class="nav-number">1.</span> <span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2"><span class="nav-number">2.</span> <span class="nav-text">创建本地博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0github%E4%B8%8A"><span class="nav-number">3.</span> <span class="nav-text">部署到github上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEnext%E4%B8%BB%E9%A2%98%E6%9C%AC%E5%9C%B0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E"><span class="nav-number">4.</span> <span class="nav-text">设置next主题本地搜索引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AErss"><span class="nav-number">5.</span> <span class="nav-text">设置rss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEsitemap"><span class="nav-number">6.</span> <span class="nav-text">设置sitemap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vps%E4%B8%8A%E9%85%8D%E7%BD%AEhexo%E5%8D%9A%E5%AE%A2"><span class="nav-number">7.</span> <span class="nav-text">vps上配置hexo博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85waline%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F"><span class="nav-number">8.</span> <span class="nav-text">安装waline评论系统</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wens.wq"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">wens.wq</p>
+  <div class="site-description" itemprop="description">胡编一通, 乱写一气. 猴赛雷.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wens07" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wens07" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wens.wq@gmail.com" title="E-Mail → mailto:wens.wq@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/wens_wq" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wens_wq" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/3872400/wens07?tab=profile" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;3872400&#x2F;wens07?tab&#x3D;profile" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          友情链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://www.stroustrup.com/" title="http:&#x2F;&#x2F;www.stroustrup.com&#x2F;" rel="noopener" target="_blank">Bjarne Stroustrup's</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://awesomecpp.com/" title="http:&#x2F;&#x2F;awesomecpp.com" rel="noopener" target="_blank">Awesome Modern C++</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/isocpp/CppCoreGuidelines" title="https:&#x2F;&#x2F;github.com&#x2F;isocpp&#x2F;CppCoreGuidelines" rel="noopener" target="_blank">C++ Core Guidelines</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://isocpp.org/faq" title="https:&#x2F;&#x2F;isocpp.org&#x2F;faq" rel="noopener" target="_blank">C++ FAQ @ isocpp.org</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.v2ex.com/?r=wens07" title="http:&#x2F;&#x2F;www.v2ex.com&#x2F;?r&#x3D;wens07" rel="noopener" target="_blank">v2ex(way to explore)</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://wengqiang.site/2015/01/2015-1-%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2-2015-01-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wens.wq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WengQiang's Blog">
+      <meta itemprop="description" content="胡编一通, 乱写一气. 猴赛雷.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="搭建hexo博客 | WengQiang's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          搭建hexo博客
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2015-01-01 00:24:00" itemprop="dateCreated datePublished" datetime="2015-01-01T00:24:00+08:00">2015-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-17 16:20:04" itemprop="dateModified" datetime="2023-11-17T16:20:04+08:00">2023-11-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technique/" itemprop="url" rel="index"><span itemprop="name">technique</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2015/01/2015-1-%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2-2015-01-01/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2015/01/2015-1-%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2-2015-01-01/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><ol>
+<li><p>安装hexo<br>  首先如果没有安装<strong>Node.js</strong>和<strong>Git</strong>, 则要先安装这两个<br>  <code>npm install -g hexo-cli</code></p>
+</li>
+<li><p>hexo的更新<br>  <code>npm update -g</code> (好像得重新按照1中的命令重新安装hexo)</p>
+</li>
+</ol>
+<h3 id="创建本地博客"><a href="#创建本地博客" class="headerlink" title="创建本地博客"></a>创建本地博客</h3><ol>
+<li><p>初始化博客<br>  在你想建立博客的文件夹下执行<code>hexo init</code></p>
+</li>
+<li><p>选择主题<br>  选择自己喜欢的主题, 一般从github上clone到theme文件夹下; 然后根据主题的wiki进行配置</p>
+<span id="more"></span></li>
+</ol>
+<h3 id="部署到github上"><a href="#部署到github上" class="headerlink" title="部署到github上"></a>部署到github上</h3><ol>
+<li><p>本地预览<br>  <code>hexo server</code> 在网页<a target="_blank" rel="noopener" href="http://localhost/4000%E5%8F%AF%E4%BB%A5%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88">http://localhost/4000可以进行本地预览</a></p>
+</li>
+<li><p>部署<br>  配置站点配置文件, 然后<code>hexo generate</code>, <code>hexo deploy</code></p>
+</li>
+</ol>
+<h3 id="设置next主题本地搜索引擎"><a href="#设置next主题本地搜索引擎" class="headerlink" title="设置next主题本地搜索引擎"></a>设置next主题本地搜索引擎</h3><ol>
+<li>安装searchdb插件<br>  <code>npm install hexo-generator-searchdb --save</code></li>
+</ol>
+<h3 id="设置rss"><a href="#设置rss" class="headerlink" title="设置rss"></a>设置rss</h3><ol>
+<li><p>安装feed插件<br>  <code>npm install hexo-generator-feed --save</code></p>
+</li>
+<li><p>站点配置文件<br>  加入以下feed配置:</p>
+<blockquote>
+<p>feed:<br>  type: atom<br>  path: atom.xml<br>  limit: 20</p>
+</blockquote>
+</li>
+<li><p>主题配置文件<br>  以next主题为例:</p>
+</li>
+</ol>
+<blockquote>
+<p>rss: &#x2F;atom.xml</p>
+</blockquote>
+<h3 id="设置sitemap"><a href="#设置sitemap" class="headerlink" title="设置sitemap"></a>设置sitemap</h3><ol>
+<li><p>安装sitemap插件<br>  <code>npm install hexo-generator-sitemap --save</code></p>
+</li>
+<li><p>站点配置文件<br>  加入以下sitemap配置:</p>
+  <figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">plugins</span><span class="punctuation">:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo-generator-sitemap</span></span><br></pre></td></tr></table></figure></li>
+<li><p>可以在<code>localhost:4000/sitemap.xml</code>看到网站的sitemap</p>
+</li>
+<li><p>然后提交到你网站所用的搜索引擎上, 如swiftype, google, baidu等</p>
+<blockquote>
+<p>以google为例:<br>  (<a target="_blank" rel="noopener" href="https://www.google.com/webmasters/tools/home?hl=en">google站点管理</a>)<br>  <img src="/images/2015/add_google_sitemap.png" alt="sitemap_google"></p>
+</blockquote>
+</li>
+<li><p>swiftype设置<br><a target="_blank" rel="noopener" href="http://blog.swiftype.com/sitemap-xml-support-for-swiftype/">swiftype support sitemap.xml</a><br>  它根据Robots.txt来读取sitemap<br><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/hexo-generator-robotstxt">robotstxt插件的安装与配置</a></p>
+</li>
+</ol>
+<h3 id="vps上配置hexo博客"><a href="#vps上配置hexo博客" class="headerlink" title="vps上配置hexo博客"></a>vps上配置hexo博客</h3><ol>
+<li><p>安装nginx<br><code>yum install nginx</code></p>
+</li>
+<li><p>防火墙允许http&#x2F;https服务<br><code>firewall-cmd --permanent --zone=public --add-service=http</code><br><code>firewall-cmd --permanent --zone=public --add-service=https</code></p>
+</li>
+<li><p>设置网站目录<br>设置location下的root为hexo生成的public文件夹</p>
+<blockquote>
+<p>如果出现403forbidden, 可能是权限问题, nginx.conf第一行<br>user nobody 改为 user root</p>
+</blockquote>
+</li>
+<li><p>绑定域名 &amp; 设置https<br><code>server_name</code> 字段改为你的域名</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"># included <span class="keyword">in</span> http brace</span><br><span class="line"># http setting</span><br><span class="line">server &#123;</span><br><span class="line">    listen       <span class="number">80</span>;</span><br><span class="line">    server_name  wengqiang.<span class="property">site</span>;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root   /root/wens07.<span class="property">github</span>.<span class="property">io</span>/public;</span><br><span class="line">        index  index.<span class="property">html</span> index.<span class="property">htm</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// http request turn to htpps</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">301</span> <span class="attr">https</span>:<span class="comment">//$host$request_uri;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># https setting</span><br><span class="line">server &#123;</span><br><span class="line">    listen       <span class="number">443</span> ssl;</span><br><span class="line">    server_name  wengqiang.<span class="property">site</span>;</span><br><span class="line"></span><br><span class="line">    ssl_certificate      /root/wengqiang.<span class="property">site</span>.<span class="property">cert</span>/<span class="title class_">Nginx</span>/1_wengqiang.<span class="property">site_bundle</span>.<span class="property">crt</span>;</span><br><span class="line">    ssl_certificate_key  /root/wengqiang.<span class="property">site</span>.<span class="property">cert</span>/<span class="title class_">Nginx</span>/2_wengqiang.<span class="property">site</span>.<span class="property">key</span>;</span><br><span class="line"></span><br><span class="line">    ssl_session_cache    <span class="attr">shared</span>:<span class="attr">SSL</span>:1m;</span><br><span class="line">    ssl_session_timeout  5m;</span><br><span class="line"></span><br><span class="line">    ssl_ciphers  <span class="attr">HIGH</span>:!<span class="attr">aNULL</span>:!<span class="title class_">MD5</span>;</span><br><span class="line">    ssl_prefer_server_ciphers  on;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root   /root/wens07.<span class="property">github</span>.<span class="property">io</span>/public;</span><br><span class="line">        index  index.<span class="property">html</span> index.<span class="property">htm</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装waline评论系统"><a href="#安装waline评论系统" class="headerlink" title="安装waline评论系统"></a>安装waline评论系统</h3><ol>
+<li>根据waline官网操作部署好waline服务端(<a target="_blank" rel="noopener" href="https://vercel.com/wens07">https://vercel.com/wens07</a>)</li>
+<li>hexo安装插件支持<br><code>sudo npm install @waline/hexo-next</code><br></li>
+<li>config.yml对waline进行配置</li>
+<li>进入waline的后台管理进行注册,第一个注册即为管理员 <a target="_blank" rel="noopener" href="https://waline.wengqiang.site/ui/register">https://waline.wengqiang.site/ui/register</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>wens.wq
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://wengqiang.site/2015/01/2015-1-%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2-2015-01-01/" title="搭建hexo博客">http://wengqiang.site/2015/01/2015-1-搭建hexo博客-2015-01-01/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2015/01/2015-1-hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BC%98%E5%8C%96-%E4%B8%802015-01-01/" rel="next" title="hexo博客配置与优化(一)">
+                  hexo博客配置与优化(一) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2013 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wens.wq</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline.wengqiang.site","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"emoji":["https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"meta":["nick","mail"],"requiredMeta":["nick","mail"],"pageSize":10,"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/2015/01/2015-1-%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2-2015-01-01/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

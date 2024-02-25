@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Panda_Kungfu_32px_556429_easyicon.net.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Panda_Kungfu_16px_556429_easyicon.net.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wengqiang.site","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="go grammer the standard Go compiler and gccgo both don’t allow local variables declared but not used. Package-level variables have no such limit.If a local variable is only ever used as destination va">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读书笔记golang">
+<meta property="og:url" content="http://wengqiang.site/2018/07/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0golang-2018-07-07/index.html">
+<meta property="og:site_name" content="WengQiang&#39;s Blog">
+<meta property="og:description" content="go grammer the standard Go compiler and gccgo both don’t allow local variables declared but not used. Package-level variables have no such limit.If a local variable is only ever used as destination va">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://wengqiang.site/images/2018/cgo%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90.png">
+<meta property="og:image" content="http://wengqiang.site/images/2018/cgo%E8%B0%83%E7%94%A8%E6%B5%81%E7%A8%8B.png">
+<meta property="article:published_time" content="2018-07-07T03:25:28.000Z">
+<meta property="article:modified_time" content="2023-04-26T15:26:32.013Z">
+<meta property="article:author" content="wens.wq">
+<meta property="article:tag" content="读书笔记">
+<meta property="article:tag" content="go">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://wengqiang.site/images/2018/cgo%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90.png">
+
+
+<link rel="canonical" href="http://wengqiang.site/2018/07/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0golang-2018-07-07/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://wengqiang.site/2018/07/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0golang-2018-07-07/","path":"2018/07/读书笔记golang-2018-07-07/","title":"读书笔记golang"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>读书笔记golang | WengQiang's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://waline.wengqiang.site">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">WengQiang's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">where there is a will, there is a way!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#go-grammer"><span class="nav-number">1.</span> <span class="nav-text">go grammer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#go-%E6%95%B0%E7%BB%84%E5%A4%A7%E5%B0%8F%E4%B8%8D%E8%83%BD%E8%B6%85%E8%BF%872GB"><span class="nav-number">2.</span> <span class="nav-text">go 数组大小不能超过2GB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#goroutine"><span class="nav-number">3.</span> <span class="nav-text">goroutine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%BB%E5%A1%9E%E7%BA%BF%E7%A8%8B%EF%BC%8C%E5%BB%B6%E8%BF%9F%E9%80%80%E5%87%BA"><span class="nav-number">4.</span> <span class="nav-text">阻塞线程，延迟退出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90cgo%E4%B8%AD%E9%97%B4%E6%96%87%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">生成cgo中间文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#go%E7%94%9F%E6%88%90c%E5%87%BD%E6%95%B0%EF%BC%8C%E7%94%A8%E4%BA%8Ec%E8%AF%AD%E8%A8%80%E8%B0%83%E7%94%A8"><span class="nav-number">6.</span> <span class="nav-text">go生成c函数，用于c语言调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#defer-amp-panic-amp-recover"><span class="nav-number">7.</span> <span class="nav-text">defer &amp; panic &amp; recover</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#channel"><span class="nav-number">8.</span> <span class="nav-text">channel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cocurrency-vs-parallel"><span class="nav-number">9.</span> <span class="nav-text">cocurrency vs parallel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nil-interface"><span class="nav-number">10.</span> <span class="nav-text">nil interface</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assignment"><span class="nav-number">11.</span> <span class="nav-text">assignment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice-operations"><span class="nav-number">12.</span> <span class="nav-text">slice operations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reset-some-contiguous-elements-in-array-or-slice"><span class="nav-number">13.</span> <span class="nav-text">reset some contiguous elements in array or slice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#efficiently-and-perfectly-clone-a-slice"><span class="nav-number">14.</span> <span class="nav-text">efficiently and perfectly clone a slice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cgo-%E7%9B%B8%E5%85%B3"><span class="nav-number">15.</span> <span class="nav-text">cgo 相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interface-conclusion"><span class="nav-number">16.</span> <span class="nav-text">interface conclusion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#module"><span class="nav-number">17.</span> <span class="nav-text">module</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wens.wq"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">wens.wq</p>
+  <div class="site-description" itemprop="description">胡编一通, 乱写一气. 猴赛雷.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wens07" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wens07" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wens.wq@gmail.com" title="E-Mail → mailto:wens.wq@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/wens_wq" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wens_wq" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/3872400/wens07?tab=profile" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;3872400&#x2F;wens07?tab&#x3D;profile" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          友情链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://www.stroustrup.com/" title="http:&#x2F;&#x2F;www.stroustrup.com&#x2F;" rel="noopener" target="_blank">Bjarne Stroustrup's</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://awesomecpp.com/" title="http:&#x2F;&#x2F;awesomecpp.com" rel="noopener" target="_blank">Awesome Modern C++</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/isocpp/CppCoreGuidelines" title="https:&#x2F;&#x2F;github.com&#x2F;isocpp&#x2F;CppCoreGuidelines" rel="noopener" target="_blank">C++ Core Guidelines</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://isocpp.org/faq" title="https:&#x2F;&#x2F;isocpp.org&#x2F;faq" rel="noopener" target="_blank">C++ FAQ @ isocpp.org</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.v2ex.com/?r=wens07" title="http:&#x2F;&#x2F;www.v2ex.com&#x2F;?r&#x3D;wens07" rel="noopener" target="_blank">v2ex(way to explore)</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://wengqiang.site/2018/07/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0golang-2018-07-07/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wens.wq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WengQiang's Blog">
+      <meta itemprop="description" content="胡编一通, 乱写一气. 猴赛雷.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="读书笔记golang | WengQiang's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          读书笔记golang
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-07-07 11:25:28" itemprop="dateCreated datePublished" datetime="2018-07-07T11:25:28+08:00">2018-07-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-26 23:26:32" itemprop="dateModified" datetime="2023-04-26T23:26:32+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technique/" itemprop="url" rel="index"><span itemprop="name">technique</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/07/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0golang-2018-07-07/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/07/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0golang-2018-07-07/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="go-grammer"><a href="#go-grammer" class="headerlink" title="go grammer"></a>go grammer</h3><ol>
+<li><p>the standard Go compiler and gccgo both don’t allow local variables declared but not used. Package-level variables have no such limit.<br>If a local variable is only ever used as destination values, it will also be viewed as unused.</p>
+</li>
+<li><p>Overflows are not allowed for typed constant values but are allowed for non-constant and untyped constant values.</p>
+<ul>
+<li>Non-constant integer values can be converted to strings.</li>
+<li>Non-constant floating-point and integer values can be explicitly converted to any other floating-point and integer types.</li>
+<li>Non-constant complex values can be explicitly converted to any other complex types.</li>
+</ul>
+</li>
+<li><p>The name of the folder of a package is not required to be the same as the package name. However, for a library package, it will make package users confused if the name of the package is different from the name of the folder of the package.</p>
+</li>
+<li><ul>
+<li>A package-level variable is initialized after all of its depended variables.</li>
+<li>All package-level variables declared in a package are initialized before any <code>init</code> function declared in the same package is invoked.</li>
+<li>All init functions in all involved packages in a program will be invoked sequentially. An init function in an importing package will be invoked after all the init functions declared in the dependency packages of the importing package for sure. All init functions will be invoked before invoking the main entry function.</li>
+</ul>
+</li>
+<li><p>The expressions enclosed within the body of an anonymous function call, whether the call is a general call or a deferred&#x2F;goroutine call, will not be evaluated at the moment when the anonymous function call is invoked.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">3</span>; i++ &#123;</span><br><span class="line">      <span class="keyword">defer</span> fmt.Println(<span class="string">&quot;a:&quot;</span>, i)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;()</span><br><span class="line">  fmt.Println()</span><br><span class="line">  <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">3</span>; i++ &#123;</span><br><span class="line">      <span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">&quot;b:&quot;</span>, i)</span><br><span class="line">      &#125;()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>output is:  a: 2<br>        a: 1<br>        a: 0<br><br>        b: 3<br>        b: 3<br>        b: 3<br>to get b: 2, b: 1, b: 0</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">3</span>; i++ &#123;</span><br><span class="line">      <span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">(i <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">&quot;b:&quot;</span>, i)</span><br><span class="line">      &#125;(i)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;()</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="go-数组大小不能超过2GB"><a href="#go-数组大小不能超过2GB" class="headerlink" title="go 数组大小不能超过2GB"></a>go 数组大小不能超过2GB</h3><p>需要针对数组元素的类型大小计算数组的最大长度范围 ([]uint8 最大2GB， []uint16 最大1GB，以此类推)，但是 []struct{} 数组的长度可以超过2GB</p>
+<h3 id="goroutine"><a href="#goroutine" class="headerlink" title="goroutine"></a>goroutine</h3><ol>
+<li>首先系统级的线程创建会创建默认大小的栈(一般默认可能为2Mb)，主要用于保存递归函数调用的参数以及局部变量，默认大小的栈存在可能空间浪费或者栈不足的问题；而goroutine采用可以动态增减的栈，初始创建栈大小为(2kb或者4kb)，根据需要动态增减（主流实现的栈大小可以达到1gb）<span id="more"></span></li>
+</ol>
+<h3 id="阻塞线程，延迟退出"><a href="#阻塞线程，延迟退出" class="headerlink" title="阻塞线程，延迟退出"></a>阻塞线程，延迟退出</h3><ol>
+<li><code>select&#123;&#125;</code></li>
+<li><code>for &#123;&#125;</code></li>
+<li><code>&lt;- make(chan bool)</code></li>
+</ol>
+<p>如果是main函数线程阻塞，正常退出需要调用os.Exit(0)进行退出</p>
+<h3 id="生成cgo中间文件"><a href="#生成cgo中间文件" class="headerlink" title="生成cgo中间文件"></a>生成cgo中间文件</h3><p><code>go tool cgo yourfile.go</code><br>会生成一个_obj目录包含相关的中间文件</p>
+<h3 id="go生成c函数，用于c语言调用"><a href="#go生成c函数，用于c语言调用" class="headerlink" title="go生成c函数，用于c语言调用"></a>go生成c函数，用于c语言调用</h3><p><code>go build -buildmode=c-archive -o sum.a sum.go</code><br>将sum.go中的c导出函数生成sum.a以及sum.h文件</p>
+<h3 id="defer-amp-panic-amp-recover"><a href="#defer-amp-panic-amp-recover" class="headerlink" title="defer &amp; panic &amp; recover"></a>defer &amp; panic &amp; recover</h3><p><a target="_blank" rel="noopener" href="https://blog.golang.org/defer-panic-and-recover">defer|panic|recover</a></p>
+<ul>
+<li>defer</li>
+</ul>
+<p>A defer statement pushes a function call onto a list. The list of saved calls is executed after the surrounding function returns.</p>
+<ol>
+<li>A deferred function’s arguments are evaluated when the defer statement is evaluated.</li>
+<li>Deferred function calls are executed in Last In First Out order after the surrounding function returns.</li>
+<li>Deferred functions may read and assign to the returning function’s named return values; deferred functions can modify named return values.</li>
+</ol>
+<ul>
+<li>recover</li>
+</ul>
+<ol>
+<li>Recover is only useful inside deferred functions. During normal execution, a call to recover will return nil and have no other effect.</li>
+<li>When panic is called, it immediately stops execution of the current function and begins unwinding the stack of the goroutine, running any deferred functions along the way; Because the only code that runs while unwinding is inside deferred functions, recover is only useful inside deferred functions</li>
+</ol>
+<h3 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h3><ol>
+<li>nil channel</li>
+</ol>
+<ul>
+<li>A send to a nil channel blocks forever</li>
+<li>A receive from a nil channel blocks forever</li>
+<li>A send to a closed channel panics</li>
+<li>A receive from a closed channel returns the zero value immediately</li>
+</ul>
+<h3 id="cocurrency-vs-parallel"><a href="#cocurrency-vs-parallel" class="headerlink" title="cocurrency vs parallel"></a>cocurrency vs parallel</h3><ol>
+<li>cocurrency is about dealing with lots of things at once.</li>
+<li>parrallel is about doing lots of things at once.</li>
+</ol>
+<h3 id="nil-interface"><a href="#nil-interface" class="headerlink" title="nil interface"></a>nil interface</h3><p>type interface  &#x3D;&#x3D;&gt;  T, V<br>keep in mind that if any concrete value has been stored in the interface, the interface will not be nil</p>
+<h3 id="assignment"><a href="#assignment" class="headerlink" title="assignment"></a>assignment</h3><ol>
+<li>In a short variable declaration, all items at the left of the :&#x3D; sign must pure identifiers. This means some other assignable items, which will be introduced in other articles, can’t appear at the left of :&#x3D;. These items include qualified identifiers, container elements, pointer dereferences and struct field selectors.</li>
+</ol>
+<h3 id="slice-operations"><a href="#slice-operations" class="headerlink" title="slice operations"></a>slice operations</h3><ol>
+<li>clone<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clone := <span class="built_in">append</span>(s[:<span class="number">0</span>:<span class="number">0</span>], s...)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="reset-some-contiguous-elements-in-array-or-slice"><a href="#reset-some-contiguous-elements-in-array-or-slice" class="headerlink" title="reset some contiguous elements in array or slice"></a>reset some contiguous elements in array or slice</h3><ul>
+<li>memcls(following range for will optimized by go compiler to <code>memcls</code> internal call)<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i := <span class="keyword">range</span> a &#123;</span><br><span class="line">	a[i] = t0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="efficiently-and-perfectly-clone-a-slice"><a href="#efficiently-and-perfectly-clone-a-slice" class="headerlink" title="efficiently and perfectly clone a slice"></a>efficiently and perfectly clone a slice</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clone := <span class="built_in">append</span>(a[:<span class="number">0</span>:<span class="number">0</span>], a...)</span><br></pre></td></tr></table></figure>
+
+<h3 id="cgo-相关"><a href="#cgo-相关" class="headerlink" title="cgo 相关"></a>cgo 相关</h3><ol>
+<li><p>cgo中间文件生成<br><img src="/images/2018/cgo%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90.png" alt="cgo中间文件"></p>
+</li>
+<li><p>cgo调用流程<br><img src="/images/2018/cgo%E8%B0%83%E7%94%A8%E6%B5%81%E7%A8%8B.png" alt="cgo调用流程"></p>
+</li>
+</ol>
+<h3 id="interface-conclusion"><a href="#interface-conclusion" class="headerlink" title="interface conclusion"></a>interface conclusion</h3><ol>
+<li>interface provide:</li>
+</ol>
+<ul>
+<li>generic algorithms</li>
+<li>hidden implementation</li>
+<li>interception points</li>
+</ul>
+<ol start="2">
+<li>implicit satisfication</li>
+</ol>
+<ul>
+<li>break dependencies</li>
+</ul>
+<ol start="3">
+<li>type assertion</li>
+</ol>
+<ul>
+<li>to extend behaviors</li>
+<li>to classify errors</li>
+<li>to maintain compatibility</li>
+</ul>
+<h3 id="module"><a href="#module" class="headerlink" title="module"></a>module</h3><ol>
+<li><p>list current module dependency<br><code>go list -m all</code> and <code>go list -m -versions thepackage</code></p>
+</li>
+<li><p>clean unused dependency<br><code>go mod tidy</code></p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>wens.wq
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://wengqiang.site/2018/07/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0golang-2018-07-07/" title="读书笔记golang">http://wengqiang.site/2018/07/读书笔记golang-2018-07-07/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 读书笔记</a>
+              <a href="/tags/go/" rel="tag"><i class="fa fa-tag"></i> go</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/05/bitcoin-segwit-learning-2018-05-15/" rel="prev" title="bitcoin-segwit-learning">
+                  <i class="fa fa-chevron-left"></i> bitcoin-segwit-learning
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/08/ubuntu%20LTS%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/" rel="next" title="ubuntu LTS安装软件">
+                  ubuntu LTS安装软件 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2013 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wens.wq</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline.wengqiang.site","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"emoji":["https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"meta":["nick","mail"],"requiredMeta":["nick","mail"],"pageSize":10,"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/2018/07/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0golang-2018-07-07/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

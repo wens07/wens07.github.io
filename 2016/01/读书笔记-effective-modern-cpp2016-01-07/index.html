@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Panda_Kungfu_32px_556429_easyicon.net.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Panda_Kungfu_16px_556429_easyicon.net.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wengqiang.site","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="判断一个表达式是lvalue or rvalue A useful heuristic to determine whether an expression is an lvalue is to ask if you can take its address. If you can, it typically is. If you can’t, it’s usually an rvalue.  一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读书笔记 effective modern c++">
+<meta property="og:url" content="http://wengqiang.site/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-effective-modern-cpp2016-01-07/index.html">
+<meta property="og:site_name" content="WengQiang&#39;s Blog">
+<meta property="og:description" content="判断一个表达式是lvalue or rvalue A useful heuristic to determine whether an expression is an lvalue is to ask if you can take its address. If you can, it typically is. If you can’t, it’s usually an rvalue.  一">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://wengqiang.site/images/2016/shared_ptr.png">
+<meta property="og:image" content="http://wengqiang.site/images/2016/weak_ptr.png">
+<meta property="article:published_time" content="2016-01-07T14:39:40.000Z">
+<meta property="article:modified_time" content="2023-04-26T15:14:22.977Z">
+<meta property="article:author" content="wens.wq">
+<meta property="article:tag" content="c&#x2F;c++">
+<meta property="article:tag" content="读书笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://wengqiang.site/images/2016/shared_ptr.png">
+
+
+<link rel="canonical" href="http://wengqiang.site/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-effective-modern-cpp2016-01-07/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://wengqiang.site/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-effective-modern-cpp2016-01-07/","path":"2016/01/读书笔记-effective-modern-cpp2016-01-07/","title":"读书笔记 effective modern c++"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>读书笔记 effective modern c++ | WengQiang's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://waline.wengqiang.site">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">WengQiang's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">where there is a will, there is a way!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%98%AFlvalue-or-rvalue"><span class="nav-number">1.</span> <span class="nav-text">判断一个表达式是lvalue or rvalue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Eexception-safe"><span class="nav-number">2.</span> <span class="nav-text">关于exception safe</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#decltype"><span class="nav-number">3.</span> <span class="nav-text">decltype</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E7%B1%BB%E5%9E%8B%E7%9B%B8%E5%85%B3"><span class="nav-number">4.</span> <span class="nav-text">获取类型相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#uniform-initialization"><span class="nav-number">5.</span> <span class="nav-text">uniform initialization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prefer-deleted-function-to-private-function"><span class="nav-number">6.</span> <span class="nav-text">prefer deleted function to private function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-special-member-function-generation"><span class="nav-number">7.</span> <span class="nav-text">c++ special member function generation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#move-operation-amp-std-move-amp-std-forward"><span class="nav-number">8.</span> <span class="nav-text">move operation &amp; std::move() &amp; std::forward()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#distinguish-universal-reference-to-rvalue-reference"><span class="nav-number">9.</span> <span class="nav-text">distinguish universal reference to rvalue reference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#smart-pointers"><span class="nav-number">10.</span> <span class="nav-text">smart pointers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reference-collapsing"><span class="nav-number">11.</span> <span class="nav-text">reference collapsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#type-related"><span class="nav-number">12.</span> <span class="nav-text">type related</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#constexpr"><span class="nav-number">13.</span> <span class="nav-text">constexpr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stack-unwinding"><span class="nav-number">14.</span> <span class="nav-text">stack unwinding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pimpl-Idiom-pointer-to-implementation"><span class="nav-number">15.</span> <span class="nav-text">Pimpl Idiom(pointer to implementation)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#std-is-same-std-decay-std-is-base-of-std-is-constructible-std-declval"><span class="nav-number">16.</span> <span class="nav-text">std::is_same, std::decay, std::is_base_of, std::is_constructible, std::declval</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#make-std-thread-unjoinable-all-path"><span class="nav-number">17.</span> <span class="nav-text">make std::thread unjoinable all path</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#thread-communication"><span class="nav-number">18.</span> <span class="nav-text">thread communication</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#volatile"><span class="nav-number">19.</span> <span class="nav-text">volatile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multithread"><span class="nav-number">20.</span> <span class="nav-text">multithread</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#function-T-amp-amp-and-function-overload"><span class="nav-number">21.</span> <span class="nav-text">function(T&amp;&amp;) and function overload</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wens.wq"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">wens.wq</p>
+  <div class="site-description" itemprop="description">胡编一通, 乱写一气. 猴赛雷.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wens07" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wens07" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wens.wq@gmail.com" title="E-Mail → mailto:wens.wq@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/wens_wq" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wens_wq" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/3872400/wens07?tab=profile" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;3872400&#x2F;wens07?tab&#x3D;profile" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          友情链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://www.stroustrup.com/" title="http:&#x2F;&#x2F;www.stroustrup.com&#x2F;" rel="noopener" target="_blank">Bjarne Stroustrup's</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://awesomecpp.com/" title="http:&#x2F;&#x2F;awesomecpp.com" rel="noopener" target="_blank">Awesome Modern C++</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/isocpp/CppCoreGuidelines" title="https:&#x2F;&#x2F;github.com&#x2F;isocpp&#x2F;CppCoreGuidelines" rel="noopener" target="_blank">C++ Core Guidelines</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://isocpp.org/faq" title="https:&#x2F;&#x2F;isocpp.org&#x2F;faq" rel="noopener" target="_blank">C++ FAQ @ isocpp.org</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.v2ex.com/?r=wens07" title="http:&#x2F;&#x2F;www.v2ex.com&#x2F;?r&#x3D;wens07" rel="noopener" target="_blank">v2ex(way to explore)</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://wengqiang.site/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-effective-modern-cpp2016-01-07/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wens.wq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WengQiang's Blog">
+      <meta itemprop="description" content="胡编一通, 乱写一气. 猴赛雷.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="读书笔记 effective modern c++ | WengQiang's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          读书笔记 effective modern c++
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-01-07 22:39:40" itemprop="dateCreated datePublished" datetime="2016-01-07T22:39:40+08:00">2016-01-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-26 23:14:22" itemprop="dateModified" datetime="2023-04-26T23:14:22+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technique/" itemprop="url" rel="index"><span itemprop="name">technique</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-effective-modern-cpp2016-01-07/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-effective-modern-cpp2016-01-07/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="判断一个表达式是lvalue-or-rvalue"><a href="#判断一个表达式是lvalue-or-rvalue" class="headerlink" title="判断一个表达式是lvalue or rvalue"></a>判断一个表达式是lvalue or rvalue</h3><blockquote>
+<p>A useful heuristic to determine whether an expression is an lvalue is to ask if you can take its address. If you can, it typically is. If you can’t, it’s usually an rvalue.</p>
+</blockquote>
+<p>一般情况下， 可以根据以上所述进行判断。</p>
+<h3 id="关于exception-safe"><a href="#关于exception-safe" class="headerlink" title="关于exception safe"></a>关于exception safe</h3><p>如果一个函数是exception safe的，则它表示提供basic exception safety guarantee ，至少要保证：<em><strong>即使函数有exception抛出，pragram invariants remain intact(比如： 没有数据结构出错)  and no resources are leaked</strong></em><br>如果函数提供strong exception safety guarantee， 则保证：if an exception arises, the state of the program remains as it was prior to the call.</p>
+<h3 id="decltype"><a href="#decltype" class="headerlink" title="decltype"></a>decltype</h3><blockquote>
+<p>int x &#x3D; 0</p>
+</blockquote>
+<span id="more"></span>
+<p>x is the name of a variable.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">decltype</span><span class="params">(x)</span></span> ---&gt; int</span><br><span class="line"><span class="function"><span class="title">decltype</span><span class="params">((x)</span></span>) ---&gt; int &amp;</span><br></pre></td></tr></table></figure>
+<p>(x) yield an expression more complicated than a name.</p>
+<h3 id="获取类型相关"><a href="#获取类型相关" class="headerlink" title="获取类型相关"></a>获取类型相关</h3><p>c++ standard：<typeinfo><br><code> typeid(T).name()</code></p>
+<p>&lt;boost&#x2F;type_index.hpp&gt;</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;boost/type_index.hpp&gt;</span></span></span><br><span class="line">  <span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span></span><br><span class="line"><span class="function">  <span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">const</span> T&amp; param)</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="keyword">using</span> std::cout;</span><br><span class="line">    <span class="keyword">using</span> boost::typeindex::type_id_with_cvr;</span><br><span class="line">    <span class="comment">// show T</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;T = &quot;</span>&lt;&lt; <span class="built_in">type_id_with_cvr</span>&lt;T&gt;().<span class="built_in">pretty_name</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="comment">// show param&#x27;s type</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;param = &quot;</span></span><br><span class="line">         &lt;&lt; <span class="built_in">type_id_with_cvr</span>&lt;<span class="keyword">decltype</span>(param)&gt;().<span class="built_in">pretty_name</span>()</span><br><span class="line">         &lt;&lt; <span class="string">&#x27;\n&#x27;</span>; ...</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="uniform-initialization"><a href="#uniform-initialization" class="headerlink" title="uniform initialization"></a>uniform initialization</h3><blockquote>
+<p>T x{} —-&gt; {} is that it prohibits implicit <code>narrowing conversions</code> among built-in type.<br>{} means no arguments, not an empty std::initializer_list</p>
+</blockquote>
+<h3 id="prefer-deleted-function-to-private-function"><a href="#prefer-deleted-function-to-private-function" class="headerlink" title="prefer deleted function to private function"></a>prefer deleted function to private function</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span>  <span class="title class_">Widget</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Widget</span>();</span><br><span class="line">    <span class="built_in">Widget</span>(<span class="type">const</span> Widget&amp; rhs) = <span class="keyword">delete</span>;</span><br><span class="line">    Widget&amp; <span class="keyword">operator</span>=(<span class="type">const</span> Widget&amp; rhs) = <span class="keyword">delete</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="c-special-member-function-generation"><a href="#c-special-member-function-generation" class="headerlink" title="c++ special member function generation"></a>c++ special member function generation</h3><ul>
+<li><p>The special member functions are those compilers may generate on their own:<br>default constructor, destructor, copy operations, move operations.</p>
+</li>
+<li><p>a default constructor is generated only if the class declares no constructors at all.</p>
+</li>
+<li><p>copy constructor &amp; copy assignment operator; <em><strong>declare one doesn’t prevent compiler from generating the other</strong></em></p>
+</li>
+<li><p>move constructor &amp; move assignment operator; <em><strong>if your declare one, the compiler prevents the other</strong></em></p>
+</li>
+<li><p>declare copy function, that prevents compiler from generating move function. vice versa.</p>
+</li>
+<li><p>move functions are generated for a class only when:</p>
+<ol>
+<li>No copy operation are declared in class</li>
+<li>No move operation are declared in class</li>
+<li>No destructor are declared in class.</li>
+</ol>
+</li>
+<li><p>destructor now is noexcept and virtual only if a base class destructor is virtual</p>
+</li>
+<li><p>Member template functions never suppress generation of special member functions.</p>
+</li>
+</ul>
+<h3 id="move-operation-amp-std-move-amp-std-forward"><a href="#move-operation-amp-std-move-amp-std-forward" class="headerlink" title="move operation &amp; std::move() &amp; std::forward()"></a>move operation &amp; std::move() &amp; std::forward()</h3><ol>
+<li>classname(classname&amp;&amp; ); it cannot take a const rvalue parameter, when the parameter is a const rvalue it trigger the copy constructor.</li>
+<li>std::move() does cast(cast to rvalue), not moving; it doesn’t even guarantee that the object it’s casting will be eligible to be moved.</li>
+<li>std::forward is a conditional cast: it casts to an rvalue only if its argument was bound to an rvalue.</li>
+<li>Neither std::move nor std::forward do anything in runtime</li>
+</ol>
+<ul>
+<li>type&amp;&amp;(must be just this form) means univeral reference, when it should type deduction.<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(T&amp;&amp; params)</span></span>;   <span class="comment">//params is a universal reference</span></span><br><span class="line"></span><br><span class="line">Widget w;</span><br><span class="line"><span class="built_in">func</span>(w);   <span class="comment">//lvalue w passed to func; the type of params is Widget&amp;(an lvalue reference)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">func</span>(std::<span class="built_in">move</span>(w)) <span class="comment">// rvlaue passed to func; the type of params is Widget&amp;&amp;(an rvalue reference)</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="distinguish-universal-reference-to-rvalue-reference"><a href="#distinguish-universal-reference-to-rvalue-reference" class="headerlink" title="distinguish universal reference to rvalue reference"></a>distinguish universal reference to rvalue reference</h3><p>just T&amp;&amp;, but in following two context(the presence of type deduction), it is universal reference:</p>
+<ol>
+<li><p>parameter in function template</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(T&amp;&amp; )</span></span>;</span><br></pre></td></tr></table></figure>
+<p>but when add const, it just a rvalue reference, <code>void func(const T&amp;&amp;)</code></p>
+</li>
+<li><p>auto declaration</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auto<span class="meta">&amp;&amp; var2 = var1;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="smart-pointers"><a href="#smart-pointers" class="headerlink" title="smart pointers"></a>smart pointers</h3><ol>
+<li>shared_ptr<br>shared_ptr 是普通raw pointer的两倍大小，它通常含有两个ptr，如下图所示：<br><img src="/images/2016/shared_ptr.png" alt="shared_ptr"><br>  以下三种情况会创建control block：</li>
+</ol>
+<ul>
+<li>std::make_shared 总是会创建</li>
+<li>当shared_ptr由unique_ptr构造</li>
+<li>当shared_ptr由raw pointer构造</li>
+</ul>
+<ol start="2">
+<li>weak_ptr<br>用于悬浮指针的情况, 可以使用std::weak_ptr::lock成员函数知道其持有的指针是否dangle; 它返回一个std::shared_ptr指针，如果dangle，则返回NULL<br>可以用一下两个例子说明：</li>
+</ol>
+<ul>
+<li><p>两个shared_ptr指向同个pointer，其中一个shared_ptr被destroy的情况<br><img src="/images/2016/weak_ptr.png" alt="weak_ptr"><br>  如上图所示：A, C share指向B， B也指向A（此时可用weak_ptr）; A指针destroy的情况。</p>
+</li>
+<li><p>observer设计模式中<br>  subjects（状态可能变化的objects）中一般会维护observer的指针数组，这样状态变化时可以通知注册的observer，它对observer的生存期不敢兴趣， 但它对知道其中的哪些observer已经destroy感兴趣， 这样它后面就不需通知这些observer，此时就可用weak_ptr</p>
+</li>
+</ul>
+<ol start="3">
+<li>unique_ptr<br>unique_ptr比较适用于类中的工厂方法， unique_ptr可以隐式的转化为shared_ptr</li>
+</ol>
+<h3 id="reference-collapsing"><a href="#reference-collapsing" class="headerlink" title="reference collapsing"></a>reference collapsing</h3><p>it happens when <code>T&amp; &amp;&amp; para</code> or something like this.</p>
+<ol>
+<li>template instantiation</li>
+<li>auto</li>
+<li>typedef or alias</li>
+<li>decltype</li>
+</ol>
+<blockquote>
+<p>If either reference is an lvalue reference, the result is an lvalue reference. Otherwise (i.e., if both are rvalue references) the result is an rvalue reference.</p>
+</blockquote>
+<h3 id="type-related"><a href="#type-related" class="headerlink" title="type related"></a>type related</h3><ol>
+<li>the type of an expression  is independent of whether the expression  is an lvalue or an rvlaue.</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Widget</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">Widget</span>(Widget&amp;&amp; rhs); <span class="comment">//rhs is an lvalue, although it has a rvalue reference type</span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>auto tpye deduction is usually the same as template deduction, but auto type deduction assumes that a braced initializer represent as a std::initializer_list and template deduction is not; auto in a function return type or lambda parameter implies template tpye deduction, not auto type deduction.</p>
+</li>
+<li><p>As a general rule, “invisiable” proxy class doesn’t play well with auto. Objects of such classes are often not designed to live longer than a single statement. so should avoid <code>auto someVar = expression of &quot;invisible&quot; proxy class type;</code></p>
+</li>
+</ol>
+<h3 id="constexpr"><a href="#constexpr" class="headerlink" title="constexpr"></a>constexpr</h3><ol>
+<li>when applied to object: it is a beefed-up const, which indicates the object is constant and is initialized with value known in compilation time.</li>
+<li>constexpr functions can produce compile-time results when called with arguments whose values are known during compilation.</li>
+</ol>
+<h3 id="stack-unwinding"><a href="#stack-unwinding" class="headerlink" title="stack unwinding"></a>stack unwinding</h3><p>The process of removing function entries from function call stack at run time is called Stack Unwinding.<br>In C++, when an exception occurs, the function call stack is linearly searched for the exception handler, and all the entries before the function with exception handler are removed from the function call stack.</p>
+<h3 id="Pimpl-Idiom-pointer-to-implementation"><a href="#Pimpl-Idiom-pointer-to-implementation" class="headerlink" title="Pimpl Idiom(pointer to implementation)"></a>Pimpl Idiom(pointer to implementation)</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// widget.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Widget</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Widget</span>();</span><br><span class="line">    ~<span class="built_in">Widget</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Impl</span>;</span><br><span class="line">    std::unique_ptr&lt;Impl&gt; pImpl;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// wigdet.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;widget.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Widget</span>::Impl &#123;</span><br><span class="line"></span><br><span class="line">    std::string str;</span><br><span class="line">    std::vector&lt;<span class="type">int</span>&gt; v;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Widget::<span class="built_in">Widget</span>(): <span class="built_in">pImpl</span>(std::<span class="built_in">make_unique</span>&lt;Impl&gt;()) &#123;&#125;</span><br><span class="line"></span><br><span class="line">Widget::~<span class="built_in">Widget</span>() = <span class="keyword">default</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>The Pimpl Idiom is a way to reduce compilation dependencies between a class’s implementation and the class’s clients.</p>
+<h3 id="std-is-same-std-decay-std-is-base-of-std-is-constructible-std-declval"><a href="#std-is-same-std-decay-std-is-base-of-std-is-constructible-std-declval" class="headerlink" title="std::is_same, std::decay, std::is_base_of, std::is_constructible, std::declval"></a>std::is_same, std::decay, std::is_base_of, std::is_constructible, std::declval</h3><ol>
+<li>std::is_same judge whether the two type is the same type.</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!std::is_same&lt;T, Person&gt;::value</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>std::decay  either remove refs, cv-qulifiers   or  turn array and function types into pointers</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::decay&lt;T&gt;::type</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>std::is_base_of&lt;T1, T2&gt;  judge whether type T1 is derived from type T2;  Types are considered to be derived from themselves</p>
+</li>
+<li><p>std::is_constructible&lt;T, P&gt; judge is T can be constructed from P as parameter</p>
+</li>
+<li><p>std::declval<T> return the reference of T, make call member function possible without through constructor.</p>
+</li>
+</ol>
+<h3 id="make-std-thread-unjoinable-all-path"><a href="#make-std-thread-unjoinable-all-path" class="headerlink" title="make std::thread unjoinable all path"></a>make std::thread unjoinable all path</h3><ol>
+<li>because when std::thread is joinable, invoke its destructor will cause program termination.</li>
+</ol>
+<h3 id="thread-communication"><a href="#thread-communication" class="headerlink" title="thread communication"></a>thread communication</h3><ol>
+<li>use condition_variable, mutex, bool flag</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">std::condition_variable cv;</span><br><span class="line">std::mutex  m;</span><br><span class="line"><span class="type">bool</span> flag = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">---- tranmition end</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">std::lock_guard&lt;std::mutex&gt; <span class="built_in">ul</span>(m);</span><br><span class="line">flag = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.....</span><br><span class="line"></span><br><span class="line">cv.<span class="built_in">notify_one</span>()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---- recieving end</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"><span class="function">std::unique_lock&lt;std::mutex&gt; <span class="title">ul</span><span class="params">(m)</span></span>;</span><br><span class="line">cv.<span class="built_in">wait</span>(ul, []&#123;<span class="keyword">return</span> flag;&#125;)  <span class="comment">// should use condition, avoid spurious wakeup or cannot wakeup forever</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h3><ol>
+<li>prevent compiler from optimizing the variable; let it load the value of the variable from memory everytime.</li>
+<li>make use of keyword volatile alone is not safe.</li>
+</ol>
+<h3 id="multithread"><a href="#multithread" class="headerlink" title="multithread"></a>multithread</h3><ul>
+<li>data race</li>
+</ul>
+<ol>
+<li>one variable – use std::atomic enough;  two or more – use std::mutex</li>
+</ol>
+<h3 id="function-T-amp-amp-and-function-overload"><a href="#function-T-amp-amp-and-function-overload" class="headerlink" title="function(T&amp;&amp;) and function overload"></a>function(T&amp;&amp;) and function overload</h3><ol>
+<li>best not to use together</li>
+<li>tag depatch and std::enable_if technology(effective mordern c++ item27)</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>wens.wq
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://wengqiang.site/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-effective-modern-cpp2016-01-07/" title="读书笔记 effective modern c++">http://wengqiang.site/2016/01/读书笔记-effective-modern-cpp2016-01-07/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/c-c/" rel="tag"><i class="fa fa-tag"></i> c/c++</a>
+              <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 读书笔记</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/01/mac-osx-%E7%A0%B4%E8%A7%A3wpa-wpa2-wifi2016-01-06/" rel="prev" title="mac osx 破解wpa/wpa2 wifi">
+                  <i class="fa fa-chevron-left"></i> mac osx 破解wpa/wpa2 wifi
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-python2016-01-10/" rel="next" title="读书笔记 python">
+                  读书笔记 python <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2013 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wens.wq</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline.wengqiang.site","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"emoji":["https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"meta":["nick","mail"],"requiredMeta":["nick","mail"],"pageSize":10,"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/2016/01/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-effective-modern-cpp2016-01-07/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

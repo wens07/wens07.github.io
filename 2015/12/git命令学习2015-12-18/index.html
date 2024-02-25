@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Panda_Kungfu_32px_556429_easyicon.net.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Panda_Kungfu_16px_556429_easyicon.net.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wengqiang.site","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="git帮助git help [command] 本地创建repository, 推送到远端 git init  git remote add [remote repository name]  [remote repository url] git remote add origin https:&#x2F;&#x2F;github.com&#x2F;BlockLink&#x2F;blocklink_crosschain_private">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git命令学习">
+<meta property="og:url" content="http://wengqiang.site/2015/12/git%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A02015-12-18/index.html">
+<meta property="og:site_name" content="WengQiang&#39;s Blog">
+<meta property="og:description" content="git帮助git help [command] 本地创建repository, 推送到远端 git init  git remote add [remote repository name]  [remote repository url] git remote add origin https:&#x2F;&#x2F;github.com&#x2F;BlockLink&#x2F;blocklink_crosschain_private">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2015-12-18T04:40:28.000Z">
+<meta property="article:modified_time" content="2023-05-11T14:42:47.442Z">
+<meta property="article:author" content="wens.wq">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://wengqiang.site/2015/12/git%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A02015-12-18/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://wengqiang.site/2015/12/git%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A02015-12-18/","path":"2015/12/git命令学习2015-12-18/","title":"git命令学习"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>git命令学习 | WengQiang's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://waline.wengqiang.site">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">WengQiang's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">where there is a will, there is a way!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git%E5%B8%AE%E5%8A%A9"><span class="nav-number">1.</span> <span class="nav-text">git帮助</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BArepository-%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%AB%AF"><span class="nav-number">2.</span> <span class="nav-text">本地创建repository, 推送到远端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%9B%B8%E5%85%B3"><span class="nav-number">3.</span> <span class="nav-text">分支相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%B3%E8%BD%AC%E5%88%86%E6%94%AF"><span class="nav-number">3.0.1.</span> <span class="nav-text">跳转分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%E5%B9%B6%E4%B8%94%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%AB%AF"><span class="nav-number">3.0.2.</span> <span class="nav-text">创建本地分支并且推送到远端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%B7%9F%E8%B8%AA%E5%88%86%E6%94%AF"><span class="nav-number">3.0.3.</span> <span class="nav-text">设置跟踪分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%9C%AC%E5%9C%B0%E7%9A%84%E6%89%80%E6%9C%89%E8%B7%9F%E8%B8%AA%E5%88%86%E6%94%AF%E6%83%85%E5%86%B5"><span class="nav-number">3.0.4.</span> <span class="nav-text">查看本地的所有跟踪分支情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%E6%88%96%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF"><span class="nav-number">3.0.5.</span> <span class="nav-text">删除本地分支或远程分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B-x2F-%E8%AE%BE%E7%BD%AE%E8%BF%9C%E7%A8%8Brepository"><span class="nav-number">3.0.6.</span> <span class="nav-text">查看&#x2F;设置远程repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEtag"><span class="nav-number">3.0.7.</span> <span class="nav-text">设置tag</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#submodule%E7%9B%B8%E5%85%B3"><span class="nav-number">4.</span> <span class="nav-text">submodule相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#add-submodule-to-a-repository"><span class="nav-number">4.0.1.</span> <span class="nav-text">add submodule to a repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#update-submodule"><span class="nav-number">4.0.2.</span> <span class="nav-text">update submodule</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rm-submodule"><span class="nav-number">4.0.3.</span> <span class="nav-text">rm submodule</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2%E6%88%96%E7%8A%B6%E6%80%81"><span class="nav-number">5.</span> <span class="nav-text">历史或状态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%8E%86%E5%8F%B2"><span class="nav-number">5.0.1.</span> <span class="nav-text">查看历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Bcommit-id"><span class="nav-number">5.0.2.</span> <span class="nav-text">查看commit id</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6%E4%B8%ADline-ending"><span class="nav-number">6.</span> <span class="nav-text">git处理文件中line ending</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEgit%E9%85%8D%E7%BD%AE"><span class="nav-number">7.</span> <span class="nav-text">设置git配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9E%E6%BB%9A"><span class="nav-number">8.</span> <span class="nav-text">回滚</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%92%A4%E9%94%80%E6%9C%AC%E5%9C%B0%E7%9A%84commit%E8%AE%B0%E5%BD%95"><span class="nav-number">8.0.1.</span> <span class="nav-text">撤销本地的commit记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%92%A4%E9%94%80push%E5%90%8E%E7%9A%84commit%E8%AE%B0%E5%BD%95"><span class="nav-number">8.0.2.</span> <span class="nav-text">撤销push后的commit记录</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86"><span class="nav-number">9.</span> <span class="nav-text">设置代理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9commit%E4%BF%A1%E6%81%AF%E6%88%96%E4%BD%9C%E8%80%85%E4%BF%A1%E6%81%AF"><span class="nav-number">9.0.1.</span> <span class="nav-text">修改commit信息或作者信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4untracked-files"><span class="nav-number">9.0.2.</span> <span class="nav-text">删除untracked files</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wens.wq"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">wens.wq</p>
+  <div class="site-description" itemprop="description">胡编一通, 乱写一气. 猴赛雷.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wens07" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wens07" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wens.wq@gmail.com" title="E-Mail → mailto:wens.wq@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/wens_wq" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wens_wq" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/3872400/wens07?tab=profile" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;3872400&#x2F;wens07?tab&#x3D;profile" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          友情链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://www.stroustrup.com/" title="http:&#x2F;&#x2F;www.stroustrup.com&#x2F;" rel="noopener" target="_blank">Bjarne Stroustrup's</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://awesomecpp.com/" title="http:&#x2F;&#x2F;awesomecpp.com" rel="noopener" target="_blank">Awesome Modern C++</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/isocpp/CppCoreGuidelines" title="https:&#x2F;&#x2F;github.com&#x2F;isocpp&#x2F;CppCoreGuidelines" rel="noopener" target="_blank">C++ Core Guidelines</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://isocpp.org/faq" title="https:&#x2F;&#x2F;isocpp.org&#x2F;faq" rel="noopener" target="_blank">C++ FAQ @ isocpp.org</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.v2ex.com/?r=wens07" title="http:&#x2F;&#x2F;www.v2ex.com&#x2F;?r&#x3D;wens07" rel="noopener" target="_blank">v2ex(way to explore)</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://wengqiang.site/2015/12/git%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A02015-12-18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="wens.wq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WengQiang's Blog">
+      <meta itemprop="description" content="胡编一通, 乱写一气. 猴赛雷.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="git命令学习 | WengQiang's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          git命令学习
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2015-12-18 12:40:28" itemprop="dateCreated datePublished" datetime="2015-12-18T12:40:28+08:00">2015-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-05-11 22:42:47" itemprop="dateModified" datetime="2023-05-11T22:42:47+08:00">2023-05-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technique/" itemprop="url" rel="index"><span itemprop="name">technique</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2015/12/git%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A02015-12-18/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2015/12/git%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A02015-12-18/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="git帮助"><a href="#git帮助" class="headerlink" title="git帮助"></a>git帮助</h1><p><code>git help [command]</code></p>
+<h1 id="本地创建repository-推送到远端"><a href="#本地创建repository-推送到远端" class="headerlink" title="本地创建repository, 推送到远端"></a>本地创建repository, 推送到远端</h1><ol>
+<li><p><code>git init</code></p>
+</li>
+<li><p><code>git remote add [remote repository name]  [remote repository url]</code><br> git remote add origin <a target="_blank" rel="noopener" href="https://github.com/BlockLink/blocklink_crosschain_privatekey.git">https://github.com/BlockLink/blocklink_crosschain_privatekey.git</a></p>
+</li>
+<li><p><code>git push -u [remote repository name]  [remote branch name]</code><br> git push -u origin master</p>
+</li>
+</ol>
+<h1 id="分支相关"><a href="#分支相关" class="headerlink" title="分支相关"></a>分支相关</h1><h3 id="跳转分支"><a href="#跳转分支" class="headerlink" title="跳转分支"></a>跳转分支</h3><p><code>git checkout &lt;branch&gt;</code></p>
+<blockquote>
+<p>跳转到<branch>分支:将HEAD指向<branch>, 并 更新index和文件.</p>
+</blockquote>
+<h3 id="创建本地分支并且推送到远端"><a href="#创建本地分支并且推送到远端" class="headerlink" title="创建本地分支并且推送到远端"></a>创建本地分支并且推送到远端</h3><ol>
+<li><p>创建本地分支<br><code>git checkout -b [branch_name]</code></p>
+</li>
+<li><p>推送到远端<br><code>git push &lt;remote_repository_path&gt; &lt;branch_name&gt;[:&lt;remote_branch_name&gt;]</code></p>
+</li>
+<li><p>设置跟踪分支<br><code>git branch -u &lt;remote_repository_path/remote_branch_name&gt;</code></p>
+</li>
+</ol>
+<h3 id="设置跟踪分支"><a href="#设置跟踪分支" class="headerlink" title="设置跟踪分支"></a>设置跟踪分支</h3><p><code>git checkout [-b [branch]] [--track] &lt;remotename&gt;/&lt;branch&gt;</code></p>
+<blockquote>
+<p><em>用于对未创建的分支建立跟踪分支</em>; 并且跳转到<branch>分支上.</p>
+</blockquote>
+<p><code>git branch -u &lt;remotename&gt;/&lt;branch&gt;</code> or<br><code> git branch --set-upstream-to=origin/&lt;branch&gt; &lt;localbranch&gt;</code></p>
+<blockquote>
+<p>为当前所在的分支创建跟踪分支</p>
+</blockquote>
+<p>一般如果你直接通过clone命令拉取一个仓库, 则git会自动设置一个本地master到origin&#x2F;master的跟踪<br>分支.<br><code>* master 3cf359f [origin/master] Site updated: 2015-12-18 11:55:19</code></p>
+<span id="more"></span>
+
+<h3 id="查看本地的所有跟踪分支情况"><a href="#查看本地的所有跟踪分支情况" class="headerlink" title="查看本地的所有跟踪分支情况"></a>查看本地的所有跟踪分支情况</h3><p><code>git branch -vv</code><br><code>git branch [--list]</code> #列出本地的分支<br><code>git branch [--list] -r </code>  #列出repository上的分支情况</p>
+<h3 id="删除本地分支或远程分支"><a href="#删除本地分支或远程分支" class="headerlink" title="删除本地分支或远程分支"></a>删除本地分支或远程分支</h3><ol>
+<li><p>本地分支<br><code>git branch -D/--delete [branchname]</code></p>
+</li>
+<li><p>远程分支<br><code>git push origin --delete [branchname]</code><br>or<br><code>git push &lt;remote_name&gt; :&lt;branch_name&gt;</code></p>
+<blockquote>
+<p>基本上这个命令做的只是从服务器上移除这个指针。 Git 服务器通常会保留数据一段时间直到垃圾回收运行，所以如果不小心删除掉了，通常是很容易恢复的</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="查看-x2F-设置远程repository"><a href="#查看-x2F-设置远程repository" class="headerlink" title="查看&#x2F;设置远程repository"></a>查看&#x2F;设置远程repository</h3><ol>
+<li><code>git config --list</code>  #可以查看到当前本地对应的远程仓库</li>
+<li><code>git remote add  [remote_repository_name] [remote_repository_path]</code></li>
+</ol>
+<h3 id="设置tag"><a href="#设置tag" class="headerlink" title="设置tag"></a>设置tag</h3><ol>
+<li><code>git tag [tagname]</code>      创建一个tag</li>
+<li><code>git tag -d [tagname]</code>   删除一个tag</li>
+<li><code>git checkout [tagname]</code> 更新到tag的状态<br></li>
+</ol>
+<h1 id="submodule相关"><a href="#submodule相关" class="headerlink" title="submodule相关"></a>submodule相关</h1><h3 id="add-submodule-to-a-repository"><a href="#add-submodule-to-a-repository" class="headerlink" title="add submodule to a repository"></a>add submodule to a repository</h3><p><code>git submodule add [-b branch_name] [git repository url] [the path to put the submodule]</code></p>
+<h3 id="update-submodule"><a href="#update-submodule" class="headerlink" title="update submodule"></a>update submodule</h3><p><code>git submodule update --init --recursive</code> 第一次init并更新<br><code>git submodule update [--remote]</code> 更新submodule<br><code>git submodule set-branch [-b branch_name] submoule_path</code> 更新submoule_path上的submodule的branch 或者 直接更改.gitmodules添加branch配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[submodule &quot;src/xtopcom/xvm&quot;]</span><br><span class="line">	path = src/xtopcom/xvm</span><br><span class="line">	url = git@github.com:telosprotocol/xvm.git</span><br><span class="line">	branch = dev/featute_new_contract</span><br><span class="line">[submodule &quot;src/xtopcom/xdepends&quot;]</span><br><span class="line">	path = src/xtopcom/xdepends</span><br><span class="line">	url = git@github.com:telosprotocol/xdepends.git</span><br><span class="line">[submodule &quot;src/xtopcom/xbase&quot;]</span><br><span class="line">	path = src/xtopcom/xbase</span><br><span class="line">	url = git@github.com:telosprotocol/xbase.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="rm-submodule"><a href="#rm-submodule" class="headerlink" title="rm submodule"></a>rm submodule</h3><ol>
+<li>删除.gitmodules中该submodule相关的行</li>
+<li>删除.git&#x2F;config中该submodule相关的行</li>
+<li>删除该submodule的路径<br><code>git rm --cached [the path to put the submodule]</code><br>can not put a trailing slash as the command will fail.</li>
+</ol>
+<h1 id="历史或状态"><a href="#历史或状态" class="headerlink" title="历史或状态"></a>历史或状态</h1><h3 id="查看历史"><a href="#查看历史" class="headerlink" title="查看历史"></a>查看历史</h3><ol>
+<li><code> git log --graph --pretty=oneline --abbrev-commit</code></li>
+<li><code>git log --graph --pretty=format:&quot;%h%x09%an%x09%ad%x09%s&quot; --abbrev-commit</code><br>%h &#x3D; abbreviated commit hash<br>%x09 &#x3D; tab (character for code 9)<br>%an &#x3D; author name<br>%ad &#x3D; author date (format respects –date&#x3D; option)<br>%s &#x3D; subject</li>
+</ol>
+<h3 id="查看commit-id"><a href="#查看commit-id" class="headerlink" title="查看commit id"></a>查看commit id</h3><ol>
+<li><code>git rev-parse HEAD</code></li>
+</ol>
+<h1 id="git处理文件中line-ending"><a href="#git处理文件中line-ending" class="headerlink" title="git处理文件中line ending"></a>git处理文件中line ending</h1><p><code>git config core.autocrlf</code><br>会输出三种值: true, false, input</p>
+<ol>
+<li>true: turn all CRLF line ending to LF</li>
+<li>false: no line ending conversation will performed</li>
+</ol>
+<p>设置成你需要的值<br><code>git config core.autocrlf [true/false/input]</code></p>
+<h1 id="设置git配置"><a href="#设置git配置" class="headerlink" title="设置git配置"></a>设置git配置</h1><ol>
+<li><p>设置用户名(默认为local)<br><code>git config [--global/--local/--system] user.name   &quot;your user name&quot;</code></p>
+</li>
+<li><p>设置密码(现在windows中credential.helper默认为manager, 是以前wincred的替代品)<br><code>git config [--global/--local] credential.helper  store</code><br><code>git config [--global/--local] credential.helper  cache</code></p>
+</li>
+</ol>
+<h1 id="回滚"><a href="#回滚" class="headerlink" title="回滚"></a>回滚</h1><h3 id="撤销本地的commit记录"><a href="#撤销本地的commit记录" class="headerlink" title="撤销本地的commit记录"></a>撤销本地的commit记录</h3><ol>
+<li>git reset [–mixed|–soft|–hard] HEAD<del>[num]|commit-id<br>(</del>在windows系统，^在linux系统)(back num commits)</li>
+</ol>
+<ul>
+<li>Mixed - the default strategy. When this option is selected, the index is reset while the working tree is not, which means that changed files are preserved but not marked for commit. You are presented with a report of what has not been updated.</li>
+<li>Soft - when this option is selected, the index and the working tree are not affected, only the HEAD pointer is moved to the specified commit. Your current state with any changes remains different from the commit you are switching to. All the changes are “staged” for committing.</li>
+<li>Hard - when this option is selected, both the working directory and the index are changed to the specified commit.</li>
+</ul>
+<h3 id="撤销push后的commit记录"><a href="#撤销push后的commit记录" class="headerlink" title="撤销push后的commit记录"></a>撤销push后的commit记录</h3><ol>
+<li>撤销本地的commit记录</li>
+<li><code>git push --force</code> 强制提交</li>
+</ol>
+<h1 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h1><ol>
+<li><p>针对所有的URL</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.proxy</span>  socks5:<span class="comment">//127.0.0.1:1080</span></span><br><span class="line"><span class="selector-id">#git</span> config <span class="attr">--global</span> https<span class="selector-class">.proxy</span> socks5:<span class="comment">//127.0.0.1:1080</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git config <span class="attr">--global</span> <span class="attr">--unset</span> http<span class="selector-class">.proxy</span></span><br><span class="line"><span class="selector-id">#git</span> config <span class="attr">--global</span> <span class="attr">--unset</span> https<span class="selector-class">.proxy</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>针对某个url</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.https</span>:<span class="comment">//github.com.proxy  socks5://127.0.0.1:1080</span></span><br><span class="line"><span class="selector-id">#git</span> config <span class="attr">--global</span> https<span class="selector-class">.https</span>:<span class="comment">//github.com.proxy socks5://127.0.0.1:1080</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git config <span class="attr">--global</span> <span class="attr">--unset</span> http<span class="selector-class">.proxy</span></span><br><span class="line">git config <span class="attr">--global</span> <span class="attr">--unset</span> http<span class="selector-class">.https</span>:<span class="comment">//github.com.proxy</span></span><br><span class="line"><span class="selector-id">#git</span> config <span class="attr">--global</span> <span class="attr">--unset</span> https<span class="selector-class">.proxy</span></span><br><span class="line"></span><br><span class="line">git config <span class="attr">--global</span> <span class="attr">--get</span> http<span class="selector-class">.proxy</span></span><br><span class="line"><span class="selector-id">#git</span> config <span class="attr">--global</span> <span class="attr">--get</span> https.proxy</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="修改commit信息或作者信息"><a href="#修改commit信息或作者信息" class="headerlink" title="修改commit信息或作者信息"></a>修改commit信息或作者信息</h3><ol>
+<li><p>最近的一条commit记录<br><code>git commit --amend [--reset-author]</code></p>
+</li>
+<li><p>任意的某条记录<br><code>git rebase -i HEAD~N</code>  –N表示倒数第几条commit信息<br><code>git commit --amend [--reset-author]</code><br><code>git rebase --continue</code></p>
+</li>
+</ol>
+<h3 id="删除untracked-files"><a href="#删除untracked-files" class="headerlink" title="删除untracked files"></a>删除untracked files</h3><ol>
+<li><code>git clean -n</code> –remove untracked files from the working tree</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>wens.wq
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://wengqiang.site/2015/12/git%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A02015-12-18/" title="git命令学习">http://wengqiang.site/2015/12/git命令学习2015-12-18/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2015/12/Manacher-s-algorithm2015-12-17/" rel="prev" title="Manacher's algorithm">
+                  <i class="fa fa-chevron-left"></i> Manacher's algorithm
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/01/Backtracking-Rat-in-Maze2016-01-02/" rel="next" title="Backtracking(Rat in Maze)">
+                  Backtracking(Rat in Maze) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2013 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wens.wq</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline.wengqiang.site","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"emoji":["https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"meta":["nick","mail"],"requiredMeta":["nick","mail"],"pageSize":10,"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/2015/12/git%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A02015-12-18/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

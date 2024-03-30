@@ -1,6 +1,7 @@
 ---
 title: algorithms
 date: 2015-02-02 16:27:18
+updated: 2023-11-07
 categories: technique
 tags: algorithm
 keywords: algorithm
@@ -30,3 +31,9 @@ $$
 $$
 	f(n) \approx 2^{0.694n} \approx (1.6)^{n}
 $$
+
+## 对于排序数组的组合
+可以做到$$O(n{\log_2{n}})$$
+Given a nonempty subset of indices S, define the children of S to be S \ {max(S)} U {max(S) + 1} and S U {max(S) + 1}
+![the subset of S](/source/images/2024/subset_example1.png)
+![the subset of S](/source/images/2024/subset_example2.png)

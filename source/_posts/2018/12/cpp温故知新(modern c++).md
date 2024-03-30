@@ -11,6 +11,7 @@ keywords: ["c++", "c++17", "c++20", 读书笔记]
 toc:
 ---
 
+## gerneral all
 ### storage duration
 - **automatic** storage duration
 The storage for the object is allocated at the beginning of the enclosing code block and deallocated at the end. All local objects have this storage duration, except those declared static, extern or thread_local.
@@ -290,3 +291,43 @@ inline variable(constexpr imply inline now), nested namespace
 
 - c++20
 template lambdas, string literals as non-type template parameters, constrains(template requires), concepts
+
+
+## [GotW by herb](https://herbsutter.com/gotw/)
+### overload、override& hide
+### static type and dynamic type
+### virtual destructor
+1. overload resolution & default parameter are on static type.
+2. override is on dynamic type.
+3. virtual dtor 
+```cpp
+Base *b = new Derived();
+// use b
+delete b; // Here's the problem!
+```
+> [In delete b], if the static type of the object to be deleted is different from its dynamic type, the static type shall be a base class of the dynamic type of the object to be deleted and the static type shall have a virtual destructor or the behavior is undefined.
+
+> If you want to prevent the deletion of an instance through a base class pointer, you can make the base class destructor protected and nonvirtual; by doing so, the compiler won't let you call delete on a base class pointer.
+
+> Because once execution reaches the body of a base class destructor, any derived object parts have already been destroyed and no longer exist. If the Base destructor body were to call a virtual function, the virtual dispatch would reach no further down the inheritance hierarchy than Base itself. In a destructor (or constructor) body, further-derived classes just don't exist any more (or yet).
+
+### inline function
+the declaration and definition are the same.
+> so the member function which definition with declaration maybe treated as inline by compiler
+
+
+### function modifiers
+1. const  
+```cpp
+// value parameter: top-level const is not part of function signature
+int f( int );
+int f( const int );    // redeclares f(int): this is the same function
+// here you can declare f(int), then when define it, using f(const int) to refer const of the parameter
+
+// non-value parameter: top-level const is part of function signature
+int g( int& );
+int g( const int& );   // overloads g(int&): these are two functions
+```
+
+### header include
+1. parameter and return types only need to be forward-declared

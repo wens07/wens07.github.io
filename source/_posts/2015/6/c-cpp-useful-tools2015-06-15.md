@@ -40,6 +40,8 @@ find the printable strings in a object, or other binary, file
 
 1. valgrind
 2. windows debug runtime
+3. tracy
+4. heaptrack
 
 ### define config
 ```cpp
@@ -103,3 +105,35 @@ End with a line saying just "end".
 12. `g++ -g3` for macro info, which -g is g2 for default
 13. `dprintf location, format_string`  dynamic printf in gdb
 14. `show non-stop/ show scheduler-locking`  gdb non-stop mode or all-stop mode
+15. set coredump
+>> 默认corefile是生成在程序的执行目录下或者程序启动调用了chdir之后的目录,我们可以通过设置生成corefile的格式来控制它，让其生成在固定的目录下。
+
+>> /proc/sys/kernel/core_uses_pid可以控制产生的core文件的文件名中是否添加pid作为扩展，如果添加则文件内容为1，否则为0
+/proc/sys/kernel/core_pattern可以设置格式化的core文件保存位置或文件名，比如原来文件内容是core-%e
+
+>>
+```bash
+# echo "/home/wens07/programming/build/core_%e_%p" > /proc/sys/kernel/core_pattern
+将会控制所产生的core文件会存放到corefile目录下，产生的文件名为core-命令名-pid-时间戳
+
+或者
+
+$ sysctl -w kernel.core_pattern=/corefile/core-%e-%p-%t
+如果想让每次启动都保存设置，则需要写入配置文件中.
+
+# echo "kernel.core_pattern=/home/wens07/programming/build/core_%e_%p" >> /etc/sysctl.conf
+# sysctl -p /etc/sysctl.conf
+
+kernel.core_pattern =/home/wens07/programming/build/core_%e_%p
+关于格式的的控制有如下几个参数：
+
+复制代码
+%%：相当于%
+%p：相当于<pid>
+%u：相当于<uid>
+%g：相当于<gid>
+%s：相当于导致dump的信号的数字
+%t：相当于dump的时间
+%e：相当于执行文件的名称
+%h：相当于hostname
+```

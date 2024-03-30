@@ -79,3 +79,9 @@ std::array<int, count> properties;
 };
 
 ```
+
+### NON-Virtual Interface pattern(NVI) -- Template Method Pattern
+
+
+### M&M rule
+mutable and mutex(or atomic) should go together

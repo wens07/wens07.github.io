@@ -90,7 +90,7 @@ End with a line saying just "end".
 >end
 (gdb)
 ```
-3. `gdb --args pizzamaker --deep-dish --toppings=pepperoni`
+3. `gdb --args pizzamaker --deep-dish --toppings=pepperoni` `(gdb) set args [the arg list]`  `(gdb) show args`
 4. `macro expand task_is_stopped_or_traced(init_task)`
 4. `ctrl+x+a`  toggle to / from tui mode
    `ctrl+p / ctrl+n` previous or next command in tui mode
@@ -98,7 +98,9 @@ End with a line saying just "end".
 5. `ctrl+l` clear the gdb commandline or reflesh the screen
 6. `set print pretty on`  open print pretty
 7. `set print array-indexes on` open array index
-8. `info share`  no info in bt, maybe miss sharelib
+8. `info share`  no info in bt, maybe miss sharelib  
+    `info source` show info for current source file  
+    `set substitute-path from to` set the source file
 9. `file the_exec_file`  no info in bt, maybe not read the symble of executable
 10. `start` go to program start(main function, generally)
 11. `record` debug reverse
@@ -136,4 +138,15 @@ kernel.core_pattern =/home/wens07/programming/build/core_%e_%p
 %t：相当于dump的时间
 %e：相当于执行文件的名称
 %h：相当于hostname
+```
+16. using gdbserver  
+```bash
+# remote target
+gdbserver localhost:<port-numer> <program> <args>
+
+# local host
+gdb 
+file <program>
+target remote <ip-of-target>:<port-numer>
+set sysroot <path-to-sysroot>
 ```

@@ -331,3 +331,42 @@ int g( const int& );   // overloads g(int&): these are two functions
 
 ### header include
 1. parameter and return types only need to be forward-declared
+
+### dynamic_cast
+used to downside_cast(from base to derived), or sidecast
+
+- dynamic_cast<void*>
+cast to most-derived type
+```cpp
+
+
+struct base1 {
+    base1() {printf("in base1 constructor\n");}
+    virtual ~base1() {}
+};
+
+struct base2 {
+    base2() {printf("in base2 constructor\n");}
+    virtual ~base2(){}
+};
+
+struct derive: base1, base2 {
+    derive() {printf("in derive constructor\n");}
+};
+
+    derive *ptr = new derive();
+    base1 *base1_ptr = ptr;
+    base2 *base2_ptr = ptr;
+    auto address_of_derived = dynamic_cast<void*>(base2_ptr);
+    printf("base1_ptr: %x\n", base1_ptr);
+    printf("base2_ptr: %x\n", base2_ptr);
+    printf("ptr: %x\n", ptr);
+    printf("address_of_derived: %x\n", address_of_derived);
+
+
+[base1]                     [base2]               [derive]
+|                           |
+dynamic_cast<void*>         base2_ptr
+derive_ptr
+base1_ptr
+```

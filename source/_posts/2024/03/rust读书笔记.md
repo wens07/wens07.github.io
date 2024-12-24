@@ -94,6 +94,21 @@ enum Color {
 
 ```
 
+### associated type
+```rust
+// `A` and `B` are defined in the trait via the `type` keyword.
+// (Note: `type` in this context is different from `type` when used for
+// aliases).
+trait Contains {
+    type A;
+    type B;
+
+    // Updated syntax to refer to these new types generically.
+    fn contains(&self, _: &Self::A, _: &Self::B) -> bool;
+}
+```
+
+
 ## control flow
 ### for
 - iterator type
@@ -262,6 +277,27 @@ fn create_fnonce() -> impl FnOnce() {
     let text = "FnOnce".to_owned();
 
     move || println!("This is a: {}", text)
+}
+```
+
+## lifetime
+1. traitbound
+As a trait bound, it means the type does not contain any non-static reference
+```rust
+use std::fmt::Debug;
+
+fn print_it( input: impl Debug) {
+    println!( "'static value passed in is: {:?}", input );
+}
+
+fn main() {
+    // i is owned and contains no references, thus it's 'static:
+    let i = 5;
+    print_it(i);
+
+    // oops, &i only has the lifetime defined by the scope of
+    // main(), so it's not 'static:
+    print_it(&i);
 }
 ```
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: rust读书笔记
+title: rust温故知新
 date: 2024-03-07 22:39:40
 categories:
   - [technique]
@@ -302,6 +302,10 @@ fn main() {
 ```
 
 ## language specific
+### type of trait implementaion 
+a type which implements a particular trait
+`Box<dyn [the particular trait]>`
+
 ### &
 ```rust
 fn main() {

@@ -302,6 +302,11 @@ fn main() {
 ```
 
 ## language specific
+### macro rules
+1. unlike other things in rust, macro should define first before use it  
+2. use `[macro_export]` attribute above macro to export it to crate root
+3. use `[macro_use]` attribute usually used above `extern crate XXX`
+
 ### type of trait implementaion 
 a type which implements a particular trait
 `Box<dyn [the particular trait]>`

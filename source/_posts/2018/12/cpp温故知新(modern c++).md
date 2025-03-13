@@ -261,7 +261,7 @@ rax(64) ->  eax(32) -> ax(16) -> ah(8) and al(8) (left bits zeroed)
 1. const & initialize
 - always const
 - always initialize
-- use IIFE can help you initialize
+- use IIFE(immediately-invoked funcion expression) can help you initialize
 - don't recalculate values that can be calculated once
 
 2. list vs vector vs array vs containers

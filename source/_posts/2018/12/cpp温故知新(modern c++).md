@@ -370,3 +370,7 @@ dynamic_cast<void*>         base2_ptr
 derive_ptr
 base1_ptr
 ```
+
+## lifetime management
+### beyond the-rule-of-five and the-rule-of-zero
+![life-management](/source/images/2025/cpp20.png)

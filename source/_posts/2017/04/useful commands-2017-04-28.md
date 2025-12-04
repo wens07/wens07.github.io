@@ -148,3 +148,6 @@ add following line in import part
     type `ctrl + r` then type command prefix, you can keep typing `ctrl + r` to cycle previous matching commands
 2. ctrl + s<br>
     search backwards in history.
+
+### get ubuntu specific version
+`cat /etc/os-release`

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: rust读书笔记
+title: rust温故知新
 date: 2024-03-07 22:39:40
 categories:
   - [technique]
@@ -93,6 +93,21 @@ enum Color {
 }
 
 ```
+
+### associated type
+```rust
+// `A` and `B` are defined in the trait via the `type` keyword.
+// (Note: `type` in this context is different from `type` when used for
+// aliases).
+trait Contains {
+    type A;
+    type B;
+
+    // Updated syntax to refer to these new types generically.
+    fn contains(&self, _: &Self::A, _: &Self::B) -> bool;
+}
+```
+
 
 ## control flow
 ### for
@@ -265,7 +280,37 @@ fn create_fnonce() -> impl FnOnce() {
 }
 ```
 
+## lifetime
+1. traitbound
+As a trait bound, it means the type does not contain any non-static reference
+```rust
+use std::fmt::Debug;
+
+fn print_it( input: impl Debug) {
+    println!( "'static value passed in is: {:?}", input );
+}
+
+fn main() {
+    // i is owned and contains no references, thus it's 'static:
+    let i = 5;
+    print_it(i);
+
+    // oops, &i only has the lifetime defined by the scope of
+    // main(), so it's not 'static:
+    print_it(&i);
+}
+```
+
 ## language specific
+### macro rules
+1. unlike other things in rust, macro should define first before use it  
+2. use `[macro_export]` attribute above macro to export it to crate root
+3. use `[macro_use]` attribute usually used above `extern crate XXX`
+
+### type of trait implementaion 
+a type which implements a particular trait
+`Box<dyn [the particular trait]>`
+
 ### &
 ```rust
 fn main() {

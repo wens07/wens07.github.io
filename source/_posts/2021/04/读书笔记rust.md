@@ -1,6 +1,6 @@
 ---
 layout: post
-title: rust读书笔记
+title: 读书笔记rust
 date: 2021-04-31 22:39:40
 updated: 2021-11-10 08:40:59
 categories:

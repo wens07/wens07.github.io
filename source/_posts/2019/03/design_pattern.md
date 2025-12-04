@@ -11,7 +11,7 @@ keywords: ["c++", "读书笔记"]
 toc:
 ---
 
-### basic principle
+## basic principle
 - SOLID
 >> S: single resposibility<br>
    O: open-closed: open for extension, closed for modification<br>
@@ -22,7 +22,7 @@ toc:
    D: dependency inversion<br>
       **high level module should not depend on low level; absraction should not depend on detail**
 
-
+## creatation patterns
 ### factory method pattern
 
 1. Delegation of object creation to  factory method
@@ -70,8 +70,20 @@ struct UdpConnectionFactory: public ConnectionFactory {
 
 ```
 
-### structural: composite
-- array backed property
+### abstract factory pattern
+something similar to factory method, but factory method for single objects, however abstract factory 
+is for some related objects.
+
+### builder pattern
+usually used to create an object with different parts
+> 1. object  2. abstract builder & concrete builder(to create object) 3. the client(a class) to make object 
+
+### prototype pattern
+create object by clone(reuse) existed object
+
+## structural patterns
+### composite pattern
+- array backed propertyp
 ```cpp
 class widget {
 enum abilities {strenth, agi, teli, count};
@@ -79,6 +91,10 @@ std::array<int, count> properties;
 };
 
 ```
+## behavior patterns
+### command pattern
+used to encapsulate the object to a command class.
+
 
 ### NON-Virtual Interface pattern(NVI) -- Template Method Pattern
 
